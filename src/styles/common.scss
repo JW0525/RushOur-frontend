@@ -1,3 +1,10 @@
-.hi {
-  //change here
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Quicksand', sans-serif;
 }
