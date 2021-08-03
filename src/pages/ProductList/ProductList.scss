@@ -1,1 +1,7 @@
-// do not delete here
+.productList {
+  .productContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 30px 150px 0 150px;
+  }
+}

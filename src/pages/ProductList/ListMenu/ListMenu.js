@@ -15,7 +15,6 @@ export class ListMenu extends Component {
     });
   };
   render() {
-    console.log(this.state.listButton);
     return (
       <>
         <div className="listMenu">

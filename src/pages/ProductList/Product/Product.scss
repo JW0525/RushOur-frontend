@@ -1,3 +1,23 @@
-.hi {
-  ///change pls
+.product {
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .name {
+    padding: 7px 0;
+  }
+
+  .hashtag {
+    span {
+      color: rgb(130, 130, 130);
+    }
+  }
+
+  .price {
+    padding-top: 15px;
+  }
 }
