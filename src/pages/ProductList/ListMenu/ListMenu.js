@@ -5,7 +5,7 @@ export class ListMenu extends Component {
   constructor() {
     super();
     this.state = {
-      listButton: true,
+      listButton: false,
     };
   }
 
