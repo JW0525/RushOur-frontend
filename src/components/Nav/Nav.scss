@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 30px 10px;
+    }
+  }
+
+  .navIcon {
+    color: white;
+
+    i {
+      padding-left: 30px;
+    }
+  }
+}
