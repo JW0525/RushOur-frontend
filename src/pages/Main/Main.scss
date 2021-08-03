@@ -1,3 +1,82 @@
-.hi {
-  ///change pls
+.mainContainer {
+  width: 100%;
+  .mainVisualSilde {
+    width: 100%;
+
+    .visual01 {
+      display: flex;
+      align-items: center;
+      height: 600px;
+      background-image: url('https://www.bingzhicosmetic.com/uploads/202028208/ImgScroll/ba202008131043146595755.jpg');
+      background-repeat: no-repeat;
+      .visualText {
+        width: 100%;
+        margin: 15%;
+        h1 {
+          font-size: 80px;
+          color: #fff;
+          font-weight: 800;
+          letter-spacing: 10px;
+          padding-bottom: 20px;
+        }
+        p {
+          font-size: 20px;
+          color: #fff;
+          padding-bottom: 50px;
+        }
+        .visualButton {
+          width: 200px;
+          height: 50px;
+          font-size: 16px;
+          color: #fff;
+          border: 2px solid #fff;
+          background-color: rgba(255, 255, 255, 0);
+          &:hover {
+            cursor: pointer;
+            color: #2f2f2f;
+            background-color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+      .rolling {
+        margin: 100px;
+        .dotList {
+          padding: 10px;
+          .dot1 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50px;
+            border: none;
+          }
+          .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50px;
+            border: 2px solid #fff;
+            background-color: rgba(255, 255, 255, 0);
+          }
+        }
+      }
+    }
+  }
+  //mainvisual
+  .mainContents01 {
+    width: 100%;
+    height: auto;
+    min-width: 1000px;
+    background-color: azure;
+    .contentsInner01 {
+      height: 600px;
+      padding: 80px 0px 50px 100px;
+      .mainList {
+        h2 {
+          font-size: 40px;
+        }
+        .productImg {
+          width: 285px;
+          height: 285px;
+        }
+      }
+    }
+  }
 }
