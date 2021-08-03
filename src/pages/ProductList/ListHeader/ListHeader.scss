@@ -1,0 +1,30 @@
+.listHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // background-color: red;
+
+  .listHeaderImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('/assets/images/Sopa.png');
+    background-repeat: no-repeat;
+    opacity: 1;
+    background-position: center;
+    background-size: 100%;
+
+    h1 {
+      padding: 120px 0 50px 0;
+      color: white;
+    }
+
+    p {
+      padding: 0 0 120px 0;
+      color: white;
+    }
+  }
+}
