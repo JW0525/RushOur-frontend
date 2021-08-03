@@ -1,31 +1,66 @@
 import React, { Component } from 'react';
+import ImgCom from './ImgCom';
 
 class MainCarousel extends Component {
+  constructor() {
+    super();
+    this.state = {
+      firstImg: 0,
+      sliderArr: [],
+      info: {},
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/visualData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          sliderArr: data,
+        });
+      });
+  }
+
+  slideLeft = () => {
+    const { firstImg } = this.state;
+    firstImg === 0
+      ? this.setState({ firstImg: 0 })
+      : this.setState({ firstImg: firstImg + 100 });
+  };
+
+  slideRight = () => {
+    const { firstImg, sliderArr } = this.state;
+    firstImg === -100 * (sliderArr.length - 1)
+      ? this.setState({ firstImg: 0 })
+      : this.setState({ firstImg: firstImg - 100 });
+  };
+
   render() {
+    const { firstImg, sliderArr } = this.state;
+
     return (
       <>
-        <div className="mainVisual">
-          <div className="mainVisualSilde">
-            <div className="visual01">
-              <div className="visualText">
-                <h1>시원하게 슥슥</h1>
-                <p>[BEST] 러쉬 썸머 스킨케어</p>
-                <button className="visualButton">자세히 보기</button>
-              </div>
-              <div className="rolling">
-                <ul>
-                  <li className="dotList">
-                    <button className="dot1"></button>
-                  </li>
-                  <li className="dotList">
-                    <button className="dot"></button>
-                  </li>
-                  <li className="dotList">
-                    <button className="dot"></button>
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <div className="visualWrap">
+          <div className="visualSlide">
+            <ul
+              className="imgWrap"
+              style={{ transform: `translateX(${firstImg}%)` }}
+            >
+              {sliderArr &&
+                sliderArr.map(ele => {
+                  return (
+                    <li className="slide">
+                      <ImgCom key={ele.id} alt={ele.alt} src={ele.src} />
+                    </li>
+                  );
+                })}
+            </ul>
+            <button className="leftButton" onClick={this.slideLeft}>
+              1
+            </button>
+            <button className="rightButton" onClick={this.slideright}>
+              2
+            </button>
           </div>
         </div>
       </>
