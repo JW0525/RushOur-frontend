@@ -7,10 +7,9 @@ class ProductList extends Component {
     return (
       <>
         <div className="listHeader">
-          {/* <div className="listHeaderImg">dfsafsad</div> */}
-          <img src="/images/fakeHeader.png" alt="headerImg" />
+          <div className="listHeaderImg">dfsafsad</div>
+          {/* <img src="/images/fakeHeader.png" alt="headerImg" /> */}
         </div>
-
         <ListMenu />
       </>
     );
