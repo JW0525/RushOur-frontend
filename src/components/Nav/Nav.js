@@ -12,7 +12,7 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.5.253:8000/products/navigation', {})
+    fetch('/data/menuList.json', {})
       .then(res => res.json())
       .then(data => {
         this.setState({
