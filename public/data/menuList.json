@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "category_id": 1,
+      "name": "보디",
+      "sub_categories": [
+        {
+          "sub_category_id": 1,
+          "name": "클렌져"
+        },
+        {
+          "sub_category_id": 2,
+          "name": "로션"
+        },
+        {
+          "sub_category_id": 3,
+          "name": "더스팅 파우더"
+        },
+        {
+          "sub_category_id": 4,
+          "name": "핸드 앤 풋"
+        },
+        {
+          "sub_category_id": 5,
+          "name": "마사지 바"
+        },
+        {
+          "sub_category_id": 6,
+          "name": "쉐이빙 크림"
+        }
+      ]
+    }
+  ]
+}

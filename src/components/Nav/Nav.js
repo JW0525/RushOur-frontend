@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ListContents from './component/ListContents';
 import './Nav.scss';
 
 export class Nav extends Component {
@@ -6,7 +7,19 @@ export class Nav extends Component {
     super();
     this.state = {
       productList: false,
+      listItem: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://10.58.5.253:8000/products/navigation', {})
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          listItem: data.categories,
+        });
+        console.log(data);
+      });
   }
 
   menuHandler = () => {
@@ -17,9 +30,8 @@ export class Nav extends Component {
   };
 
   render() {
-    const { productList } = this.state;
+    const { productList, listItem } = this.state;
     const { menuHandler } = this;
-    console.log(productList);
     return (
       <div className="nav">
         <h1>LUSH</h1>
@@ -29,20 +41,15 @@ export class Nav extends Component {
           </li>
           {productList && (
             <div className="navList">
-              <ul>
-                <li>큰 카테고리</li>
-                <li>작은 카테고리</li>
-                <li>작은 카테고리</li>
-                <li>작은 카테고리</li>
-                <li>작은 카테고리</li>
-              </ul>
-              <ul>
-                <li>큰 카테고리</li>
-                <li>작은 카테고리</li>
-                <li>작은 카테고리</li>
-                <li>작은 카테고리</li>
-                <li>작은 카테고리</li>
-              </ul>
+              {listItem.map((category, i) => {
+                return (
+                  <ListContents
+                    key={i}
+                    main={category.name}
+                    subData={category.sub_categories}
+                  />
+                );
+              })}
             </div>
           )}
           <li>러쉬 소개</li>
