@@ -7,9 +7,26 @@
 
   ul {
     display: flex;
+    position: relative;
 
     li {
       padding: 30px 10px;
+    }
+
+    .navList {
+      display: flex;
+      position: absolute;
+      top: 80px;
+
+      ul {
+        display: block;
+        background-color: black;
+        padding: 5px 5px;
+
+        li {
+          padding: 0;
+        }
+      }
     }
   }
 
