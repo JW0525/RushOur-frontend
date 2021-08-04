@@ -8,8 +8,8 @@ export class Product extends Component {
         <img src="/images/product/product01.png" alt="" />
         <div className="label">
           {/*  버튼 컴포넌트 화 */}
-          <span>국내제조</span>
-          <span>VEGAN</span>
+          <span className="labelBtn">국내제조</span>
+          <span className="labelBtn">VEGAN</span>
           {/*  버튼 컴포넌트 화 */}
         </div>
         <p className="name">허벌리즘 100g/250g</p>

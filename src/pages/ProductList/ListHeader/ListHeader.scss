@@ -11,11 +11,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-image: url('/assets/images/Sopa.png');
-    background-repeat: no-repeat;
-    opacity: 1;
-    background-position: center;
-    background-size: 100%;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% !important;
 
     h1 {
       padding: 150px 0 50px 0;

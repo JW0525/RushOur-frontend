@@ -1,4 +1,7 @@
 .productList {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 100% !important;
+
   .productContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
