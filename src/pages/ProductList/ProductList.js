@@ -39,7 +39,7 @@ class ProductList extends Component {
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                tag={product.tag}
+                tag={product.tags}
                 img={product.thumbnail}
               />
             );
