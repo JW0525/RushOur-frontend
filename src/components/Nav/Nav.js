@@ -6,13 +6,13 @@ export class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      productList: false,
+      isProductListOn: false,
       listItem: [],
     };
   }
 
   componentDidMount() {
-    fetch('/data/menuList.json', {})
+    fetch('/data/menuList.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -23,14 +23,14 @@ export class Nav extends Component {
   }
 
   menuHandler = () => {
-    const { productList } = this.state;
+    const { isProductListOn } = this.state;
     this.setState({
-      productList: !productList,
+      isProductListOn: !isProductListOn,
     });
   };
 
   render() {
-    const { productList, listItem } = this.state;
+    const { isProductListOn, listItem } = this.state;
     const { menuHandler } = this;
     return (
       <div className="nav">
@@ -39,7 +39,7 @@ export class Nav extends Component {
           <li onMouseEnter={menuHandler} onMouseOut={menuHandler}>
             제품
           </li>
-          {productList && (
+          {isProductListOn && (
             <div className="navList">
               {listItem.map((category, i) => {
                 return (
