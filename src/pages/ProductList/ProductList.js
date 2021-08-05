@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
 
-export class ProductList extends Component {
+class ProductList extends Component {
   render() {
     return <div></div>;
   }

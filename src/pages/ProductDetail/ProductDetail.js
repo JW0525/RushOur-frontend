@@ -1,8 +1,19 @@
-import React, {Component} from "react";
+/*eslint-disable*/
 
-export class ProductDetail extends Component {
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { Goods } from '../../components/ProductDetail/Goods';
+import { Info } from '../../components/ProductDetail/Info';
+import './ProductDetail.scss';
+
+class ProductDetail extends React.Component {
   render() {
-    return <div></div>;
+    return (
+      <>
+        <Goods />
+        <Info />
+      </>
+    );
   }
 }
 

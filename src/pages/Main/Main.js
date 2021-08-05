@@ -1,8 +1,15 @@
-import React, {Component} from "react";
+/*eslint-disable*/
 
-export class Main extends Component {
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
+class Main extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <p>안녕하세요</p>
+      </div>
+    );
   }
 }
 
