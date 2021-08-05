@@ -15,7 +15,7 @@ export class GoodsInfo extends React.Component {
     this.state = {
       count: 1,
       sales: 27000,
-      isLoading: false,
+      value: '1',
     };
   }
 
@@ -31,15 +31,13 @@ export class GoodsInfo extends React.Component {
     }
   };
 
-  modalOff = () => {};
-
   render() {
     return (
       <div className="goodsInfo">
         <GoodsHeader />
         <GoodsItem sales={this.state.sales} />
-        <GoodsChoice modalOff={this.modalOff} />
-        {true ? (
+        <GoodsChoice value={this.state.value} />
+        {this.state.value === '1' ? (
           <GoodsPurchase
             count={this.state.count}
             plusClick={this.plusClick}

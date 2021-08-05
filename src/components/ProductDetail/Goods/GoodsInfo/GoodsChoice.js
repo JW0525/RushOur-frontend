@@ -10,6 +10,8 @@ export class GoodsChoice extends React.Component {
         <h6 onClick={this.props.modalOff}>용량</h6>
         <select>
           <option value="HTML">러쉬</option>
+          <option value={this.props.value}>러쉬</option>
+          <option value="HTML">러쉬</option>
         </select>
       </div>
     );
