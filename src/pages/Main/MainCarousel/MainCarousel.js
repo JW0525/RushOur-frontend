@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImgCom from '../ImgCom';
+import ImgCom from './ImgCom';
 import './MainCarousel.scss';
 
 class MainCarousel extends Component {
@@ -22,12 +22,12 @@ class MainCarousel extends Component {
     setInterval(this.slideRight, 4000);
   }
 
-  // slideLeft = () => {
-  //   const { sliderPosition } = this.state;
-  //   this.setState({
-  //     sliderPosition: sliderPosition === 0 ? 0 : sliderPosition + 100,
-  //   });
-  // };
+  slideLeft = () => {
+    const { sliderPosition } = this.state;
+    this.setState({
+      sliderPosition: sliderPosition === 0 ? 0 : sliderPosition + 100,
+    });
+  };
 
   slideRight = () => {
     const { sliderPosition, sliderArr } = this.state;
@@ -59,7 +59,13 @@ class MainCarousel extends Component {
                 );
               })}
           </div>
-          <button className="rightButton" onClick={this.slideRight} />
+
+          <button className="leftButton" onClick={this.slideLeft}>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button className="rightButton" onClick={this.slideRight}>
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     );

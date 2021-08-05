@@ -1,4 +1,5 @@
 .visualWrap {
+  position: relative;
   height: 600px;
   background-color: blue;
 
@@ -8,7 +9,7 @@
 
     .imgWrap {
       display: flex;
-      transition: 0.5s all ease-in-out;
+      transition: 1s all ease-in-out;
 
       img {
         flex-shrink: 0;
@@ -18,27 +19,28 @@
         height: 600px;
       }
     }
+    .leftButton {
+      position: absolute;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: 150px;
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    .rightButton {
+      position: absolute;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      right: 150px;
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+    }
   }
-}
-
-// .leftButton {
-//   position: absolute;
-//   transform: translateY(-50%);
-//   width: 15px;
-//   height: 15px;
-//   top: 50%;
-//   left: 150px;
-//   border-radius: 50px;
-//   border: 2px solid #fff;
-// }
-
-.rightButton {
-  position: absolute;
-  transform: translateY(-50%);
-  width: 15px;
-  height: 15px;
-  top: 50%;
-  right: 150px;
-  border-radius: 50px;
-  border: 2px solid #fff;
 }
