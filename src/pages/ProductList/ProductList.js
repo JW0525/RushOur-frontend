@@ -23,29 +23,31 @@ class ProductList extends Component {
           productInfo: data.products,
           categoryInfo: data.category,
         });
-        console.log(data);
       });
   }
 
+  productHandler = arr => {
+    return arr.map(product => {
+      return (
+        <Product
+          key={product.id}
+          name={product.name}
+          price={product.price}
+          tag={product.tags}
+          img={product.thumbnail}
+        />
+      );
+    });
+  };
+
   render() {
     const { productInfo, categoryInfo } = this.state;
-
     return (
       <div className="productList">
         <ListHeader />
         <ListMenu />
         <div className="productContainer">
-          {productInfo.map(product => {
-            return (
-              <Product
-                key={product.id}
-                name={product.name}
-                price={product.price}
-                tag={product.tags}
-                img={product.thumbnail}
-              />
-            );
-          })}
+          {this.productHandler(productInfo)}
         </div>
       </div>
     );

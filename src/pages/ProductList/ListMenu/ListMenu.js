@@ -1,45 +1,32 @@
 import React, { Component } from 'react';
+import ListMenuSorter from './component/ListMenuSorter';
 import './ListMenu.scss';
 
 export class ListMenu extends Component {
   constructor() {
     super();
     this.state = {
-      listButton: false,
+      islistButtonOn: false,
     };
   }
 
   buttonHandler = () => {
     this.setState({
-      listButton: !this.state.listButton,
+      islistButtonOn: !this.state.islistButtonOn,
     });
   };
   render() {
+    const { islistButtonOn } = this.state;
+    const { buttonHandler } = this;
     return (
       <>
         <div className="listMenu">
           <div className="listMenuHeader">
             <h2>보디</h2>
-            <div className="listMenuBtn">
-              <span
-                onClick={this.buttonHandler}
-                className={this.state.listButton && 'inactive'}
-              >
-                추천순&nbsp;
-                <i class="fas fa-caret-down"></i>
-              </span>
-
-              {this.state.listButton && (
-                <ul>
-                  <li>추천순</li>
-                  <li>판매인기순</li>
-                  <li>낮은가격순</li>
-                  <li>높은가격순</li>
-                  <li>리뷰많은순</li>
-                  <li>신제품순</li>
-                </ul>
-              )}
-            </div>
+            <ListMenuSorter
+              buttonOn={islistButtonOn}
+              buttonHandler={buttonHandler}
+            />
           </div>
           <div className="listMenuCategory">
             <ul>
