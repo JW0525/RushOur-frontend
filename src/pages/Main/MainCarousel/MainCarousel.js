@@ -19,17 +19,19 @@ class MainCarousel extends Component {
           sliderArr: data,
         });
       });
+    setInterval(this.slideRight, 4000);
   }
 
-  slideLeft = () => {
-    const { sliderPosition } = this.state;
-    this.setState({
-      sliderPosition: sliderPosition === 0 ? 0 : sliderPosition + 100,
-    });
-  };
+  // slideLeft = () => {
+  //   const { sliderPosition } = this.state;
+  //   this.setState({
+  //     sliderPosition: sliderPosition === 0 ? 0 : sliderPosition + 100,
+  //   });
+  // };
 
   slideRight = () => {
     const { sliderPosition, sliderArr } = this.state;
+
     this.setState({
       sliderPosition:
         sliderPosition === -100 * (sliderArr.length - 1)
@@ -42,6 +44,7 @@ class MainCarousel extends Component {
     const { sliderPosition, sliderArr } = this.state;
 
     console.log(`translateX(${sliderPosition}%)`);
+
     return (
       <div className="visualWrap">
         <div className="visualSlide">
@@ -52,21 +55,15 @@ class MainCarousel extends Component {
             {sliderArr &&
               sliderArr.map(sliderElement => {
                 return (
-                  <div className="slide" key={sliderElement.id}>
-                    {/* <ImgCom alt={sliderElement.alt} src={sliderElement} /> */}
-                  </div>
+                  <ImgCom alt={sliderElement.alt} src={sliderElement.src} />
                 );
               })}
           </div>
-          <button className="leftButton" onClick={this.slideLeft}>
-            1
-          </button>
-          <button className="rightButton" onClick={this.slideRight}>
-            2
-          </button>
+          <button className="rightButton" onClick={this.slideRight} />
         </div>
       </div>
     );
   }
 }
+
 export default MainCarousel;

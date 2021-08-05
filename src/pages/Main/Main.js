@@ -27,7 +27,7 @@ class Main extends Component {
               </li>
             </ul>
           </div>
-          <div className="mainAside"></div>\
+          <div className="mainAside"></div>
         </section>
         <section className="mainContents02">
           <div className="contents02L"></div>

@@ -1,64 +1,44 @@
 .visualWrap {
-  width: 1000px;
   height: 600px;
   background-color: blue;
 
   .visualSlide {
-    width: 1000px;
+    overflow: hidden;
     height: 100%;
 
     .imgWrap {
       display: flex;
+      transition: 0.5s all ease-in-out;
 
-      .slide {
+      img {
+        flex-shrink: 0;
+        object-fit: cover;
+        border: 1px solid black;
         width: 100%;
         height: 600px;
-        border: 1px solid black;
-        background-color: red;
       }
     }
   }
 }
 
-// .visualSlide {
-//   width: 500px;
-//   height: 600px;
-//   background-color: red;
-//   overflow: hidden;
+// .leftButton {
+//   position: absolute;
+//   transform: translateY(-50%);
+//   width: 15px;
+//   height: 15px;
+//   top: 50%;
+//   left: 150px;
+//   border-radius: 50px;
+//   border: 2px solid #fff;
 // }
 
-// .imgWrap {
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   height: 100vh;
-
-//   .slide {
-//     border: 1px solid blue;
-//     width: 500px;
-//     height: 600px;
-//     transition: 0.5s;
-
-//     img {
-//       height: 600px;
-//     }
-//   }
-// }
-.leftButton {
-  position: absolute;
-  top: 50%;
-  left: 0px;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: none;
-}
 .rightButton {
   position: absolute;
-  top: 50%;
-  right: 0px;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: none;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  right: 150px;
+  border-radius: 50px;
+  border: 2px solid #fff;
 }
