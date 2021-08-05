@@ -21,25 +21,13 @@ export class Nav extends Component {
       });
   }
 
-  menuHandler = () => {
-    const { isProductListOn } = this.state;
-    this.setState({
-      isProductListOn: !isProductListOn,
-    });
-  };
-
   render() {
-    const { isProductListOn, listItem } = this.state;
-    const { menuHandler } = this;
+    const { listItem } = this.state;
     return (
       <div className="nav">
         <h1>LUSH</h1>
         <ul>
-          <li
-            // onMouseEnter={menuHandler}
-            // onMouseOut={menuHandler}
-            className="productBtn"
-          >
+          <li className="productBtn">
             제품
             <div className="navList">
               <div class="dropdown-content">
@@ -53,29 +41,7 @@ export class Nav extends Component {
                   );
                 })}
               </div>
-              {/* {listItem.map((category, i) => {
-                return (
-                  <ListContents
-                    key={i}
-                    main={category.name}
-                    subData={category.sub_categories}
-                  />
-                );
-              })} */}
             </div>
-            {/* {isProductListOn && (
-              <div className="navList">
-                {listItem.map((category, i) => {
-                  return (
-                    <ListContents
-                      key={i}
-                      main={category.name}
-                      subData={category.sub_categories}
-                    />
-                  );
-                })}
-              </div>
-            )} */}
           </li>
           <li>러쉬 소개</li>
           <li>매장 안내</li>
