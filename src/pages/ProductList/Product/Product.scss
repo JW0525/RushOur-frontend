@@ -1,3 +1,35 @@
-.hi {
-  ///change pls
+.product {
+  margin: 15px auto;
+  text-align: center;
+
+  img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .label {
+    .labelBtn {
+      color: white;
+      font-size: 0.7rem;
+      border: 1px solid rgb(130, 130, 130);
+      background-color: seagreen;
+      border-radius: 20px;
+      padding: 2px 5px;
+      margin: 0px 2px;
+    }
+  }
+
+  .name {
+    padding: 7px 0;
+  }
+
+  .hashtag {
+    span {
+      color: rgb(130, 130, 130);
+    }
+  }
+
+  .price {
+    padding-top: 15px;
+  }
 }
