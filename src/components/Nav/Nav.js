@@ -18,7 +18,6 @@ export class Nav extends Component {
         this.setState({
           listItem: data.categories,
         });
-        console.log(data);
       });
   }
 
