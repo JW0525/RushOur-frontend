@@ -1,0 +1,33 @@
+@import '../../styles/common.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  .signUpContainer {
+    padding-top: 100px;
+    h2 {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 900;
+    }
+    .stepContainer {
+      text-align: center;
+      margin-top: 20px;
+      .currentStep {
+        color: black;
+        font-weight: bolder;
+      }
+      span {
+        color: silver;
+      }
+    }
+    .basicInfoRequire {
+      h3 {
+      }
+      span {
+        i {
+        }
+      }
+    }
+  }
+}

@@ -1,58 +1,81 @@
 import React, { Component } from 'react';
 import './Login.scss';
+// import { API } from '../../config';
 
 class Login extends Component {
   constructor() {
     super();
-    this.state = {
-      loginId: '',
-      loginPw: '',
-      idBlankCheck: false, //공백체크
-      pwBlankCheck: false,
-      idValidCheck: false,
-      pwValidCheck: false,
-    };
+    this.state = { id: '', pw: '' };
   }
 
-  handleInput = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+  //인풋 핸들링
+  handleInputValue = e => {
+    const { id, value } = e.target;
+    this.setState({ [id]: value });
+  };
+
+  // 로그인정보 서버 전송
+  // goToMain = e => {
+  //   e.preventDefault();
+  //   fetch('주소값넣기', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       account: this.state.id,
+  //       password: this.state.pw,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(res => {
+  //       if (res.Token) {
+  //         localStorage.setItem('Token', res.Token);
+  //         this.props.history.push('/');
+  //       }
+  //     });
+  // };
+
+  //회원가입으로 이동
+  goToSignUp = () => {
+    this.props.history.push('/SignUp');
+  };
+
+  //메인으로 이동
+  goToMain = () => {
+    this.props.history.push('/Main');
   };
 
   render() {
     return (
-      <div class="Wrap">
-        <div class="contentsWrap">
-          <div class="loginTextContainer">
-            <h2 class="loginText">로그인</h2>
-          </div>
-          <div class="inputContainer">
-            <div class="inputIdContainer">
-              <span class="ldIcon">
-                <img
-                  src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_id.png"
-                  alt=""
-                />
-              </span>
-              <input type="text" id="loginId" placeholder="아이디" />
+      <div class="wrap">
+        <div class="loginContainer">
+          <h2 class="loginText">로그인</h2>
+          <div class="loginInputContainer">
+            <form id="formLogin">
+              <input
+                onChange={this.handleInput}
+                type="email"
+                placeholder="아이디 (name@example.com)"
+                class="id"
+              />
+              <input
+                onChange={this.handleInput}
+                type="password"
+                placeholder="비밀번호"
+                class="pw"
+              />
+            </form>
+            <div class="loginSave">
+              <label for="saveId">
+                <input type="checkbox" class="loginSaveCheckbox" />
+                아이디 저장
+              </label>
             </div>
-            <div class="inputPwContainer">
-              <span class="pwIcon">
-                <img
-                  src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_password.png"
-                  alt=""
-                />
-              </span>
-              <input type="password" id="loginPw" placeholder="비밀번호" />
-            </div>
+            <button class="login" onClick={this.goToMain}>
+              <span>로그인</span>
+            </button>
+            <button class="signUp" onClick={this.goToSignUp}>
+              회원가입
+            </button>
           </div>
-          <div class="loginSave">
-            <input type="checkbox" id="loginSave">
-              아이디저장
-            </input>
-          </div>
-          <button class="loginSubmitBtn">로그인</button>
-          <div class="join">회원가입</div>
         </div>
       </div>
     );
