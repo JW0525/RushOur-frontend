@@ -2,16 +2,17 @@
   background-color: black;
   text-align: center;
 
-  h2 {
-    padding: 5px 2px;
+  h3 {
+    padding: 10px 2px;
   }
   ul {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background-color: black;
     padding: 5px 5px;
 
-    li {
-      padding: 0;
+    li.categoryList {
+      padding: 10px 12px;
     }
   }
 }

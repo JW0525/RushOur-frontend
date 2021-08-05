@@ -8,7 +8,7 @@ export class ListHeader extends Component {
         <div
           className="listHeaderImg"
           style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/Sopa.png')`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/lotion.jpg')`,
           }}
         >
           <h1>보디</h1>

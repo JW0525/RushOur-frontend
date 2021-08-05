@@ -35,12 +35,25 @@ export class Nav extends Component {
       <div className="nav">
         <h1>LUSH</h1>
         <ul>
-          <li onMouseEnter={menuHandler} onMouseOut={menuHandler}>
+          <li
+            // onMouseEnter={menuHandler}
+            // onMouseOut={menuHandler}
+            className="productBtn"
+          >
             제품
-          </li>
-          {isProductListOn && (
             <div className="navList">
-              {listItem.map((category, i) => {
+              <div class="dropdown-content">
+                {listItem.map((category, i) => {
+                  return (
+                    <ListContents
+                      key={i}
+                      main={category.name}
+                      subData={category.sub_categories}
+                    />
+                  );
+                })}
+              </div>
+              {/* {listItem.map((category, i) => {
                 return (
                   <ListContents
                     key={i}
@@ -48,9 +61,22 @@ export class Nav extends Component {
                     subData={category.sub_categories}
                   />
                 );
-              })}
+              })} */}
             </div>
-          )}
+            {/* {isProductListOn && (
+              <div className="navList">
+                {listItem.map((category, i) => {
+                  return (
+                    <ListContents
+                      key={i}
+                      main={category.name}
+                      subData={category.sub_categories}
+                    />
+                  );
+                })}
+              </div>
+            )} */}
+          </li>
           <li>러쉬 소개</li>
           <li>매장 안내</li>
           <li>스파</li>

@@ -6,10 +6,14 @@ export class ListContents extends Component {
     const { main, subData } = this.props;
     return (
       <div className="listContents">
-        <h2>{main}</h2>
+        <h3>{main}</h3>
         <ul>
           {subData.map((data, i) => {
-            return <li key={i}>{data.name}</li>;
+            return (
+              <li className="categoryList" key={i}>
+                {data.name}
+              </li>
+            );
           })}
         </ul>
       </div>
