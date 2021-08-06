@@ -1,46 +1,38 @@
-{
-  "products": [
-    {
-      "id": 1,
-      "name": "아워 오션 솔트 셀프 프리저빙 120g/250g",
-      "price": "27000.00",
-      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product01.png",
-      "tags": ["vegan"]
-    },
-    {
-      "id": 2,
-      "name": "아워 왓 더 굿 타임즈 롤 100g/250g",
-      "price": "22000.00",
-      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product03.png",
-      "tags": ["vegan", "domestic"]
-    },
-    {
-      "id": 3,
-      "name": "아워 허벌리장 100g/250g",
-      "price": "22000.00",
-      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product05.png",
-      "tags": ["vegan", "domestic"]
-    },
-    {
-      "id": 4,
-      "name": "아워 오션 샤크 120g/250g",
-      "price": "27000.00",
-      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product07.png",
-      "tags": []
-    },
-    {
-      "id": 5,
-      "name": "아워 엔젤스 온 타이거 스킨 100g/250g",
-      "price": "22000.00",
-      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product09.png",
-      "tags": ["vegan", "domestic"]
-    },
-    {
-      "id": 6,
-      "name": "아워 아쿠아 마리아 100g/250g",
-      "price": "22000.00",
-      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product11.png",
-      "tags": ["vegan", "domestic"]
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "아워 오션 솔트 셀프 프리저빙 120g/250g",
+    "price": "27000.00",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product01.png"
+  },
+  {
+    "id": 2,
+    "name": "아워 왓 더 굿 타임즈 롤 100g/250g",
+    "price": "22000.00",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product03.png"
+  },
+  {
+    "id": 3,
+    "name": "아워 허벌리장 100g/250g",
+    "price": "22000.00",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product05.png"
+  },
+  {
+    "id": 4,
+    "name": "아워 오션 샤크 120g/250g",
+    "price": "27000.00",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product07.png"
+  },
+  {
+    "id": 5,
+    "name": "아워 엔젤스 온 타이거 스킨 100g/250g",
+    "price": "22000.00",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product09.png"
+  },
+  {
+    "id": 6,
+    "name": "아워 아쿠아 마리아 100g/250g",
+    "price": "22000.00",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product11.png"
+  }
+]
