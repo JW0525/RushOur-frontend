@@ -29,7 +29,7 @@ export class ListHeader extends Component {
         <div
           className="listHeaderImg"
           style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/Sopa.png?raw=true')`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/${this.props.category}${this.props.subCategoryId}.jpg')`,
           }}
         >
           <h1>보디</h1>

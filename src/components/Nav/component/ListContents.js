@@ -11,7 +11,7 @@ export class ListContents extends Component {
         <Link to="/list">
           <h3
             onClick={() => {
-              categoryHandler(main);
+              categoryHandler(firstCategoryId);
             }}
           >
             {main}
@@ -26,7 +26,7 @@ export class ListContents extends Component {
                   key={i}
                   subCategoryId={data.sub_category_id}
                   onClick={() => {
-                    categoryHandler(data.sub_category_id);
+                    categoryHandler(firstCategoryId, data.sub_category_id);
                   }}
                 >
                   {data.name}

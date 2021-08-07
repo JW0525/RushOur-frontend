@@ -9,23 +9,27 @@ class Routes extends Component {
   constructor() {
     super();
     this.state = {
-      categoryId: 1,
-      subCategoryId: 0,
+      categoryInfo: {
+        categoryId: 1,
+      },
+      subCategoryInfo: {
+        subCategoryId: 0,
+      },
     };
   }
 
-  categoryHandler = id => {
-    if (id === '보디') {
+  categoryHandler = (_categoryId, _subCategoryId) => {
+    if (_subCategoryId) {
       this.setState({
-        categoryId: 1,
-        subCategoryId: 0,
+        categoryInfo: { categoryId: _categoryId },
+        subCategoryInfo: { subCategoryId: _subCategoryId },
       });
     } else {
       this.setState({
-        subCategoryId: id,
+        categoryId: _categoryId,
+        subCategoryId: 0,
       });
     }
-    console.log(id);
   };
 
   render() {
@@ -48,7 +52,7 @@ class Routes extends Component {
               <ProductList
                 categoryHandler={categoryHandler}
                 category={categoryId}
-                subId={subCategoryId}
+                subCategoryId={subCategoryId}
               />
             )}
           />
