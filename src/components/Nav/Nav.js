@@ -38,7 +38,7 @@ export class Nav extends Component {
                       key={i}
                       firstCategoryId={category.category_id}
                       main={category.name}
-                      subData={category.sub_categories}
+                      subCategoryData={category.sub_categories}
                       categoryHandler={categoryHandler}
                     />
                   );

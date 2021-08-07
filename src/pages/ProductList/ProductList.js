@@ -26,20 +26,6 @@ class ProductList extends Component {
       });
   }
 
-  productHandler = arr => {
-    return arr.map(product => {
-      return (
-        <Product
-          key={product.id}
-          name={product.name}
-          price={product.price}
-          tag={product.tags}
-          img={product.thumbnail}
-        />
-      );
-    });
-  };
-
   render() {
     const { productInfo, categoryInfo } = this.state;
     const { category, subId, categoryHandler } = this.props;
@@ -49,7 +35,15 @@ class ProductList extends Component {
         <ListHeader category={category} subId={subId} />
         <ListMenu categoryHandler={categoryHandler} />
         <div className="productContainer">
-          {this.productHandler(productInfo)}
+          {productInfo.map(product => (
+            <Product
+              key={product.id}
+              name={product.name}
+              price={product.price}
+              tag={product.tags}
+              img={product.thumbnail}
+            />
+          ))}
         </div>
       </div>
     );

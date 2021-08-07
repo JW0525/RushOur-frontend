@@ -4,7 +4,8 @@ import './ListContents.scss';
 
 export class ListContents extends Component {
   render() {
-    const { main, subData, firstCategoryId, categoryHandler } = this.props;
+    const { main, subCategoryData, firstCategoryId, categoryHandler } =
+      this.props;
     return (
       <div className="listContents">
         <Link to="/list">
@@ -17,7 +18,7 @@ export class ListContents extends Component {
           </h3>
         </Link>
         <ul>
-          {subData.map((data, i) => {
+          {subCategoryData.map((data, i) => {
             return (
               <Link to="/list">
                 <li
