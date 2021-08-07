@@ -43,8 +43,6 @@ class MainCarousel extends Component {
   render() {
     const { sliderPosition, sliderArr } = this.state;
 
-    console.log(`translateX(${sliderPosition}%)`);
-
     return (
       <div className="visualWrap">
         <div className="visualSlide">
