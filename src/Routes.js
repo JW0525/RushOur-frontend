@@ -6,13 +6,52 @@ import Main from './pages/Main/Main';
 import ProductList from './pages/ProductList/ProductList';
 
 class Routes extends Component {
+  constructor() {
+    super();
+    this.state = {
+      categoryId: 1,
+      subCategoryId: 0,
+    };
+  }
+
+  categoryHandler = id => {
+    if (id === '보디') {
+      this.setState({
+        categoryId: 1,
+        subCategoryId: 0,
+      });
+    } else {
+      this.setState({
+        subCategoryId: id,
+      });
+    }
+    console.log(id);
+  };
+
   render() {
+    console.log('router this.state:', this.state);
+    const { categoryHandler } = this;
+    const { categoryId, subCategoryId } = this.state;
     return (
       <Router>
-        <Nav />
+        <Nav
+          categoryHandler={categoryHandler}
+          category={categoryId}
+          subId={subCategoryId}
+        />
         <Switch>
           <Route exact path="/main" component={Main} />
-          <Route exact path="/list" component={ProductList} />
+          <Route
+            exact
+            path="/list"
+            render={() => (
+              <ProductList
+                categoryHandler={categoryHandler}
+                category={categoryId}
+                subId={subCategoryId}
+              />
+            )}
+          />
         </Switch>
         <Footer />
       </Router>

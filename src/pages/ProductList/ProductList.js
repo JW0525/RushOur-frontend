@@ -42,10 +42,12 @@ class ProductList extends Component {
 
   render() {
     const { productInfo, categoryInfo } = this.state;
+    const { category, subId, categoryHandler } = this.props;
+    console.log('Product List this.props: ', this.props);
     return (
       <div className="productList">
-        <ListHeader />
-        <ListMenu />
+        <ListHeader category={category} subId={subId} />
+        <ListMenu categoryHandler={categoryHandler} />
         <div className="productContainer">
           {this.productHandler(productInfo)}
         </div>

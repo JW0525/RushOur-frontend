@@ -2,17 +2,30 @@
   background-color: black;
   text-align: center;
 
-  h3 {
-    padding: 10px 2px;
+  a {
+    text-decoration: none;
+    color: white;
+
+    h3 {
+      padding: 10px 2px;
+      cursor: pointer;
+    }
   }
+
   ul {
     display: flex;
     flex-direction: column;
     background-color: black;
     padding: 5px 5px;
 
-    li.categoryList {
-      padding: 10px 12px;
+    a {
+      text-decoration: none;
+      color: white;
+
+      .categoryList {
+        padding: 10px 12px;
+        cursor: pointer;
+      }
     }
   }
 }

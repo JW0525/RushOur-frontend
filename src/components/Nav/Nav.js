@@ -23,6 +23,7 @@ export class Nav extends Component {
 
   render() {
     const { listItem } = this.state;
+    const { categoryHandler } = this.props;
     return (
       <div className="nav">
         <h1>LUSH</h1>
@@ -35,8 +36,10 @@ export class Nav extends Component {
                   return (
                     <ListContents
                       key={i}
+                      firstCategoryId={category.category_id}
                       main={category.name}
                       subData={category.sub_categories}
+                      categoryHandler={categoryHandler}
                     />
                   );
                 })}
