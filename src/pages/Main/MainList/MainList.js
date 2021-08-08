@@ -21,7 +21,6 @@ class MainList extends Component {
         // console.log('api data', data);
       });
   }
-  s;
 
   slideLeft = () => {
     const { listSlider } = this.state;
@@ -36,10 +35,10 @@ class MainList extends Component {
     currentSlider = currentSlider + listSlider;
 
     console.log('버튼 누르기전', currentSlider);
-    console.log('arr', listArr.length / 3);
-    console.log('arr2', -100 * (listArr.length / 3));
+    console.log('arr', listArr.length / 4);
+    console.log('arr2', -100 * (listArr.length / 4));
 
-    if (currentSlider <= -100 * (listArr.length / 3)) {
+    if (currentSlider <= -100 * (listArr.length / 4)) {
       currentSlider = -100;
     } else {
       currentSlider = listSlider + -100;
@@ -76,17 +75,21 @@ class MainList extends Component {
                 );
               })}
           </ul>
+
           <div className="listButton">
             <button className="leftButton" onClick={this.slideLeft}>
-              <i class="fas fa-chevron-left"></i>
+              <i className="fas fa-chevron-left"></i>
             </button>
             <button className="rightButton" onClick={this.slideRight}>
-              <i class="fas fa-chevron-right"></i>
+              <i className="fas fa-chevron-right"></i>
             </button>
+            <div className="pageCount">
+              <span>{this.state.listSlider / -10 / 10 + 1}</span>
+              <span>/</span>
+              <span>{listArr && listArr.length / 4}</span>
+            </div>
           </div>
         </div>
-
-        <div className="mainAside"></div>
       </section>
     );
   }

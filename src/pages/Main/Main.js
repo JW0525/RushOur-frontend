@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import MainCarousel from './MainCarousel/MainCarousel';
 import MainList from './MainList/MainList';
+import MainAside from './MainAside/MainAside';
+import MainContent from './MainContent/MainContent';
+import MainContent2 from './MainContent2/MainContent2';
 import './Main.scss';
 
 class Main extends Component {
@@ -9,27 +12,16 @@ class Main extends Component {
       <main className="mainContainer">
         <MainCarousel />
         <div className="sectionContainer">
-          <MainList />
-          <section className="mainContents02">
-            <div className="contents02L"></div>
-            <div className="contents02R">
-              <div className="contents02RTop"></div>
-              <div className="contents02RBottom">
-                <p></p>
-                <p></p>
-              </div>
-            </div>
-          </section>
-          <section className="mainContents03">
-            <span>
-              <p>NEW 탱글드 헤어 트리트먼트</p>
-              <p>
-                전통 악기에서 영감을 받은 두피 트리트먼트로, 기분 좋은 낮잠에
-                빠져들듯 부드럽고 편안한 시간을 선사합니다.
-              </p>
-            </span>
-            <p></p>
-          </section>
+          <div className="contentsBox01">
+            <MainList />
+            <MainAside />
+          </div>
+          <div className="contentsBox02">
+            <MainContent />
+          </div>
+          <div className="contentsBox03">
+            <MainContent2 />
+          </div>
         </div>
       </main>
     );

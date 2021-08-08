@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ImgCom from './ImgCom';
 import './MainCarousel.scss';
 
 class MainCarousel extends Component {
@@ -51,18 +50,22 @@ class MainCarousel extends Component {
             style={{ transform: `translateX(${sliderPosition}%)` }}
           >
             {sliderArr &&
-              sliderArr.map(sliderElement => {
+              sliderArr.map((sliderElement, i) => {
                 return (
-                  <ImgCom alt={sliderElement.alt} src={sliderElement.src} />
+                  <img
+                    alt={sliderElement.alt}
+                    src={sliderElement.src}
+                    key={i}
+                  />
                 );
               })}
           </div>
 
           <button className="leftButton" onClick={this.slideLeft}>
-            <i class="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left"></i>
           </button>
           <button className="rightButton" onClick={this.slideRight}>
-            <i class="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right"></i>
           </button>
         </div>
       </div>
