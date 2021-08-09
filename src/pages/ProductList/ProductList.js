@@ -28,11 +28,10 @@ class ProductList extends Component {
 
   render() {
     const { productInfo, categoryInfo } = this.state;
-    const { category, subCategoryId, categoryHandler } = this.props;
-    console.log('Product List this.props: ', this.props);
+    const { categoryId, subCategoryId, categoryHandler } = this.props;
     return (
       <div className="productList">
-        <ListHeader category={category} subCategoryId={subCategoryId} />
+        <ListHeader categoryId={categoryId} subCategoryId={subCategoryId} />
         <ListMenu categoryHandler={categoryHandler} />
         <div className="productContainer">
           {productInfo.map(product => (

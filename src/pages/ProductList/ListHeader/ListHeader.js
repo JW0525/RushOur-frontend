@@ -6,34 +6,47 @@ export class ListHeader extends Component {
   constructor() {
     super();
     this.state = {
-      backImageInfo: [],
+      headerInfo: [],
     };
   }
 
-  // 백엔드에 API 요청해서 백그라운드 구성하기
-  // componentDidMount() {
-  //   fetch(`${API.PRODUCTLIST}/products`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         backImageInfo: data,
-  //       });
-  //       console.log(data);
-  //     });
-  // }
+  componentDidUpdate(prevProps) {
+    console.log('fetch!');
+    const { subCategoryId, categoryId } = this.props;
+    const isCategoryOrSub = subCategoryId ? 'subcategory' : 'category';
+
+    if (this.props !== prevProps) {
+      fetch(
+        `${
+          subCategoryId
+            ? `${API.SUBCATEGORY}/${subCategoryId}`
+            : `${API.CATEGORY}/${categoryId}`
+        }`
+      )
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            headerInfo: data[isCategoryOrSub],
+          });
+          console.log('data', data[isCategoryOrSub]);
+        });
+    }
+  }
 
   render() {
-    console.log('ListHeader this.props:', this.props);
+    const { headerInfo } = this.state;
+    console.log('headerInfo:', headerInfo);
+
     return (
       <div className="listHeader">
         <div
           className="listHeaderImg"
           style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/${this.props.category}${this.props.subCategoryId}.jpg')`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${headerInfo.image_url})`,
           }}
         >
-          <h1>보디</h1>
-          <p>늘 당신의 피부를 향긋하고 건강하게 빛내줄 거예요</p>
+          <h1>{headerInfo && headerInfo.name}</h1>
+          <p>{headerInfo && headerInfo.description}</p>
         </div>
       </div>
     );

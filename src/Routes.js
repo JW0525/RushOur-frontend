@@ -19,6 +19,7 @@ class Routes extends Component {
   }
 
   categoryHandler = (_categoryId, _subCategoryId) => {
+    console.log(_categoryId, _subCategoryId);
     if (_subCategoryId) {
       this.setState({
         categoryInfo: { categoryId: _categoryId },
@@ -27,7 +28,7 @@ class Routes extends Component {
     } else {
       this.setState({
         categoryId: _categoryId,
-        subCategoryId: 0,
+        subCategoryId: 1,
       });
     }
   };
@@ -35,7 +36,8 @@ class Routes extends Component {
   render() {
     console.log('router this.state:', this.state);
     const { categoryHandler } = this;
-    const { categoryId, subCategoryId } = this.state;
+    const { categoryId } = this.state.categoryInfo;
+    const { subCategoryId } = this.state.subCategoryInfo;
     return (
       <Router>
         <Nav
@@ -51,7 +53,7 @@ class Routes extends Component {
             render={() => (
               <ProductList
                 categoryHandler={categoryHandler}
-                category={categoryId}
+                categoryId={categoryId}
                 subCategoryId={subCategoryId}
               />
             )}

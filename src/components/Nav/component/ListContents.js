@@ -11,7 +11,7 @@ export class ListContents extends Component {
         <Link to="/list">
           <h3
             onClick={() => {
-              categoryHandler(firstCategoryId);
+              categoryHandler(firstCategoryId, 0);
             }}
           >
             {main}
