@@ -5,14 +5,15 @@ import { withRouter } from 'react-router-dom';
 
 export class InfoDelivery extends React.Component {
   render() {
+    let { tapDelivery, moveDetail, moveDelivery } = this.props;
     return (
       <div className="infoDelivery">
         <div className="tap">
-          <ul ref={this.props.tapDelivery}>
-            <li className="tapDeactivated" onClick={this.props.moveDetail}>
+          <ul ref={tapDelivery}>
+            <li className="tapDeactivated" onClick={moveDetail}>
               상품상세정보
             </li>
-            <li className="tapActivated" onClick={this.props.moveDelivery}>
+            <li className="tapActivated" onClick={moveDelivery}>
               배송/교환 및 반품안내
             </li>
           </ul>

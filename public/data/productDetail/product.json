@@ -1,32 +1,31 @@
-[
-  {
-    "category_id": 1,
-    "name": "보디",
-    "sub_categories": [
-      {
-        "id": 1,
-        "name": "클렌져"
-      },
-      {
-        "id": 2,
-        "name": "로션"
-      },
-      {
-        "sub_category_id": 3,
-        "name": "더스팅 파우더"
-      },
-      {
-        "sub_category_id": 4,
-        "name": "핸드 앤 풋"
-      },
-      {
-        "sub_category_id": 5,
-        "name": "마사지 바"
-      },
-      {
-        "sub_category_id": 6,
-        "name": "쉐이빙 크림"
-      }
-    ]
-  }
-]
+{
+  "sub_categories": [
+    {
+      "categories": [{ "name": "보디" }],
+
+      "subcategories": [
+        { "name": "클렌져" },
+        { "name": "로션" },
+        { "name": "더스팅 파우더" },
+        { "name": "핸드 앤 풋" },
+        { "name": "마사지 바" },
+        { "name": "쉐이빙 크림" }
+      ],
+      "id": 1,
+      "name": "아워 오션 솔트 셀프 프리저빙 120g/250g",
+      "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product01.png",
+      "options": [
+        {
+          "size": 120,
+          "price": "27000.00"
+        },
+        {
+          "size": 250,
+          "price": "54000.00"
+        }
+      ],
+      "tags": ["vegan"],
+      "detail_img": "https://i.imgur.com/hANM7OQ.jpeg"
+    }
+  ]
+}

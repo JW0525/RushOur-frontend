@@ -1,6 +1,4 @@
-/*eslint-disable*/
-
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Goods } from '../../components/ProductDetail/Goods';
 import { Info } from '../../components/ProductDetail/Info';

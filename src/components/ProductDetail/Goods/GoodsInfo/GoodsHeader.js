@@ -5,9 +5,10 @@ import { Link, withRouter } from 'react-router-dom';
 
 export class GoodsHeader extends React.Component {
   render() {
+    let { product } = this.props;
     return (
       <div className="goodsHeader">
-        <h5>오션 솔트 셀프-프리저빙 120g/250g</h5>
+        <h5>{product.name}</h5>
         <img
           className="iconShare"
           src="../../../images/ProductDetail/share.png"

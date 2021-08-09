@@ -1,3 +1,12 @@
-.hi {
-  ///change pls
+.productList {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 100% !important;
+
+  .productContainer {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 100px 150px 0 150px;
+  }
 }

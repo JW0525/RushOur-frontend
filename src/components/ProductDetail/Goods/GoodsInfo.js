@@ -13,40 +13,121 @@ export class GoodsInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 1,
-      sales: 27000,
-      value: '1',
+      countS: 0,
+      countL: 0,
+      product: {},
+      optionValueOne: false,
+      optionValueTwo: false,
     };
   }
 
-  plusClick = () => {
-    if (this.state.count < 20) {
-      this.setState({ count: this.state.count + 1 });
+  componentDidMount() {
+    fetch('/data/productDetail/product.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          product: data.sub_categories[0],
+        });
+      });
+  }
+
+  plusClickS = () => {
+    let { countS } = this.state;
+    if (countS < 20) {
+      this.setState({ countS: countS + 1 });
     }
   };
 
-  minusClick = () => {
-    if (this.state.count > 1) {
-      this.setState({ count: this.state.count - 1 });
+  plusClickL = () => {
+    let { countL } = this.state;
+    if (countL < 20) {
+      this.setState({ countL: countL + 1 });
     }
+  };
+
+  minusClickS = () => {
+    let { countS } = this.state;
+    if (countS > 0) {
+      this.setState({ countS: countS - 1 });
+    }
+    <GoodsHeader />;
+  };
+
+  minusClickL = () => {
+    let { countL } = this.state;
+    if (countL > 0) {
+      this.setState({ countL: countL - 1 });
+    }
+    <GoodsHeader />;
+  };
+
+  deleteBtnS = () => {
+    this.setState({
+      optionValueOne: false,
+      countS: 0,
+    });
+  };
+
+  deleteBtnL = () => {
+    this.setState({
+      optionValueTwo: false,
+      countL: 0,
+    });
+  };
+
+  optionChangeS = () => {
+    this.setState({
+      optionValueOne: true,
+      countS: 1,
+    });
+  };
+
+  optionChangeL = () => {
+    this.setState({
+      optionValueTwo: true,
+      countL: 1,
+    });
   };
 
   render() {
+    let { product, countS, countL, optionValueOne, optionValueTwo } =
+      this.state;
     return (
       <div className="goodsInfo">
-        <GoodsHeader />
-        <GoodsItem sales={this.state.sales} />
-        <GoodsChoice value={this.state.value} />
-        {this.state.value === '1' ? (
-          <GoodsPurchase
-            count={this.state.count}
-            plusClick={this.plusClick}
-            minusClick={this.minusClick}
-            sales={this.state.sales}
-          />
+        <GoodsHeader product={product} />
+        <GoodsItem product={product} />
+        <GoodsChoice
+          product={product}
+          optionChangeS={this.optionChangeS}
+          optionChangeL={this.optionChangeL}
+        />
+        {optionValueOne && (
+          <>
+            <GoodsPurchase
+              count={countS}
+              plusClick={this.plusClickS}
+              minusClick={this.minusClickS}
+              deleteBtn={this.deleteBtnS}
+              option={product.options[0]}
+            />
+          </>
+        )}
+        {optionValueTwo && (
+          <>
+            <GoodsPurchase
+              count={countL}
+              plusClick={this.plusClickL}
+              minusClick={this.minusClickL}
+              deleteBtn={this.deleteBtnL}
+              option={product.options[1]}
+            />
+          </>
+        )}
+
+        {optionValueOne || optionValueTwo ? (
+          <GoodsAmount product={product} countS={countS} countL={countL} />
         ) : null}
 
-        <GoodsAmount count={this.state.count} sales={this.state.sales} />
         <GoodsBtn />
       </div>
     );

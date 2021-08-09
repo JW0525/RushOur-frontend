@@ -4,8 +4,7 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-
-// import 한 컴포넌트 경로
+import ProductList from './pages/ProductList/ProductList';
 
 class Routes extends Component {
   render() {
@@ -14,7 +13,8 @@ class Routes extends Component {
         <Nav />
         <Switch>
           <Route exact path="/main" component={Main} />
-          <Route exact path="/productDetail" component={ProductDetail} />
+          <Route exact path="/productdetail" component={ProductDetail} />
+          <Route exact path="/list" component={ProductList} />
         </Switch>
         <Footer />
       </Router>

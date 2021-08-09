@@ -7,37 +7,49 @@ export class Location extends React.Component {
   constructor() {
     super();
     this.state = {
-      productList: [],
+      product: {},
     };
   }
+
   componentDidMount = () => {
-    fetch('http://localhost:3000/data/productDetail/productList.json')
+    fetch('http://data/productDetail/product.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productList: data,
+          product: data.sub_categories[0],
         });
       });
   };
 
   render() {
+    let { product } = this.state;
     return (
       <div className="location">
         <h6>홈</h6>
         <p>&gt;</p>
         <select>
-          {this.state.productList.map(e => (
-            <option>{e.name}</option>
-          ))}
+          <option>러쉬</option>
         </select>
         <p>&gt;</p>
-        <select>
-          {this.state.productList.map((e, i) => {
-            return this.state.productList[i].sub_categories.map(k => {
-              return <option>{k.name}</option>;
-            });
-          })}
-        </select>
+        {
+          <select>
+            {' '}
+            {product.categories &&
+              product.categories.map((e, i) => {
+                return <option>{e.name}</option>;
+              })}
+          </select>
+        }
+        <p>&gt;</p>
+        {
+          <select>
+            {' '}
+            {product.subcategories &&
+              product.subcategories.map((e, i) => {
+                return <option>{e.name}</option>;
+              })}
+          </select>
+        }
       </div>
     );
   }

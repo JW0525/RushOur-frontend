@@ -13,31 +13,34 @@ export class Info extends React.Component {
   }
 
   moveDetail = () =>
-    window.scrollTo(0, this.tapDetail.current.offsetTop, {
-      top: 0,
+    window.scroll(0, this.tapDetail.current.offsetTop, {
+      top: 100,
+      left: 100,
       behavior: 'smooth',
     });
 
   moveDelivery = () =>
-    window.scrollTo(0, this.tapDelivery.current.offsetTop, {
-      top: 0,
+    window.scroll(0, this.tapDelivery.current.offsetTop, {
+      top: 100,
+      left: 100,
       behavior: 'smooth',
     });
 
   render() {
+    let { tapDetail, tapDelivery, moveDetail, moveDelivery } = this;
     return (
       <div className="info">
         <InfoDetail
-          tapDetail={this.tapDetail}
-          tapDelivery={this.tapDelivery}
-          moveDetail={this.moveDetail}
-          moveDelivery={this.moveDelivery}
+          tapDetail={tapDetail}
+          tapDelivery={tapDelivery}
+          moveDetail={moveDetail}
+          moveDelivery={moveDelivery}
         />
         <InfoDelivery
-          tapDetail={this.tapDetail}
-          tapDelivery={this.tapDelivery}
-          moveDetail={this.moveDetail}
-          moveDelivery={this.moveDelivery}
+          tapDetail={tapDetail}
+          tapDelivery={tapDelivery}
+          moveDetail={moveDetail}
+          moveDelivery={moveDelivery}
         />
       </div>
     );

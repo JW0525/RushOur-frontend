@@ -53,20 +53,22 @@
   justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  width: 573px;
   border-bottom: 1px solid #e7e7e7;
 
   h5 {
+    width: 523px;
     font-size: 28px;
   }
 
   img {
+    margin-top: 10px;
     width: 20px;
     height: 20px;
     filter: opacity(0.5) drop-shadow(0 0 0 #b6b6b6);
   }
 
   .iconShare {
-    margin-left: 110px;
     transform: rotate(90deg);
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
@@ -85,6 +87,10 @@
     width: 80px;
     align-items: center;
     font-size: 14px;
+    line-height: 19px;
+  }
+  p {
+    letter-spacing: 0.0625em;
   }
 }
 
@@ -94,22 +100,49 @@
 
 .goodsChoice {
   display: flex;
-  align-items: center;
   padding: 5px 0 15px 0;
 
   h6 {
-    width: 80px;
+    padding-top: 20px;
     font-size: 14px;
   }
-  select {
+}
+
+.optionSelect {
+  margin-left: 54px;
+  width: 314px;
+
+  button {
     width: 314px;
     height: 40px;
     padding: 5px;
+    background-color: transparent;
     color: #535353;
     border-radius: 0px;
     border: 1px solid #ccc;
     line-height: 38px;
+    letter-spacing: 0.0625em;
+    p {
+      text-align: left;
+      padding-left: 10px;
+      line-height: 5px;
+    }
   }
+}
+
+.optionDetailTop {
+  border-top: 0px solid #ccc !important;
+  border-bottom: 0px solid #ccc !important;
+}
+.optionDetailTop:hover {
+  background-color: rgb(224, 223, 223);
+}
+
+.optionDetailBtm {
+  border-top: 0px solid #ccc !important;
+}
+.optionDetailBtm:hover {
+  background-color: rgb(224, 223, 223);
 }
 
 .goodsPurchase {
@@ -225,6 +258,10 @@
       display: block;
     }
   }
+}
+
+.tap:hover {
+  cursor: pointer;
 }
 
 .imageDetail {
