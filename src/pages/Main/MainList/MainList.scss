@@ -1,0 +1,45 @@
+.mainContents01 {
+  height: 600px;
+  float: left;
+  position: relative;
+}
+.mainList {
+  width: 800px;
+  height: 400px;
+  margin-top: 80px;
+  overflow: hidden;
+
+  h2 {
+    font-size: 42px;
+    font-weight: 700;
+  }
+
+  .listSlide {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    transition: 1s all ease-in-out;
+  }
+}
+.listButton {
+  position: relative;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  .leftButton {
+    position: absolute;
+    left: 40%;
+    background: none;
+    border: none;
+  }
+
+  .rightButton {
+    position: absolute;
+    right: 40%;
+    background: none;
+    border: none;
+  }
+  .pageCount {
+    margin: 0 auto;
+  }
+}

@@ -35,17 +35,18 @@ class ProductList extends Component {
         <ListHeader />
         <ListMenu />
         <div className="productContainer">
-          {productInfo.map(product => {
-            return (
-              <Product
-                key={product.id}
-                name={product.name}
-                price={product.price}
-                tag={product.tags}
-                img={product.thumbnail}
-              />
-            );
-          })}
+          {productInfo &&
+            productInfo.map(product => {
+              return (
+                <Product
+                  key={product.id}
+                  name={product.name}
+                  price={product.price}
+                  tag={product.tags}
+                  img={product.thumbnail}
+                />
+              );
+            })}
         </div>
       </div>
     );
