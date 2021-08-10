@@ -40,29 +40,17 @@ class CartListSection extends React.Component {
                 </td>
 
                 <td>
-                  <div className="quantityTable">
-                    <input
-                      className="cartQuantity"
-                      value="1"
-                      type="text"
-                      min="1"
-                      max="100"
-                      disabled
-                    />
-                    <div className="quantitybtn">
-                      <button className="quantityPlus">
-                        <img
-                          alt="plusQuantity"
-                          src="https://img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_up.gif"
-                        />
+                  <div className="goodsPurchase">
+                    <div className="buttonAmount">
+                      <button>
+                        <p>-</p>
                       </button>
-                      <button className="quantityMinus">
-                        <img
-                          alt="plusQuantity"
-                          src="https://img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_down.gif"
-                        />
+                      <button>
+                        <p>1</p>
                       </button>
-                      <button className="quantityChange"> 변경</button>
+                      <button>
+                        <p>+</p>
+                      </button>
                     </div>
                   </div>
                 </td>
