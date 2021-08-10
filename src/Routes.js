@@ -9,21 +9,16 @@ class Routes extends Component {
   constructor() {
     super();
     this.state = {
-      categoryInfo: {
-        categoryId: 1,
-      },
-      subCategoryInfo: {
-        subCategoryId: 0,
-      },
+      categoryId: 1,
+      subCategoryId: 0,
     };
   }
 
   categoryHandler = (_categoryId, _subCategoryId) => {
-    console.log(_categoryId, _subCategoryId);
     if (_subCategoryId) {
       this.setState({
-        categoryInfo: { categoryId: _categoryId },
-        subCategoryInfo: { subCategoryId: _subCategoryId },
+        categoryId: _categoryId,
+        subCategoryId: _subCategoryId,
       });
     } else {
       this.setState({
@@ -36,8 +31,8 @@ class Routes extends Component {
   render() {
     console.log('router this.state:', this.state);
     const { categoryHandler } = this;
-    const { categoryId } = this.state.categoryInfo;
-    const { subCategoryId } = this.state.subCategoryInfo;
+    const { categoryId, subCategoryId } = this.state;
+
     return (
       <Router>
         <Nav

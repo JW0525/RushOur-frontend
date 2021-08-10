@@ -14,15 +14,12 @@ export class ListHeader extends Component {
     console.log('fetch!');
     const { subCategoryId, categoryId } = this.props;
     const isCategoryOrSub = subCategoryId ? 'subcategory' : 'category';
+    const urlChecker = subCategoryId
+      ? `${API.SUBCATEGORY}/${subCategoryId}`
+      : `${API.CATEGORY}/${categoryId}`;
 
     if (this.props !== prevProps) {
-      fetch(
-        `${
-          subCategoryId
-            ? `${API.SUBCATEGORY}/${subCategoryId}`
-            : `${API.CATEGORY}/${categoryId}`
-        }`
-      )
+      fetch(urlChecker)
         .then(res => res.json())
         .then(data => {
           this.setState({
