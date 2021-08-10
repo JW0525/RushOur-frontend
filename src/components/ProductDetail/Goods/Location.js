@@ -3,11 +3,28 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-//loaction은 따로 해주세요.
+//location은 따로 해주세요.
 
 export class Location extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: {},
+    };
+  }
+
+  componentDidMount() {
+    fetch(`http://10.58.3.65:8000/navigator/`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          nav: res,
+        });
+      });
+  }
+
   render() {
-    const { product } = this.props;
+    const { nav } = this.state;
     return (
       <div className="location">
         <h6>홈</h6>
@@ -16,18 +33,16 @@ export class Location extends React.Component {
           <option>러쉬</option>
         </select>
         <p>&gt;</p>
-        {
-          <select>
-            {' '}
-            {/* <option>{product.categories && product.categories[0]}</option> */}
-          </select>
-        }
+        <select>
+          {' '}
+          {/* <option>{nav.navigators && nav.navigators[0].name}</option> */}
+        </select>
         <p>&gt;</p>
         {
           <select>
             {' '}
-            {/* <{product.subcategories &&
-              product.subcategories.map((e, i) => {
+            {/* <{navigators.subcategories &&
+              navigators.subcategories.map((e, i) => {
                 return <option>{e.name}</option>;
               })} */}
           </select>

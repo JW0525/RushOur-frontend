@@ -12,10 +12,14 @@ export class GoodsAmount extends React.Component {
           <p>총제품금액</p>
           <h6>
             ₩{' '}
-            {(
-              (product.options && product.options[0].price) * countS +
-              (product.options && product.options[1].price) * countL
-            ).toLocaleString()}
+            {product.options && product.options[1]
+              ? (
+                  (product.options && product.options[0].price) * countS +
+                  (product.options && product.options[1].price) * countL
+                ).toLocaleString()
+              : (
+                  (product.options && product.options[0].price) * countS
+                ).toLocaleString()}
           </h6>
         </div>
       </div>

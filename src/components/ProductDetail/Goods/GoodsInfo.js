@@ -85,32 +85,42 @@ export class GoodsInfo extends React.Component {
       <div className="goodsInfo">
         <GoodsHeader product={product} />
         <GoodsItem product={product} />
-        <GoodsChoice
-          product={product}
-          optionChangeS={this.optionChangeS}
-          optionChangeL={this.optionChangeL}
-        />
-        {optionValueOne && (
+        {product.options && product.options[1] ? (
+          <GoodsChoice
+            product={product}
+            optionChangeS={this.optionChangeS}
+            optionChangeL={this.optionChangeL}
+          />
+        ) : (
           <>
             <GoodsPurchase
               count={countS}
               plusClick={this.plusClickS}
               minusClick={this.minusClickS}
               deleteBtn={this.deleteBtnS}
-              option={product.options[0]}
+              option={product.options && product.options[0]}
             />
+            <GoodsAmount product={product} countS={countS} />
           </>
         )}
+
+        {optionValueOne && (
+          <GoodsPurchase
+            count={countS}
+            plusClick={this.plusClickS}
+            minusClick={this.minusClickS}
+            deleteBtn={this.deleteBtnS}
+            option={product.options[0]}
+          />
+        )}
         {optionValueTwo && (
-          <>
-            <GoodsPurchase
-              count={countL}
-              plusClick={this.plusClickL}
-              minusClick={this.minusClickL}
-              deleteBtn={this.deleteBtnL}
-              option={product.options[1]}
-            />
-          </>
+          <GoodsPurchase
+            count={countL}
+            plusClick={this.plusClickL}
+            minusClick={this.minusClickL}
+            deleteBtn={this.deleteBtnL}
+            option={product.options[1]}
+          />
         )}
 
         {optionValueOne || optionValueTwo ? (

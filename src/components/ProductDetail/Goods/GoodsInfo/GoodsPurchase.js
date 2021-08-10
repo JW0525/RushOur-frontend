@@ -4,6 +4,12 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 export class GoodsPurchase extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      option: 0,
+    };
+  }
   render() {
     let { minusClick, plusClick, count, option, deleteBtn } = this.props;
     return (
@@ -21,8 +27,8 @@ export class GoodsPurchase extends React.Component {
         </div>
         <div className="priceAmount">
           <p>
-            {option.size}g / ₩&nbsp;
-            {(option.price || '')
+            {option && option.size}g / ₩&nbsp;
+            {((option && option.price) || '')
               .split('.', 1)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
