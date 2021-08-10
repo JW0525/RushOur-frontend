@@ -55,9 +55,9 @@ export class Nav extends Component {
           <li>이벤트</li>
         </ul>
         <div className="navIcon">
-          <i class="fas fa-search"></i>
-          <i class="fas fa-shopping-bag"></i>
-          <i class="fas fa-user-circle"></i>
+          <i className="fas fa-search"></i>
+          <i className="fas fa-shopping-bag"></i>
+          <i className="fas fa-user-circle"></i>
         </div>
       </div>
     );
