@@ -15,20 +15,9 @@ export class GoodsInfo extends React.Component {
     this.state = {
       countS: 0,
       countL: 0,
-      product: {},
       optionValueOne: false,
       optionValueTwo: false,
     };
-  }
-
-  componentDidMount() {
-    fetch('/data/productDetail/product.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          product: data.sub_categories[0],
-        });
-      });
   }
 
   plusClickS = () => {
@@ -90,8 +79,8 @@ export class GoodsInfo extends React.Component {
   };
 
   render() {
-    let { product, countS, countL, optionValueOne, optionValueTwo } =
-      this.state;
+    const { countS, countL, optionValueOne, optionValueTwo } = this.state;
+    const { product } = this.props;
     return (
       <div className="goodsInfo">
         <GoodsHeader product={product} />

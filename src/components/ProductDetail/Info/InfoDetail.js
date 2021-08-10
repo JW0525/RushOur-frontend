@@ -20,7 +20,7 @@ export class InfoDetail extends React.Component {
         </div>
         <img
           className="imageDetail"
-          src="../../../images/ProductDetail/0803150742800428 (1).jpg"
+          src="/images/ProductDetail/0803150742800428 (1).jpg"
         />
       </div>
     );

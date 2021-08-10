@@ -8,6 +8,9 @@ import { InfoDelivery } from './Info/InfoDelivery';
 export class Info extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      product: {},
+    };
     this.tapDetail = React.createRef();
     this.tapDelivery = React.createRef();
   }
@@ -27,7 +30,8 @@ export class Info extends React.Component {
     });
 
   render() {
-    let { tapDetail, tapDelivery, moveDetail, moveDelivery } = this;
+    const { tapDetail, tapDelivery, moveDetail, moveDelivery } = this;
+    const { product } = this.props;
     return (
       <div className="info">
         <InfoDetail
@@ -35,12 +39,14 @@ export class Info extends React.Component {
           tapDelivery={tapDelivery}
           moveDetail={moveDetail}
           moveDelivery={moveDelivery}
+          product={product}
         />
         <InfoDelivery
           tapDetail={tapDetail}
           tapDelivery={tapDelivery}
           moveDetail={moveDetail}
           moveDelivery={moveDelivery}
+          product={product}
         />
       </div>
     );
