@@ -1,0 +1,40 @@
+{
+  "subcategories": [
+    {
+      "id": 1,
+      "name": "클렌져",
+      "image_url": "https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/cleanser.jpg?raw=true",
+      "description": "당신에게 꼭 맞는 향기와 깨끗함만 남겨 드릴게요."
+    },
+    {
+      "id": 2,
+      "name": "로션",
+      "image_url": "https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/lotion.jpg?raw=true",
+      "description": "마음을 담아 원재료부터 정성스레 담았어요"
+    },
+    {
+      "id": 3,
+      "name": "더스팅 파우더",
+      "image_url": "https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/dustingPowder.jpg?raw=true",
+      "description": "피부 속 촉촉함을 보송하게 지켜주는 마법"
+    },
+    {
+      "id": 4,
+      "name": "핸드 앤 풋",
+      "image_url": "https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/handAndFoot.jpg?raw=true",
+      "description": "나의 일상을 보살펴 주는 손과 발에게 고마움을 표현해 보세요"
+    },
+    {
+      "id": 5,
+      "name": "마사지 바",
+      "image_url": "https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/Sopa.png?raw=true",
+      "description": "오늘도 수고한 나의 근육을 어루만져 주세요"
+    },
+    {
+      "id": 6,
+      "name": "쉐이빙 크림",
+      "image_url": "https://github.com/tec-motive/tec-motive.github.io/blob/master/_posts/rushOutImg/shavingCream.jpg?raw=true",
+      "description": "부드러운 면도로 말끔한 하루를 시작하세요"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ class Product extends Component {
             })}
         </div>
         <p className="name">{name}</p>
-        <p className="price">{Math.floor(price).toLocaleString('ko-KR')}₩</p>
+        <p className="price">₩{Math.floor(price).toLocaleString('ko-KR')}</p>
       </div>
     );
   }

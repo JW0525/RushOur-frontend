@@ -1,15 +1,45 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ListContents.scss';
 
 export class ListContents extends Component {
   render() {
-    const { main, subData } = this.props;
+    const { navigatorInfo, categoryHandler } = this.props;
+
     return (
       <div className="listContents">
-        <h2>{main}</h2>
+        <Link to={`/list/category=${navigatorInfo.category_id}/subcateogry=0`}>
+          <h3
+            onClick={() => {
+              categoryHandler(navigatorInfo.category_id, 0, navigatorInfo);
+            }}
+          >
+            {navigatorInfo.name}
+          </h3>
+        </Link>
         <ul>
-          {subData.map((data, i) => {
-            return <li key={i}>{data.name}</li>;
+          {navigatorInfo.subcategories.map((data, i) => {
+            return (
+              <Link
+                to={`/list/category=${navigatorInfo.category_id}/subcateogry=${data.subcategory_id}`}
+                key={i}
+              >
+                <li
+                  className="categoryList"
+                  key={i}
+                  subCategoryId={data.subcategory_id}
+                  onClick={() => {
+                    categoryHandler(
+                      navigatorInfo.category_id,
+                      data.subcategory_id,
+                      navigatorInfo
+                    );
+                  }}
+                >
+                  {data.name}
+                </li>
+              </Link>
+            );
           })}
         </ul>
       </div>
