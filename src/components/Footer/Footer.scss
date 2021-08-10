@@ -3,19 +3,23 @@
   height: 530px;
   background-color: black;
   margin-top: 60px;
+
   .footerIconBox {
     width: 100%;
     height: 150px;
     background-color: #f2f2f2;
+
     .footerInline {
       display: flex;
       justify-content: center;
       padding: 15px 0;
+
       .footerIcon {
         width: 160px;
         height: 120px;
         margin: 0 30px 0 30px;
         background-color: red;
+
         img {
           width: 160px;
           height: 120px;
@@ -23,6 +27,7 @@
       }
     }
   }
+
   .footerInner {
     width: 1000px;
     margin: 0 auto;
@@ -41,27 +46,34 @@
         h1 {
           padding-bottom: 50px;
         }
+
         p {
           font-size: 14px;
           font-weight: 300;
+
           span {
             font-size: 16px;
             font-weight: 500;
           }
         }
+
         .comInfo {
           margin-top: 30px;
         }
       }
     }
+
     .footerSideInfoR {
       display: inline-block;
       float: right;
       width: 720px;
+
       .footerMenu {
         padding-top: 50px;
+
         .footerlist {
           display: flex;
+
           .footerMenuName {
             a {
               margin-right: 50px;
@@ -69,24 +81,29 @@
               color: #fff;
               text-decoration: none;
             }
+
             .MenuNameColor {
               color: #fbe85e;
             }
           }
         }
       }
+
       .footerEmail {
         padding-top: 60px;
         display: flex;
+
         .footerSearch {
           width: 400px;
           height: 45px;
           border: none;
+
           &::placeholder {
             padding-left: 10px;
             color: #ccc;
           }
         }
+
         .footerButton {
           width: 100px;
           background-color: black;
@@ -94,8 +111,10 @@
           color: #fff;
         }
       }
+
       .footerCopyright {
         padding-top: 50px;
+
         p {
           color: #9b9b9b;
           font-size: 14px;

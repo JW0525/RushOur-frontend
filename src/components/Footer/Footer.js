@@ -1,4 +1,4 @@
-import React, { Component, L } from 'react';
+import React, { Component, Link } from 'react';
 import './Footer.scss';
 
 class Footer extends Component {
@@ -25,16 +25,16 @@ class Footer extends Component {
                 <img src="/images/crystal.png" />
               </li>
               <li className="footerIcon">
-                <img src="/images/crystal.png" />
+                <img src="/images/sign2.png" />
               </li>
               <li className="footerIcon">
-                <img src="/images/crystal.png" />
+                <img src="/images/logo2.png" />
               </li>
               <li className="footerIcon">
-                <img src="/images/crystal.png" />
+                <img src="/images/sign4.png" />
               </li>
               <li className="footerIcon">
-                <img src="/images/crystal.png" />
+                <img src="/images/sign5.png" />
               </li>
               <li className="footerIcon">
                 <img src="/images/crystal.png" />
@@ -65,24 +65,42 @@ class Footer extends Component {
               <div className="footerSideInfoR">
                 <div className="footerMenu">
                   <ul className="footerlist">
-                    <li className="footerMenuName">
+                    <li
+                      className="footerMenuName"
+                      onClick={this.emailSubscribe}
+                    >
                       <a href="#">스카우트</a>
                     </li>
-                    <li className="footerMenuName">
+                    <li
+                      className="footerMenuName"
+                      onClick={this.emailSubscribe}
+                    >
                       <a href="#">회사소개</a>
                     </li>
-                    <li className="footerMenuName">
+                    <li
+                      className="footerMenuName"
+                      onClick={this.emailSubscribe}
+                    >
                       <a href="#" className="MenuNameColor">
                         개인정보처리방침
                       </a>
                     </li>
-                    <li className="footerMenuName">
+                    <li
+                      className="footerMenuName"
+                      onClick={this.emailSubscribe}
+                    >
                       <a href="#">영상정보관리지침</a>
                     </li>
-                    <li className="footerMenuName">
+                    <li
+                      className="footerMenuName"
+                      onClick={this.emailSubscribe}
+                    >
                       <a href="#">이용약관</a>
                     </li>
-                    <li className="footerMenuName">
+                    <li
+                      className="footerMenuName"
+                      onClick={this.emailSubscribe}
+                    >
                       <a href="#">고객센터</a>
                     </li>
                   </ul>

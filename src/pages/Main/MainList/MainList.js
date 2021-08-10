@@ -11,13 +11,14 @@ class MainList extends Component {
     };
   }
   componentDidMount() {
-    fetch('/data/MainListData.json')
+    fetch('http://10.58.3.65:8000/products?tag=new&limit=8&offset=0')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          listArr: data,
+          listArr: data.products,
         });
+        console.log('data:', data);
         // console.log('api data', data);
       });
   }
@@ -34,16 +35,11 @@ class MainList extends Component {
     let currentSlider = listSlider;
     currentSlider = currentSlider + listSlider;
 
-    console.log('버튼 누르기전', currentSlider);
-    console.log('arr', listArr.length / 4);
-    console.log('arr2', -100 * (listArr.length / 4));
-
     if (currentSlider <= -100 * (listArr.length / 4)) {
       currentSlider = -100;
     } else {
       currentSlider = listSlider + -100;
     }
-    console.log('버튼 누른후', currentSlider);
 
     this.setState({
       listSlider: currentSlider,
@@ -52,7 +48,7 @@ class MainList extends Component {
 
   render() {
     const { listArr, listSlider } = this.state;
-    console.log('현재 슬라이더 리스트', listSlider);
+
     return (
       <section className="mainContents01">
         <div className="mainList">

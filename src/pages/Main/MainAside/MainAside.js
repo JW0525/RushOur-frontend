@@ -10,15 +10,15 @@ class MainAside extends Component {
     };
   }
   componentDidMount() {
-    fetch('/data/MainAsideData.json')
+    fetch('http://10.58.3.65:8000/banners')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          listArr: data,
+          listArr: data.Banners,
         });
-        // console.log('api data', data);
-        setInterval(this.slideRight, 5000);
+        console.log('data', data);
+        // setInterval(this.slideRight, 5000);
       });
   }
 
@@ -48,13 +48,9 @@ class MainAside extends Component {
             style={{ transform: `translateX(${listSlider}%)` }}
           >
             {listArr &&
-              listArr.map((sliderElement, i) => {
+              listArr.map((sliderEl, i) => {
                 return (
-                  <img
-                    alt={sliderElement.alt}
-                    src={sliderElement.src}
-                    key={i}
-                  />
+                  <img alt={sliderEl.alt} src={sliderEl.image_url} key={i} />
                 );
               })}
           </ul>

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import Cart from './pages/Cart/Cart';
 import Main from './pages/Main/Main';
+
 import ProductList from './pages/ProductList/ProductList';
 
 class Routes extends Component {
@@ -12,6 +14,7 @@ class Routes extends Component {
         <Nav />
         <Switch>
           <Route exact path="/main" component={Main} />
+          <Route exact path="/cart" component={Cart} />
           <Route exact path="/list" component={ProductList} />
         </Switch>
         <Footer />

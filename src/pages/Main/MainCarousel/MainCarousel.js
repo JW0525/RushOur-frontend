@@ -11,12 +11,13 @@ class MainCarousel extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/visualData.json')
+    fetch('http://10.58.1.98:8000/subcategory')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          sliderArr: data,
+          sliderArr: data.subcategories,
         });
+        console.log(data);
       });
     setInterval(this.slideRight, 4000);
   }
@@ -40,6 +41,7 @@ class MainCarousel extends Component {
   };
 
   render() {
+    console.log(this.state.sliderArr);
     const { sliderPosition, sliderArr } = this.state;
 
     return (
@@ -54,7 +56,7 @@ class MainCarousel extends Component {
                 return (
                   <img
                     alt={sliderElement.alt}
-                    src={sliderElement.src}
+                    src={sliderElement.image_url}
                     key={i}
                   />
                 );
