@@ -7,35 +7,38 @@ class CartListSection extends React.Component {
     };
   }
   render() {
-    const { name, price, discount, image } = this.props.cartData;
+    const { name, price, image } = this.props.cartData;
     return (
       <section className="cartListSetion">
         <div className="cartList">
           <div className="cartListTableTitleBox">
-            <p className="cartListTableTitle"> 일반상품 (개수)</p>
+            <p className="cartListTableTitle"> 제품</p>
           </div>
           <table className="cartListTable">
             <thead className="cartListTableIndex">
               <tr>
-                <th> 이미지 </th>
-                <th> 상품정보 </th>
-                <th> 판매가 </th>
+                <th className="checkBoxWrap">
+                  <input type="checkbox" className="checkBox" />
+                </th>
+                <th className="productInfo"> 제품정보 </th>
                 <th> 수량 </th>
+                <th> 금액 </th>
+                <th> 합계금액 </th>
                 <th> 배송비 </th>
-                <th> 합계 </th>
-                <th> 선택 </th>
               </tr>
             </thead>
             <tbody className="cartListTableBody">
               <tr>
                 <td>
-                  <img className="cartImage" alt={name} src={image} />
+                  <input type="checkbox" className="checkBoxBody"></input>
                 </td>
-                <td className="productInfo">{name}</td>
                 <td>
-                  <p className="realPrice"> {price}원 </p>
-                  <p> {discount}원 </p>
+                  <div className="productThumb">
+                    <img className="cartImage" alt={name} src={image} />
+                    <p className="productInfo">{name}</p>
+                  </div>
                 </td>
+
                 <td>
                   <div className="quantityTable">
                     <input
@@ -63,28 +66,16 @@ class CartListSection extends React.Component {
                     </div>
                   </div>
                 </td>
-                <td> 무료(조건 필수)</td>
-                <td> 16,200원</td>
+                <td>
+                  <p> ₩{price}원 </p>
+                </td>
+                <td> ₩16,200원</td>
                 <td className="selecteMenu">
-                  <p>
-                    <button className="cartOrder">주문하기</button>
-                  </p>
-                  <p>
-                    <button className="cartDelete">x 삭제</button>
-                  </p>
+                  <p> ₩2500원 (택배)</p>
                 </td>
               </tr>
             </tbody>
           </table>
-          <div className="CartFooter">
-            <span className="deliveryDes">
-              [기본배송/총 상품 금액 30,000원 이상 구매 시 무료배송]
-            </span>
-            <span className="totalDes">
-              상품구매금액 00원 + 배송비 0원(무료/유료)-상품할인금액 00원 =
-              합계: 00000원
-            </span>
-          </div>
         </div>
       </section>
     );

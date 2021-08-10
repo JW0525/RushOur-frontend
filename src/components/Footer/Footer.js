@@ -22,13 +22,13 @@ class Footer extends Component {
           <div className="footerIconBox">
             <ul className="footerInline">
               <li className="footerIcon">
-                <img src="/images/crystal.png" />
+                <img src="/images/sign1.png" />
               </li>
               <li className="footerIcon">
                 <img src="/images/sign2.png" />
               </li>
               <li className="footerIcon">
-                <img src="/images/logo2.png" />
+                <img src="/images/sign3.png" />
               </li>
               <li className="footerIcon">
                 <img src="/images/sign4.png" />
@@ -37,7 +37,7 @@ class Footer extends Component {
                 <img src="/images/sign5.png" />
               </li>
               <li className="footerIcon">
-                <img src="/images/crystal.png" />
+                <img src="/images/sign6.png" />
               </li>
             </ul>
           </div>
