@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Label from './Label';
 import './Product.scss';
 
-export class Product extends Component {
+class Product extends Component {
   render() {
     const { img, name, price, tag } = this.props;
     return (

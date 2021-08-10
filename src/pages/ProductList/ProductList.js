@@ -3,7 +3,7 @@ import ListMenu from './ListMenu/ListMenu';
 import ListHeader from './ListHeader/ListHeader';
 import Product from './Product/Product';
 import './ProductList.scss';
-import { API } from '../../config';
+// import { API } from '../../config';
 
 class ProductList extends Component {
   constructor() {
@@ -15,7 +15,8 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch(`${API.PRODUCTLIST}`)
+    fetch('/data/productList.json')
+      // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
