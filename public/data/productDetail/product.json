@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": 1,
+    "name": "아워 오션 솔트 셀프 프리저빙 120g/250g",
+    "thumbnail": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product01.png",
+    "options": [
+      {
+        "size": 120,
+        "price": "27000.00"
+      },
+      {
+        "size": 250,
+        "price": "54000.00"
+      }
+    ],
+    "tags": ["vegan"],
+    "detail_img": ["https://i.imgur.com/hANM7OQ.jpeg"]
+  }
+}
