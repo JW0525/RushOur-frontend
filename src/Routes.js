@@ -15,21 +15,13 @@ class Routes extends Component {
   }
 
   categoryHandler = (_categoryId, _subCategoryId) => {
-    if (_subCategoryId) {
-      this.setState({
-        categoryId: _categoryId,
-        subCategoryId: _subCategoryId,
-      });
-    } else {
-      this.setState({
-        categoryId: _categoryId,
-        subCategoryId: 1,
-      });
-    }
+    this.setState({
+      categoryId: _categoryId,
+      subCategoryId: _subCategoryId,
+    });
   };
 
   render() {
-    console.log('router this.state:', this.state);
     const { categoryHandler } = this;
     const { categoryId, subCategoryId } = this.state;
 
@@ -44,7 +36,7 @@ class Routes extends Component {
           <Route exact path="/main" component={Main} />
           <Route
             exact
-            path="/list"
+            path="/list/category=:categoryId/subcateogry=:subcategoryId"
             render={() => (
               <ProductList
                 categoryHandler={categoryHandler}

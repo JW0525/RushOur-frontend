@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListContents from './component/ListContents';
+import { API } from '../../config';
 import './Nav.scss';
 
 export class Nav extends Component {
@@ -12,11 +13,11 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/menuList.json')
+    fetch(API.NAVIGATOR)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          listItem: data.categories,
+          listItem: data.navigators,
         });
       });
   }
@@ -32,17 +33,19 @@ export class Nav extends Component {
             제품
             <div className="navList">
               <div class="dropdown-content">
-                {listItem.map((category, i) => {
-                  return (
-                    <ListContents
-                      key={i}
-                      firstCategoryId={category.category_id}
-                      main={category.name}
-                      subCategoryData={category.sub_categories}
-                      categoryHandler={categoryHandler}
-                    />
-                  );
-                })}
+                {listItem &&
+                  listItem.map((category, i) => {
+                    return (
+                      <ListContents
+                        key={i}
+                        navigatorInfo={category}
+                        firstCategoryId={category.category_id}
+                        main={category.name}
+                        subCategoryData={category.subcategories}
+                        categoryHandler={categoryHandler}
+                      />
+                    );
+                  })}
               </div>
             </div>
           </li>

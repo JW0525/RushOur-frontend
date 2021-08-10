@@ -6,34 +6,50 @@ export class ListHeader extends Component {
   constructor() {
     super();
     this.state = {
-      headerInfo: [],
+      headerInfo: {},
     };
   }
 
-  componentDidUpdate(prevProps) {
-    console.log('fetch!');
-    const { subCategoryId, categoryId } = this.props;
-    const isCategoryOrSub = subCategoryId ? 'subcategory' : 'category';
-    const urlChecker = subCategoryId
-      ? `${API.SUBCATEGORY}/${subCategoryId}`
+  listHeaderFetch = prevProps => {
+    const { subcategoryId, categoryId } = this.props.idInfo;
+    const isCategoryOrSub = Number(subcategoryId) ? 'subcategory' : 'category';
+    const urlChecker = Number(subcategoryId)
+      ? `${API.SUBCATEGORY}/${subcategoryId}`
       : `${API.CATEGORY}/${categoryId}`;
 
-    if (this.props !== prevProps) {
+    if (prevProps) {
+      if (this.props !== prevProps) {
+        fetch(urlChecker)
+          .then(res => res.json())
+          .then(data => {
+            this.setState({
+              headerInfo: data[isCategoryOrSub],
+            });
+          });
+      }
+    } else {
       fetch(urlChecker)
         .then(res => res.json())
         .then(data => {
           this.setState({
             headerInfo: data[isCategoryOrSub],
           });
-          console.log('data', data[isCategoryOrSub]);
         });
     }
+  };
+
+  //처음 렌더링될 때 데이터 받아옴
+  componentDidMount() {
+    this.listHeaderFetch();
+  }
+
+  //업데이트 시 렌더링될 때 데이터 받아옴
+  componentDidUpdate(prevProps) {
+    this.listHeaderFetch(prevProps);
   }
 
   render() {
     const { headerInfo } = this.state;
-    console.log('headerInfo:', headerInfo);
-
     return (
       <div className="listHeader">
         <div

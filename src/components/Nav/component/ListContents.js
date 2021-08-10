@@ -4,29 +4,36 @@ import './ListContents.scss';
 
 export class ListContents extends Component {
   render() {
-    const { main, subCategoryData, firstCategoryId, categoryHandler } =
-      this.props;
+    const { navigatorInfo, categoryHandler } = this.props;
+
     return (
       <div className="listContents">
-        <Link to="/list">
+        <Link to={`/list/category=${navigatorInfo.category_id}/subcateogry=0`}>
           <h3
             onClick={() => {
-              categoryHandler(firstCategoryId, 0);
+              categoryHandler(navigatorInfo.category_id, 0, navigatorInfo);
             }}
           >
-            {main}
+            {navigatorInfo.name}
           </h3>
         </Link>
         <ul>
-          {subCategoryData.map((data, i) => {
+          {navigatorInfo.subcategories.map((data, i) => {
             return (
-              <Link to="/list">
+              <Link
+                to={`/list/category=${navigatorInfo.category_id}/subcateogry=${data.subcategory_id}`}
+                key={i}
+              >
                 <li
                   className="categoryList"
                   key={i}
-                  subCategoryId={data.sub_category_id}
+                  subCategoryId={data.subcategory_id}
                   onClick={() => {
-                    categoryHandler(firstCategoryId, data.sub_category_id);
+                    categoryHandler(
+                      navigatorInfo.category_id,
+                      data.subcategory_id,
+                      navigatorInfo
+                    );
                   }}
                 >
                   {data.name}
