@@ -9,7 +9,7 @@ export class Location extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {},
+      nav: {},
     };
   }
 
@@ -35,14 +35,14 @@ export class Location extends React.Component {
         <p>&gt;</p>
         <select>
           {' '}
-          {/* <option>{nav.navigators && nav.navigators[0].name}</option> */}
+          <option>{nav.navigators && nav.navigators[0].name}</option>
         </select>
         <p>&gt;</p>
         {
           <select>
             {' '}
-            {/* <{navigators.subcategories &&
-              navigators.subcategories.map((e, i) => {
+            {/* {nav.navigators.subcategories &&
+              nav.navigators.subcategories.map((e, i) => {
                 return <option>{e.name}</option>;
               })} */}
           </select>
