@@ -3,7 +3,7 @@ import ListMenu from './ListMenu/ListMenu';
 import ListHeader from './ListHeader/ListHeader';
 import Product from './Product/Product';
 import './ProductList.scss';
-import { API } from '../../config';
+// import { API } from '../../config';
 
 class ProductList extends Component {
   constructor() {
