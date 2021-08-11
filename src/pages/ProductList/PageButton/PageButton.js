@@ -6,7 +6,7 @@ export class PageButton extends Component {
   constructor() {
     super();
     this.state = {
-      navInfo: [],
+      navInfo: 0,
       location: [],
     };
   }
@@ -25,18 +25,31 @@ export class PageButton extends Component {
   }
 
   render() {
+    const { pageHandler } = this.props;
     const { categoryId, subcategoryId } = this.props.idInfo;
     const { navInfo } = this.state;
     let arrNum;
-    (arrNum = []).length = Math.ceil(this.props.productInfo.length / 16);
-    arrNum.fill(0);
+    if (navInfo && !Number(subcategoryId)) {
+      (arrNum = []).length = Math.ceil(navInfo.products_count / 16);
+      arrNum.fill(0);
+    } else if (navInfo) {
+      (arrNum = []).length = Math.ceil(
+        navInfo.subcategories[Number(subcategoryId) - 1].products_count / 16
+      );
+      arrNum.fill(0);
+    }
+
     console.log(arrNum);
 
     return (
       <div className="pageButton">
         {arrNum &&
           arrNum.map((arr, i) => {
-            return <button key={i}>{i + 1}</button>;
+            return (
+              <button key={i} onClick={() => pageHandler(16, i * 16)}>
+                {i + 1}
+              </button>
+            );
           })}
       </div>
     );

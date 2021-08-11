@@ -14,7 +14,8 @@ class ProductList extends Component {
       productInfo: [],
       categoryInfo: [],
       priceSort: '',
-      nowPage: 1,
+      offset: 0,
+      limit: 16,
     };
   }
 
@@ -25,10 +26,10 @@ class ProductList extends Component {
           API.PRODUCTLIST
         }?category=${categoryId}&subcategory=${subcategoryId}&sort=${
           this.state.priceSort && this.state.priceSort
-        }`
+        }&limit=16`
       : `${API.PRODUCTLIST}?sort=${
           this.state.priceSort && this.state.priceSort
-        }`;
+        }&limit=16`;
 
     if (prevProps) {
       if (
@@ -68,8 +69,15 @@ class ProductList extends Component {
     });
   };
 
+  pageHandler = (limit, offset) => {
+    console.log(limit, offset);
+    this.setState({
+      offset: offset,
+    });
+  };
+
   render() {
-    const { priceSorter } = this;
+    const { priceSorter, pageHandler } = this;
     const { productInfo } = this.state;
     const { params } = this.props.match;
 
@@ -92,7 +100,11 @@ class ProductList extends Component {
               );
             })}
         </div>
-        <PageButton idInfo={params} productInfo={productInfo} />
+        <PageButton
+          idInfo={params}
+          productInfo={productInfo}
+          pageHandler={pageHandler}
+        />
       </div>
     );
   }
