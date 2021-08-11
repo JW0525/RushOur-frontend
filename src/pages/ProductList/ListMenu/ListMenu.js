@@ -9,7 +9,6 @@ export class ListMenu extends Component {
     super();
     this.state = {
       islistButtonOn: false,
-
       menuInfo: [],
     };
   }

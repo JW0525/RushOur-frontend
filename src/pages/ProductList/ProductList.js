@@ -3,6 +3,7 @@ import ListMenu from './ListMenu/ListMenu';
 import ListHeader from './ListHeader/ListHeader';
 import Product from './Product/Product';
 import { withRouter } from 'react-router-dom';
+import PageButton from './PageButton/PageButton';
 import { API } from '../../config';
 import './ProductList.scss';
 
@@ -13,6 +14,7 @@ class ProductList extends Component {
       productInfo: [],
       categoryInfo: [],
       priceSort: '',
+      nowPage: 1,
     };
   }
 
@@ -67,10 +69,8 @@ class ProductList extends Component {
   };
 
   render() {
-    console.log('price:', this.state.priceSort);
     const { priceSorter } = this;
     const { productInfo } = this.state;
-    const { categoryHandler } = this.props;
     const { params } = this.props.match;
 
     return (
@@ -92,6 +92,7 @@ class ProductList extends Component {
               );
             })}
         </div>
+        <PageButton idInfo={params} productInfo={productInfo} />
       </div>
     );
   }

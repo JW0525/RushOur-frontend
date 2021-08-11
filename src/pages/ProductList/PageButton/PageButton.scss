@@ -1,0 +1,20 @@
+.pageButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    padding: 10px 15px;
+    margin: 50px 5px;
+    border: 1px solid #d7d7d7;
+    color: #828282;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s ease all;
+
+    &:hover {
+      background-color: #828282;
+      color: white;
+    }
+  }
+}

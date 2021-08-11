@@ -8,7 +8,7 @@ export class ListContents extends Component {
 
     return (
       <div className="listContents">
-        <Link to={`/list/category=${navigatorInfo.category_id}/subcateogry=0`}>
+        <Link to={`/list/category=${navigatorInfo.category_id}/subcategory=0`}>
           <h3
             onClick={() => {
               categoryHandler(navigatorInfo.category_id, 0, navigatorInfo);
