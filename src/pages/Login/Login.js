@@ -10,7 +10,6 @@ class Login extends Component {
     };
   }
 
-  //인풋 핸들링
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -30,12 +29,11 @@ class Login extends Component {
           localStorage.setItem('token', response.token);
           this.props.history.push('/main');
         } else {
-          alert('아디 비번 다시!!');
+          alert('아이디와 비밀번호를 다시 확인해주세요.');
         }
       });
   };
 
-  //회원가입으로 이동
   goToSignUp = () => {
     this.props.history.push('/SignUp');
   };
@@ -63,9 +61,9 @@ class Login extends Component {
               />
             </form>
             <div class="loginSave">
-              <label for="saveId">
-                <input type="checkbox" class="loginSaveCheckbox" />
-                아이디 저장
+              <input type="checkbox" id="checkbox" name="checkbox" />
+              <label for="checkbox">
+                <p>아이디저장</p>
               </label>
             </div>
             <button class="loginBtn" onClick={this.handleLogin}>

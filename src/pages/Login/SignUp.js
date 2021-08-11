@@ -143,9 +143,9 @@ class SignUp extends Component {
                   </select>
                 </td>
                 <div class="agreementCheck">
-                  <input class="checkBox" type="checkbox" />
-                  <label for="checkbox">
-                    정보/이벤트 메일 수신에 동의합니다.
+                  <input class="checkbox" type="checkbox" id="checkboxEmail" />
+                  <label for="checkboxEmail">
+                    <p>정보/이벤트 메일 수신에 동의합니다.</p>
                   </label>
                 </div>
               </tr>
@@ -163,9 +163,9 @@ class SignUp extends Component {
                   />
                 </td>
                 <div class="agreementCheck">
-                  <input class="checkBox" type="checkbox" />
-                  <label for="checkbox">
-                    정보/이벤트 SMS 수신에 동의합니다.
+                  <input type="checkbox" id="checkboxSns" name="checkbox" />
+                  <label for="checkboxSns">
+                    <p>정보/이벤트 SNS 수신에 동의합니다.</p>
                   </label>
                 </div>
               </tr>

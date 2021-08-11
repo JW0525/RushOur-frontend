@@ -1,0 +1,32 @@
+.mainContents04 {
+  height: 600px;
+
+  .mainLeftText {
+    width: 100%;
+    height: 600px;
+    position: relative;
+
+    .mainText {
+      padding: 200px 0px 0px 200px;
+
+      h2 {
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 50px;
+      }
+      p {
+        padding-top: 20px;
+        font-size: 16px;
+        line-height: 20px;
+        color: #2c2c2c;
+      }
+    }
+    img {
+      position: absolute;
+      top: 50px;
+      right: 150px;
+      width: 380px;
+      height: 500px;
+    }
+  }
+}

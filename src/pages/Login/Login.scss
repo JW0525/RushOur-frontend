@@ -54,16 +54,29 @@
     }
     .loginSave {
       display: flex;
-      .loginSaveCheckbox {
-        margin-top: 20px;
+      input[id='checkbox'] {
+        display: none;
       }
       label {
-        margin-left: 8px;
+        display: flex;
+        align-items: center;
         cursor: pointer;
-        display: inline-block;
         font-size: 14px;
         height: 20px;
         color: #8f8f8f;
+        p {
+          margin-left: 30px;
+        }
+      }
+      input[id='checkbox'] + label {
+        margin-top: 20px;
+        height: 20px;
+        background: url(https://lush.co.kr/data/skin/front/howling/img/etc/check-off.png)
+          0 0 no-repeat;
+      }
+      input[id='checkbox']:checked + label {
+        background: url(https://lush.co.kr/data/skin/front/howling/img/etc/check-on.png)
+          0 0 no-repeat;
       }
     }
 
@@ -71,7 +84,7 @@
       width: 335px;
       height: 50px;
       background-color: black;
-      margin-top: 40px;
+      margin-top: 20px;
       color: white;
       text-align: center;
       span {

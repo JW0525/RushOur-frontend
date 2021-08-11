@@ -96,23 +96,50 @@
             background-color: white;
             border: 1px solid black;
           }
+          .agreementCheck {
+            padding-left: 20px;
+          }
+          input[type='checkbox'] {
+            display: none;
+          }
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            height: 20px;
+            color: #8f8f8f;
+            p {
+              margin-left: 30px;
+            }
+          }
+          input[type='checkbox'] + label {
+            height: 20px;
+            background: url(https://lush.co.kr/data/skin/front/howling/img/etc/check-off.png)
+              0 0 no-repeat;
+          }
+          input[type='checkbox']:checked + label {
+            background: url(https://lush.co.kr/data/skin/front/howling/img/etc/check-on.png)
+              0 0 no-repeat;
+          }
         }
       }
-    }
-    .signUpBtn {
-      display: block;
-      margin: auto;
-      width: 280px;
-      height: 63px;
-      background-color: black;
-      margin-top: 40px;
-      color: white;
-      text-align: center;
-      span {
-        font-size: 16px;
-        font-weight: bolder;
+
+      .signUpBtn {
+        display: block;
+        margin: auto;
+        width: 280px;
+        height: 63px;
+        background-color: black;
+        margin-top: 40px;
+        color: white;
+        text-align: center;
+        span {
+          font-size: 16px;
+          font-weight: bolder;
+        }
+        cursor: pointer;
       }
-      cursor: pointer;
     }
   }
 }
