@@ -12,16 +12,27 @@ class ProductList extends Component {
     this.state = {
       productInfo: [],
       categoryInfo: [],
+      priceSort: '',
     };
   }
 
-  productListFetch = prevProps => {
+  productListFetch = (prevProps, prevState) => {
     const { subcategoryId, categoryId } = this.props.match.params;
     const urlChecker = Number(subcategoryId)
-      ? `${API.PRODUCTLIST}?category=${categoryId}&subcategory=${subcategoryId}`
-      : API.PRODUCTLIST;
+      ? `${
+          API.PRODUCTLIST
+        }?category=${categoryId}&subcategory=${subcategoryId}&sort=${
+          this.state.priceSort && this.state.priceSort
+        }`
+      : `${API.PRODUCTLIST}?sort=${
+          this.state.priceSort && this.state.priceSort
+        }`;
+
     if (prevProps) {
-      if (this.props !== prevProps) {
+      if (
+        this.props !== prevProps ||
+        this.state.priceSort !== prevState.priceSort
+      ) {
         fetch(urlChecker)
           .then(res => res.json())
           .then(data => {
@@ -45,11 +56,19 @@ class ProductList extends Component {
     this.productListFetch();
   }
 
-  componentDidUpdate(prevProps) {
-    this.productListFetch(prevProps);
+  componentDidUpdate(prevProps, prevState) {
+    this.productListFetch(prevProps, prevState);
   }
 
+  priceSorter = price => {
+    this.setState({
+      priceSort: price,
+    });
+  };
+
   render() {
+    console.log('price:', this.state.priceSort);
+    const { priceSorter } = this;
     const { productInfo } = this.state;
     const { categoryHandler } = this.props;
     const { params } = this.props.match;
@@ -57,7 +76,7 @@ class ProductList extends Component {
     return (
       <div className="productList">
         <ListHeader idInfo={params} />
-        <ListMenu idInfo={params} categoryHandler={categoryHandler} />
+        <ListMenu idInfo={params} priceSorter={priceSorter} />
         <div className="productContainer">
           {productInfo &&
             productInfo.map(product => {

@@ -46,7 +46,7 @@ export class ListMenu extends Component {
 
   render() {
     const { islistButtonOn, menuInfo } = this.state;
-    const { categoryHandler, idInfo } = this.props;
+    const { priceSorter, idInfo } = this.props;
     const { buttonHandler } = this;
 
     return (
@@ -65,6 +65,7 @@ export class ListMenu extends Component {
             <ListMenuSorter
               buttonOn={islistButtonOn}
               buttonHandler={buttonHandler}
+              priceSorter={priceSorter}
             />
           </div>
           <div className="listMenuCategory">
