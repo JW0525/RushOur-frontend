@@ -33,7 +33,7 @@ export class Nav extends Component {
     const { menuHandler } = this;
     return (
       <div className="nav">
-        <h1>LUSH</h1>
+        <img class="logo" src="/images/rushour_logo.png" alt="RUSHOUR LOGO" />
         <ul>
           <li onMouseEnter={menuHandler} onMouseOut={menuHandler}>
             제품
