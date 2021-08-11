@@ -21,7 +21,7 @@ export class ListContents extends Component {
           {navigatorInfo.subcategories.map((data, i) => {
             return (
               <Link
-                to={`/list/category=${navigatorInfo.category_id}/subcateogry=${data.subcategory_id}`}
+                to={`/list/category=${navigatorInfo.category_id}/subcategory=${data.subcategory_id}`}
                 key={i}
               >
                 <li

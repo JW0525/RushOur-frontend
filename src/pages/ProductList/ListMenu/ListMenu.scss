@@ -23,14 +23,19 @@
     width: 80%;
     padding-top: 20px;
 
-    ul li {
-      display: inline;
-      padding-right: 15px;
-      color: rgb(130, 130, 130);
-      cursor: pointer;
+    ul {
+      .link {
+        text-decoration: none;
+      }
+      li {
+        display: inline;
+        padding-right: 15px;
+        color: rgb(130, 130, 130);
+        cursor: pointer;
 
-      &:hover {
-        color: black;
+        &:hover {
+          color: black;
+        }
       }
     }
   }

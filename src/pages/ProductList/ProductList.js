@@ -15,32 +15,49 @@ class ProductList extends Component {
     };
   }
 
-  categoryChanger = idInfo => {
-    console.log(idInfo);
-    // this.props.history.push('/list/category=1/subcateogry=4');
+  productListFetch = prevProps => {
+    const { subcategoryId, categoryId } = this.props.match.params;
+    const urlChecker = Number(subcategoryId)
+      ? `${API.PRODUCTLIST}?category=${categoryId}&subcategory=${subcategoryId}`
+      : API.PRODUCTLIST;
+    if (prevProps) {
+      if (this.props !== prevProps) {
+        fetch(urlChecker)
+          .then(res => res.json())
+          .then(data => {
+            this.setState({
+              productInfo: data.products,
+            });
+          });
+      }
+    } else {
+      fetch(urlChecker)
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            productInfo: data.products,
+          });
+        });
+    }
   };
 
   componentDidMount() {
-    fetch('/data/productList.json')
-      // fetch(`${API.PRODUCTLIST}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          productInfo: data.products,
-          categoryInfo: data.category,
-        });
-      });
+    this.productListFetch();
+  }
+
+  componentDidUpdate(prevProps) {
+    this.productListFetch(prevProps);
   }
 
   render() {
-    const { categoryChanger } = this;
-    const { productInfo, categoryInfo } = this.state;
-    const { categoryId, subCategoryId, categoryHandler } = this.props;
+    const { productInfo } = this.state;
+    const { categoryHandler } = this.props;
     const { params } = this.props.match;
+
     return (
       <div className="productList">
         <ListHeader idInfo={params} />
-        <ListMenu idInfo={params} categoryChanger={categoryChanger} />
+        <ListMenu idInfo={params} categoryHandler={categoryHandler} />
         <div className="productContainer">
           {productInfo &&
             productInfo.map(product => {
@@ -48,6 +65,7 @@ class ProductList extends Component {
                 <Product
                   key={product.id}
                   name={product.name}
+                  idInfo={params}
                   price={product.price}
                   tag={product.tags}
                   img={product.thumbnail}
