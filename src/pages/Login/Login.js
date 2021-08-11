@@ -1,46 +1,43 @@
 import React, { Component } from 'react';
 import './Login.scss';
-// import { API } from '../../config';
 
 class Login extends Component {
   constructor() {
     super();
-    this.state = { id: '', pw: '' };
+    this.state = {
+      username: '',
+      password: '',
+    };
   }
 
   //인풋 핸들링
-  handleInputValue = e => {
-    const { id, value } = e.target;
-    this.setState({ [id]: value });
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
-  // 로그인정보 서버 전송
-  // goToMain = e => {
-  //   e.preventDefault();
-  //   fetch('주소값넣기', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       account: this.state.id,
-  //       password: this.state.pw,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(res => {
-  //       if (res.Token) {
-  //         localStorage.setItem('Token', res.Token);
-  //         this.props.history.push('/');
-  //       }
-  //     });
-  // };
+  handleLogin = () => {
+    fetch('http://10.58.2.67:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password,
+      }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.TOKEN) {
+          localStorage.setItem('token', response.token);
+          this.props.history.push('/main');
+        } else {
+          alert('아디 비번 다시!!');
+        }
+      });
+  };
 
   //회원가입으로 이동
   goToSignUp = () => {
     this.props.history.push('/SignUp');
-  };
-
-  //메인으로 이동
-  goToMain = () => {
-    this.props.history.push('/Main');
   };
 
   render() {
@@ -52,15 +49,17 @@ class Login extends Component {
             <form id="formLogin">
               <input
                 onChange={this.handleInput}
-                type="email"
-                placeholder="아이디 (name@example.com)"
-                class="id"
+                type="text"
+                placeholder="아이디"
+                class="username"
+                name="username"
               />
               <input
                 onChange={this.handleInput}
                 type="password"
                 placeholder="비밀번호"
-                class="pw"
+                class="password"
+                name="password"
               />
             </form>
             <div class="loginSave">
@@ -69,10 +68,10 @@ class Login extends Component {
                 아이디 저장
               </label>
             </div>
-            <button class="login" onClick={this.goToMain}>
+            <button class="loginBtn" onClick={this.handleLogin}>
               <span>로그인</span>
             </button>
-            <button class="signUp" onClick={this.goToSignUp}>
+            <button class="signUpBtn" onClick={this.goToSignUp}>
               회원가입
             </button>
           </div>

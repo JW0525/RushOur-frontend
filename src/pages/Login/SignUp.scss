@@ -4,30 +4,115 @@
   display: flex;
   justify-content: center;
   .signUpContainer {
-    padding-top: 100px;
-    h2 {
-      text-align: center;
-      font-size: 42px;
-      font-weight: 900;
-    }
-    .stepContainer {
-      text-align: center;
-      margin-top: 20px;
-      .currentStep {
-        color: black;
-        font-weight: bolder;
+    width: 1080px;
+    .titleContainer {
+      padding-top: 100px;
+      padding-bottom: 90px;
+      h2 {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 900;
       }
-      span {
-        color: silver;
-      }
-    }
-    .basicInfoRequire {
-      h3 {
-      }
-      span {
-        i {
+      .stepContainer {
+        text-align: center;
+        margin-top: 20px;
+        .currentStep {
+          color: black;
+          font-weight: bolder;
+        }
+        span {
+          color: silver;
         }
       }
+    }
+    .infoTitle {
+      width: 1080px;
+      height: 54px;
+      margin: 0, 15px, 0, 0;
+      h3 {
+        float: left;
+        font-size: 28px;
+        font-weight: 550;
+      }
+      p {
+        float: right;
+        margin-top: 14px;
+        font-size: 14px;
+        &:before {
+          content: '\25AA';
+          color: #bf0000;
+        }
+      }
+    }
+    .infoContainer {
+      .infoTable {
+        margin-top: 20px;
+        .tableWrapper {
+          height: 60px;
+          width: 1400px;
+          .mark {
+            text-align: center;
+            width: 3px;
+            color: #bf0000;
+          }
+          .nonmark {
+            width: 3px;
+          }
+          .infoContentsTitle {
+            padding: 10px 0 10px 10px;
+            font-size: 14px;
+          }
+          .inputBox {
+            margin-left: 40px;
+            padding: 0 0 0 10px;
+            width: 402px;
+            height: 40px;
+            border: 1px solid rgb(204, 204, 204);
+          }
+          .inputBoxSecond {
+            margin-left: 10px;
+            width: 402px;
+            height: 40px;
+            border: 1px solid rgb(204, 204, 204);
+          }
+          .inputBoxSub {
+            margin-left: 40px;
+            width: 272px;
+            height: 40px;
+            border: 1px solid rgb(204, 204, 204);
+          }
+          .emailSelectBox {
+            margin-left: 10px;
+            padding: 0 0 0 20px;
+            width: 120px;
+            height: 40px;
+            border: 1px solid rgb(204, 204, 204);
+          }
+          .postnumSearchBtn {
+            margin-left: 10px;
+            width: 120px;
+            height: 40px;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid black;
+          }
+        }
+      }
+    }
+    .signUpBtn {
+      display: block;
+      margin: auto;
+      width: 280px;
+      height: 63px;
+      background-color: black;
+      margin-top: 40px;
+      color: white;
+      text-align: center;
+      span {
+        font-size: 16px;
+        font-weight: bolder;
+      }
+      cursor: pointer;
     }
   }
 }
