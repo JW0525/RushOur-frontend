@@ -10,10 +10,10 @@ class Cart extends Component {
       cartData: [],
     };
   }
-  componentDclassNameMount() {
+  componentDidMount() {
     fetch('http://3.144.112.76:8000/carts', {
       headers: {
-        Authorization: localStorage.getItem('TOKEN'),
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
@@ -32,20 +32,20 @@ class Cart extends Component {
       });
   }
 
-  deleteItems = ({ className, e }) => {
-    fetch('http://10.58.5.11:8000/carts?className=$[className}', {
+  deleteItems = id => {
+    fetch(`http://10.58.5.11:8000/carts?id=${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: localStorage.getItem('TOKEN'),
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
       .then(cartData => {});
 
     const { cartData } = this.state;
-
+    console.log(id);
     const filterList = cartData.filter(product => {
-      return product.id !== Number(e.target.name);
+      return product.id !== id;
     });
 
     this.setState({

@@ -81,7 +81,8 @@ class GoodsInfo extends React.Component {
     if (countS !== 0)
       productList.push({
         product_id: this.props.product.product_id,
-        option_id: this.props.product.options[0].option_id,
+        option_id:
+          this.props.product && this.props.product.options[0].option_id,
         quantity: countS,
       });
     if (countL !== 0)
@@ -91,9 +92,9 @@ class GoodsInfo extends React.Component {
         quantity: countL,
       });
 
-    fetch(`${API}/carts`, {
+    fetch(API.CART, {
       headers: {
-        Authorization: localStorage.getItem('TOKEN'),
+        Authorization: localStorage.getItem('token'),
       },
       method: 'POST',
       body: JSON.stringify({

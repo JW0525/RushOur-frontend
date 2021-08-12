@@ -35,7 +35,7 @@ export class Nav extends Component {
     if (!localStorage.getItem('token')) {
       alert('로그인 후 이용해주세요');
       this.props.history.push('/login');
-    } else {
+    } else if (localStorage.getItem('token')) {
       this.props.history.push('/cart');
     }
   };
