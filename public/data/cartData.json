@@ -1,11 +1,33 @@
-[
-  {
-    "cart_id": 1,
-    "item_id": 1,
-    "name": "[오리지널] 태스크 매니저 31DAYS - 화이트",
-    "price": "2000.00",
-    "discount": "1800.00",
-    "image": "images/cream01.png",
-    "quantity": 2
-  }
-]
+{
+  "Cart": [
+    {
+      "id": 4,
+      "product_name": "아워 오션 솔트 셀프 프리저빙 120g/250g",
+      "quantity": 2,
+      "size": 250,
+      "product_price": "54000.00",
+      "image_url": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product01.png",
+      "price": 108000
+    },
+    {
+      "id": 5,
+      "product_name": "아워 오션 솔트 셀프 프리저빙 120g/250g",
+      "quantity": 62,
+      "size": 120,
+      "product_price": "27000.00",
+      "image_url": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product01.png",
+      "price": 1674000
+    },
+    {
+      "id": 7,
+      "product_name": "아워 왓 더 굿 타임즈 롤 100g/250g",
+      "quantity": 60,
+      "size": 100,
+      "product_price": "22000.00",
+      "image_url": "https://raw.githubusercontent.com/wecode-bootcamp-korea/23-1st-RushOur-frontend/master/public/images/product/product03.png",
+      "price": 1320000
+    }
+  ],
+  "shipping": 100,
+  "total_price": "3102000.00"
+}
