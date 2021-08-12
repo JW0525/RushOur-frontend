@@ -45,7 +45,7 @@ class Cart extends Component {
     const { cartData } = this.state;
 
     const filterList = cartData.filter(product => {
-      return product.className !== Number(e.target.name);
+      return product.id !== Number(e.target.name);
     });
 
     this.setState({
@@ -57,7 +57,7 @@ class Cart extends Component {
     const { cartData } = this.state;
     const changeList = [...cartData];
     changeList.forEach(product => {
-      if (Number(e.target.name) === product.className) {
+      if (Number(e.target.name) === product.id) {
         product.quantity = product.quantity + 1;
       }
     });
@@ -70,7 +70,7 @@ class Cart extends Component {
     const { cartData } = this.state;
     const changeList = [...cartData];
     changeList.forEach(product => {
-      if (Number(e.target.name) === product.className) {
+      if (Number(e.target.name) === product.id) {
         product.quantity = product.quantity - 1;
         if (product.quantity < 1) {
           product.quantity = 1;
