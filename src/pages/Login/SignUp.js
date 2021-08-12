@@ -29,8 +29,8 @@ class SignUp extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        if (response.TOKEN) {
-          localStorage.setItem('token', response.TOKEN);
+        if (response.MESSAGE === 'SUCCESS') {
+          localStorage.setItem('token', response.token);
           alert('회원가입을 축하합니다.');
           this.props.history.push('/');
         } else {
