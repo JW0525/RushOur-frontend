@@ -137,7 +137,6 @@ class Cart extends Component {
                         minusBtn={minusBtn}
                         total={product.price}
                         deleteItems={this.deleteItems}
-                        size={product.size}
                       />
                     );
                   })
