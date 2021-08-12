@@ -14,7 +14,7 @@ export class Nav extends Component {
   }
 
   logoBtn = () => {
-    this.props.history.push('/');
+    this.props.history.push('/main');
   };
 
   componentDidMount() {
