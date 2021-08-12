@@ -10,7 +10,8 @@ class Product extends Component {
       <div
         className="product"
         onClick={() => {
-          console.log(this.props);
+          console.log(this.props.id);
+          this.props.history.push(`/productDetail/${this.props.id}`);
         }}
       >
         <img src={img} alt={name} />

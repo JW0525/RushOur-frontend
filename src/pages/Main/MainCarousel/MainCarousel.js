@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { API } from '../../../config';
 import './MainCarousel.scss';
 
 class MainCarousel extends Component {
@@ -12,13 +13,12 @@ class MainCarousel extends Component {
   }
 
   componentDidMount() {
-    fetch('http://3.144.112.76:8000/subcategory')
+    fetch(API.SUBCATEGORY)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          sliderArr: data,
+          sliderArr: data.subcategories,
         });
-        console.log('data:', data);
       });
     setInterval(this.slideRight, 4000);
   }
@@ -60,7 +60,7 @@ class MainCarousel extends Component {
                 return (
                   <img
                     alt={sliderElement.alt}
-                    src={sliderElement.src}
+                    src={sliderElement.image_url}
                     key={sliderElement.id}
                     onClick={() => this.goToCategory(sliderElement.id)}
                   />

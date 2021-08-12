@@ -5,4 +5,5 @@ export const API = {
   SUBCATEGORY: `${BASE_URL}/subcategory`,
   NAVIGATOR: `${BASE_URL}/navigator`,
   SIGNIN: `${BASE_URL}/users/signin`,
+  BANNERS: `${BASE_URL}/banners`,
 };
