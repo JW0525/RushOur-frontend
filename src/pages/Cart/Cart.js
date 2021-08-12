@@ -10,9 +10,8 @@ class Cart extends Component {
       cartData: [],
     };
   }
-  componentDidMount() {
+  componentDclassNameMount() {
     fetch('http://10.58.5.11:8000/carts', {
-      method: 'GET',
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
       },
@@ -33,22 +32,20 @@ class Cart extends Component {
       });
   }
 
-  deleteItems = ({ id, e }) => {
-    fetch('http://10.58.5.11:8000/carts?id=$[id}', {
+  deleteItems = ({ className, e }) => {
+    fetch('http://10.58.5.11:8000/carts?className=$[className}', {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
       },
     })
       .then(res => res.json())
-      .then(cartData => {
-        console.log(cartData);
-      });
+      .then(cartData => {});
 
     const { cartData } = this.state;
 
     const filterList = cartData.filter(product => {
-      return product.id !== Number(e.target.name);
+      return product.className !== Number(e.target.name);
     });
 
     this.setState({
@@ -59,8 +56,8 @@ class Cart extends Component {
   plusBtn = e => {
     const { cartData } = this.state;
     const changeList = [...cartData];
-    changeList.map(product => {
-      if (Number(e.target.name) === product.id) {
+    changeList.forEach(product => {
+      if (Number(e.target.name) === product.className) {
         product.quantity = product.quantity + 1;
       }
     });
@@ -72,8 +69,8 @@ class Cart extends Component {
   minusBtn = e => {
     const { cartData } = this.state;
     const changeList = [...cartData];
-    changeList.map(product => {
-      if (Number(e.target.name) === product.id) {
+    changeList.forEach(product => {
+      if (Number(e.target.name) === product.className) {
         product.quantity = product.quantity - 1;
         if (product.quantity < 1) {
           product.quantity = 1;
@@ -122,13 +119,14 @@ class Cart extends Component {
                   </tr>
                 </thead>
                 {!cartData.length ? (
-                  <p id="emptyCart">장바구니에 담겨진 상품이 없습니다.</p>
+                  <p className="emptyCart">
+                    장바구니에 담겨진 상품이 없습니다.
+                  </p>
                 ) : (
-                  cartData.map((product, i) => {
+                  cartData.map(product => {
                     return (
                       <CartListSection
-                        id={product.id}
-                        key={i}
+                        key={product.className}
                         name={product.product_name}
                         size={product.size}
                         price={product.product_price}
@@ -153,18 +151,18 @@ class Cart extends Component {
                 <p>
                   <span class="detail">
                     <em class="tit">
-                      총 <em id="totalGoodsCnt">상품</em>의 금액
+                      총 <em className="totalGoodsCnt">상품</em>의 금액
                     </em>
                     ￦
-                    <strong id="totalGoodsPrice">
+                    <strong className="totalGoodsPrice">
                       {!cartData.length
                         ? 0
                         : Math.floor(totalPrice).toLocaleString('ko-KR')}
                     </strong>
                   </span>
-                  <span id="deliveryCalculateNone">
+                  <span className="deliveryCalculateNone">
                     +<em class="tit">배송비</em> ￦
-                    <strong id="totalDeliveryCharge">
+                    <strong className="totalDeliveryCharge">
                       {!cartData.length
                         ? 0
                         : Math.floor(shipping).toLocaleString('ko-KR')}
@@ -172,7 +170,7 @@ class Cart extends Component {
                   </span>
                   <span class="total">
                     =<em class="tit">총 주문금액</em>￦
-                    <strong id="totalSettlePrice">
+                    <strong className="totalSettlePrice">
                       {!cartData.length
                         ? 0
                         : Math.floor(

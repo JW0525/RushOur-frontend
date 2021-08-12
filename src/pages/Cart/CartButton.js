@@ -7,7 +7,6 @@ class CartButton extends React.Component {
         <div className="cartButton">
           <button className="cartKeepShopping"> 쇼핑계속하기</button>
           <button className="cartOrderbtn" onClick={handleCartBtn}>
-            {' '}
             주문하기
           </button>
         </div>
