@@ -16,7 +16,7 @@ class Location extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.2.67:8000/navigator`)
+    fetch(`http://3.144.112.76:8000/navigator`)
       .then(res => res.json())
       .then(res => {
         this.setState({
