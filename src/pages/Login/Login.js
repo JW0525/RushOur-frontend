@@ -27,7 +27,7 @@ class Login extends Component {
       .then(response => response.json())
       .then(response => {
         if (response.TOKEN) {
-          localStorage.setItem('token', response.token);
+          localStorage.setItem('token', response.TOKEN);
           this.props.history.push('/main');
         } else {
           alert('아이디와 비밀번호를 다시 확인해주세요.');
