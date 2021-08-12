@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
 import { API } from '../../config.js';
+import DaumPostcode from 'react-daum-postcode';
 
 class SignUp extends Component {
   constructor() {
@@ -179,7 +180,9 @@ class SignUp extends Component {
                     name="address"
                     onChange={this.handleInput}
                   />
-                  <button className="postnumSearchBtn">우편번호검색</button>
+                  <button type="button" className="postnumSearchBtn">
+                    우편번호검색
+                  </button>
                 </td>
               </tr>
               <tr className="tableWrapper">
