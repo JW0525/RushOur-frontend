@@ -66,6 +66,7 @@ class MainList extends Component {
                     name={product.name}
                     price={product.price}
                     img={product.thumbnail}
+                    id={product.id}
                   />
                 );
               })}

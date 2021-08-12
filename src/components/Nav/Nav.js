@@ -14,7 +14,7 @@ export class Nav extends Component {
   }
 
   logoBtn = () => {
-    this.props.history.push('/main');
+    this.props.history.push('/');
   };
 
   componentDidMount() {
@@ -28,7 +28,16 @@ export class Nav extends Component {
   }
 
   goToProfile = () => {
-    console.log('hi');
+    this.props.history.push('/login');
+  };
+
+  goToCart = () => {
+    if (!localStorage.getItem('token')) {
+      alert('로그인 후 이용해주세요');
+      this.props.history.push('/login');
+    } else if (localStorage.getItem('token')) {
+      this.props.history.push('/cart');
+    }
   };
 
   render() {
@@ -72,11 +81,8 @@ export class Nav extends Component {
         </ul>
         <div className="navIcon">
           <i className="fas fa-search"></i>
-          <i className="fas fa-shopping-bag"></i>
-          <i
-            className="fas fa-user-circle"
-            onClick={() => this.goToProfile}
-          ></i>
+          <i className="fas fa-shopping-bag" onClick={this.goToCart}></i>
+          <i className="fas fa-user-circle" onClick={this.goToProfile}></i>
         </div>
       </div>
     );

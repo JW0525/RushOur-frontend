@@ -63,6 +63,7 @@ class SignUp extends Component {
     })
       .then(response => response.json())
       .then(response => {
+        console.log('response:', response);
         if (response.MESSAGE === 'SUCCESS') {
           alert('회원가입을 축하합니다.');
           localStorage.setItem('token', response.TOKEN);

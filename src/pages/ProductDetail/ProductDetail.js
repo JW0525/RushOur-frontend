@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Goods } from '../../components/ProductDetail/Goods';
 import { Info } from '../../components/ProductDetail/Info';
+import { API } from '../../config';
 import './ProductDetail.scss';
 
 class ProductDetail extends React.Component {
@@ -15,17 +16,17 @@ class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://3.144.112.76:8000/products/${this.props.match.params.id}`)
+    fetch(`${API.PRODUCTLIST}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({
           product: res.data,
         });
+        console.log('data:', res);
       });
   }
 
   render() {
-    console.log(this.props.match);
     return (
       <>
         <Goods product={this.state.product} />

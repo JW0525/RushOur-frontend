@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MainAside.scss';
+import { API } from '../../../config';
 import { withRouter } from 'react-router-dom';
 
 class MainAside extends Component {
@@ -11,13 +12,11 @@ class MainAside extends Component {
     };
   }
   componentDidMount() {
-    fetch('/data/MainAsideData.json')
-      //fetch('http://10.58.3.65:8000/banners')
-      // fetch(`${API.PRODUCTLIST}`)
+    fetch(API.BANNERS)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          listArr: data,
+          listArr: data.Banners,
         });
         console.log('data', data);
         // setInterval(this.slideRight, 5000);

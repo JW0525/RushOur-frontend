@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { API } from '../../../config';
 
 //location은 따로 해주세요.
 
@@ -16,7 +17,7 @@ class Location extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://3.144.112.76:8000/navigator`)
+    fetch(API.NAVIGATOR)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -55,7 +56,7 @@ class Location extends React.Component {
 
   render() {
     const { nav } = this.state;
-    console.log(nav);
+
     return (
       <div className="location">
         <h6>홈</h6>

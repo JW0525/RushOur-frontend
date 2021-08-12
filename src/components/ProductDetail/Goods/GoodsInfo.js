@@ -7,9 +7,10 @@ import { GoodsItem } from './GoodsInfo/GoodsItem.js';
 import { GoodsChoice } from './GoodsInfo/GoodsChoice.js';
 import { GoodsPurchase } from './GoodsInfo/GoodsPurchase.js';
 import { GoodsAmount } from './GoodsInfo/GoodsAmount.js';
+import { API } from '../../../config.js';
 import GoodsBtn from './GoodsInfo/GoodsBtn.js';
 
-export class GoodsInfo extends React.Component {
+class GoodsInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,7 +81,8 @@ export class GoodsInfo extends React.Component {
     if (countS !== 0)
       productList.push({
         product_id: this.props.product.product_id,
-        option_id: this.props.product.options[0].option_id,
+        option_id:
+          this.props.product && this.props.product.options[0].option_id,
         quantity: countS,
       });
     if (countL !== 0)
@@ -90,25 +92,22 @@ export class GoodsInfo extends React.Component {
         quantity: countL,
       });
 
-    console.log(localStorage.getItem('TOKEN'));
-
-    fetch(`http://3.144.112.76:8000/carts`, {
+    fetch(API.CART, {
       headers: {
-        Authorization: localStorage.getItem('TOKEN'),
+        Authorization: localStorage.getItem('token'),
       },
       method: 'POST',
       body: JSON.stringify({
         request_list: productList,
       }),
-    })
-      // .then(res => res.json())
-      .then(res => console.log(res));
+    });
+    this.props.history.push('/cart');
   };
 
   render() {
     const { countS, countL, optionValueOne, optionValueTwo } = this.state;
     const { product } = this.props;
-    console.log(this.props.product);
+    console.log('this.props:', this.props);
 
     return (
       <div className="goodsInfo">
@@ -161,3 +160,5 @@ export class GoodsInfo extends React.Component {
     );
   }
 }
+
+export default withRouter(GoodsInfo);

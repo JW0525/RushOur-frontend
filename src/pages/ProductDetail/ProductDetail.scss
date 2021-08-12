@@ -267,7 +267,10 @@
 }
 
 .info {
-  margin-left: 123px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .infoDetail {

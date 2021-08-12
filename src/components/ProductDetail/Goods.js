@@ -1,7 +1,7 @@
 import React from 'react';
 import Location from './Goods/Location';
 import { GoodsImage } from './Goods/GoodsImage';
-import { GoodsInfo } from './Goods/GoodsInfo';
+import GoodsInfo from './Goods/GoodsInfo';
 
 export class Goods extends React.Component {
   constructor(props) {

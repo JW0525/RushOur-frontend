@@ -5,7 +5,7 @@ class CartButton extends React.Component {
     return (
       <section>
         <div className="cartButton">
-          <button className="cartKeepShopping"> 쇼핑계속하기</button>
+          <button className="cartKeepShopping">전체삭제</button>
           <button className="cartOrderbtn" onClick={handleCartBtn}>
             주문하기
           </button>
