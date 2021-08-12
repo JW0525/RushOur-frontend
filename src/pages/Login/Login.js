@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.scss';
+import { API } from '../../config.js';
 
 class Login extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class Login extends Component {
   };
 
   handleLogin = () => {
-    fetch('http://10.58.2.67:8000/users/signin', {
+    fetch(`${API}/user/signin`, {
       method: 'POST',
       body: JSON.stringify({
         username: this.state.username,
