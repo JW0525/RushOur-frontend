@@ -11,7 +11,7 @@ class Cart extends Component {
     };
   }
   componentDclassNameMount() {
-    fetch('http://10.58.5.11:8000/carts', {
+    fetch('http://3.144.112.76:8000/carts', {
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
       },
