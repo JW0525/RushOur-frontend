@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Goods } from '../../components/ProductDetail/Goods';
@@ -13,7 +15,7 @@ class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.3.65:8000/products/${this.props.match.params.id}`)
+    fetch(`http://10.58.2.67:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -23,10 +25,11 @@ class ProductDetail extends React.Component {
   }
 
   render() {
+    console.log(this.props.match);
     return (
       <>
         <Goods product={this.state.product} />
-        <Info product={this.state.product} />
+        <Info />
       </>
     );
   }

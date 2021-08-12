@@ -7,7 +7,7 @@ import { GoodsItem } from './GoodsInfo/GoodsItem.js';
 import { GoodsChoice } from './GoodsInfo/GoodsChoice.js';
 import { GoodsPurchase } from './GoodsInfo/GoodsPurchase.js';
 import { GoodsAmount } from './GoodsInfo/GoodsAmount.js';
-import { GoodsBtn } from './GoodsInfo/GoodsBtn.js';
+import GoodsBtn from './GoodsInfo/GoodsBtn.js';
 
 export class GoodsInfo extends React.Component {
   constructor(props) {
@@ -21,31 +21,27 @@ export class GoodsInfo extends React.Component {
   }
 
   plusClickS = () => {
-    let { countS } = this.state;
-    if (countS < 20) {
-      this.setState({ countS: countS + 1 });
+    if (this.state.countS < 20) {
+      this.setState({ countS: this.state.countS + 1 });
     }
   };
 
   plusClickL = () => {
-    let { countL } = this.state;
-    if (countL < 20) {
-      this.setState({ countL: countL + 1 });
+    if (this.state.countL < 20) {
+      this.setState({ countL: this.state.countL + 1 });
     }
   };
 
   minusClickS = () => {
-    let { countS } = this.state;
-    if (countS > 0) {
-      this.setState({ countS: countS - 1 });
+    if (this.state.countS > 0) {
+      this.setState({ countS: this.state.countS - 1 });
     }
     <GoodsHeader />;
   };
 
   minusClickL = () => {
-    let { countL } = this.state;
-    if (countL > 0) {
-      this.setState({ countL: countL - 1 });
+    if (this.state.countL > 0) {
+      this.setState({ countL: this.state.countL - 1 });
     }
     <GoodsHeader />;
   };
@@ -78,9 +74,47 @@ export class GoodsInfo extends React.Component {
     });
   };
 
+  submitCart = () => {
+    let productList = [];
+    const { countL, countS } = this.state;
+    if (countS !== 0)
+      productList.push({
+        product_id: this.props.product.product_id,
+        option_id: this.props.product.options[0].option_id,
+        quantity: countS,
+      });
+    if (countL !== 0)
+      productList.push({
+        product_id: this.props.product.product_id,
+        option_id: this.props.product.options[1].option_id,
+        quantity: countL,
+      });
+
+    console.log(this.props.product.name);
+    console.log(this.props.product.product_id);
+    console.log(this.props.product.options[0].size);
+    console.log(this.props.product.options[1].option_id);
+    console.log(productList);
+
+    fetch(`http://10.58.2.67:8000/carts`, {
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+        Accept: 'application/json',
+      },
+      method: 'post',
+      body: JSON.stringify({
+        request_list: productList,
+      }),
+    })
+      // .then(res => res.json())
+      .then(res => console.log(res));
+  };
+
   render() {
     const { countS, countL, optionValueOne, optionValueTwo } = this.state;
     const { product } = this.props;
+    console.log(this.props.product);
+
     return (
       <div className="goodsInfo">
         <GoodsHeader product={product} />
@@ -127,7 +161,7 @@ export class GoodsInfo extends React.Component {
           <GoodsAmount product={product} countS={countS} countL={countL} />
         ) : null}
 
-        <GoodsBtn />
+        <GoodsBtn submitCart={this.submitCart} />
       </div>
     );
   }

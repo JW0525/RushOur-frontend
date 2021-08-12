@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
+import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
-import Cart from './pages/Cart/Cart';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/Login/SignUp';
