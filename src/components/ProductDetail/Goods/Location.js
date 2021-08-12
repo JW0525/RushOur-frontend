@@ -9,8 +9,9 @@ class Location extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
       nav: {},
+      showMenuCate: false,
+      showMenuSubCate: false,
     };
   }
 
@@ -25,15 +26,32 @@ class Location extends React.Component {
       });
   }
 
-  // handleChange = value => {
-  //   this.props.history.push(`/productDetail/${value}`);
-  // };
+  showMenuCate = e => {
+    e.preventDefault();
+    this.setState({
+      showMenuCate: true,
+    });
+  };
 
-  handleChange = e => {
-    this.setState({ value: 1 });
-    if (value === 1) {
-      this.props.history.push('/main');
-    }
+  showMenuCateDel = e => {
+    e.preventDefault();
+    this.setState({
+      showMenuCate: false,
+    });
+  };
+
+  showMenuSubCate = e => {
+    e.preventDefault();
+    this.setState({
+      showMenuSubCate: true,
+    });
+  };
+
+  showMenuSubCateDel = e => {
+    e.preventDefault();
+    this.setState({
+      showMenuSubCate: false,
+    });
   };
 
   render() {
@@ -43,26 +61,51 @@ class Location extends React.Component {
       <div className="location">
         <h6>홈</h6>
         <p>&gt;</p>
-        <select value={this.state.value} onChange={this.handleChange}>
-          <option value={this.state.value} onChange={this.handleChange}>
-            러쉬
-          </option>
-        </select>
+        <li>
+          <ul className="dropDown">
+            <li>
+              <ul className="dropDownMenu">
+                {nav.navigators && nav.navigators[0].name}
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        {/* <div>
+          <button>러쉬</button>
+        </div>
+        <p>&gt;</p> */}
+
+        {/* <div onMouseOver={this.showMenuCate}>
+          <button>Show menu</button>
+          {this.state.showMenuCate && (
+            <div onMouseOut={this.showMenuCateDel}>
+              <button>{nav.navigators && nav.navigators[0].name}</button>
+            </div>
+          )}
+        </div> */}
+
         <p>&gt;</p>
-        <select>
-          {' '}
-          <option>{nav.navigators && nav.navigators[0].name}</option>
-        </select>
-        <p>&gt;</p>
+        {/* 
         {
-          <select>
-            {' '}
-            {nav.navigators &&
-              nav.navigators[0].subcategories.map((e, i) => {
-                return <option>{e.name}</option>;
-              })}
-          </select>
-        }
+          <div>
+            <button onMouseOver={this.showMenuSubCate}>Show menu</button>
+            {this.state.showMenuSubCate && (
+              <div>
+                {nav.navigators &&
+                  nav.navigators[0].subcategories.map((e, i) => {
+                    return (
+                      <div>
+                        <button onMouseOut={this.showMenuSubCateDel}>
+                          {e.name}
+                        </button>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
+        } */}
       </div>
     );
   }

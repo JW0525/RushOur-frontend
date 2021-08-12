@@ -7,13 +7,7 @@ class GoodsBtn extends React.Component {
   render() {
     return (
       <div className="goodsBtn">
-        <button
-          className="btnCart"
-          onClick={this.props.submitCart}
-          // onClick={() => {
-          //   this.props.history.push('/cart');
-          // }}
-        >
+        <button className="btnCart" onClick={this.props.submitCart}>
           장바구니
         </button>
         <button className="btnOrder">주문하기</button>

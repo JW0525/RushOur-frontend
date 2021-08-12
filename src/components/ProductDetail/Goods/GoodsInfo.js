@@ -13,7 +13,6 @@ export class GoodsInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // product: {},
       countS: 0,
       countL: 0,
       optionValueOne: false,
@@ -22,31 +21,27 @@ export class GoodsInfo extends React.Component {
   }
 
   plusClickS = () => {
-    const { countS } = this.state;
-    if (countS < 20) {
-      this.setState({ countS: countS + 1 });
+    if (this.state.countS < 20) {
+      this.setState({ countS: this.state.countS + 1 });
     }
   };
 
   plusClickL = () => {
-    const { countL } = this.state;
-    if (countL < 20) {
-      this.setState({ countL: countL + 1 });
+    if (this.state.countL < 20) {
+      this.setState({ countL: this.state.countL + 1 });
     }
   };
 
   minusClickS = () => {
-    const { countS } = this.state;
-    if (countS > 0) {
-      this.setState({ countS: countS - 1 });
+    if (this.state.countS > 0) {
+      this.setState({ countS: this.state.countS - 1 });
     }
     <GoodsHeader />;
   };
 
   minusClickL = () => {
-    const { countL } = this.state;
-    if (countL > 0) {
-      this.setState({ countL: countL - 1 });
+    if (this.state.countL > 0) {
+      this.setState({ countL: this.state.countL - 1 });
     }
     <GoodsHeader />;
   };
@@ -80,23 +75,23 @@ export class GoodsInfo extends React.Component {
   };
 
   submitCart = () => {
-    let 따라란 = [];
+    let productList = [];
     const { countL, countS } = this.state;
     const { product } = this.props;
     if (countS !== 0)
-      따라란.push({
+      productList.push({
         product_id: product.product_id,
         option_id: product.options[0].option_id,
         quantity: countS,
       });
     if (countL !== 0)
-      따라란.push({
+      productList.push({
         product_id: product.product_id,
         option_id: product.options[1].option_id,
         quantity: countL,
       });
 
-    console.log(따라란);
+    console.log(productList);
 
     fetch(`http://10.58.2.67:8000/carts}`, {
       headers: {
@@ -105,7 +100,7 @@ export class GoodsInfo extends React.Component {
       },
       method: 'post',
       body: JSON.stringify({
-        request_list: 따라란,
+        request_list: productList,
       }),
     }).then(res => res.text());
     // .then(text => console.log(text));

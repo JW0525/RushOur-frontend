@@ -24,15 +24,18 @@ export class GoodsChoice extends React.Component {
     return (
       <div className="goodsChoice">
         <h6>용량</h6>
+
         <div className="optionSelect">
           <button onClick={this.showMenu}>
             <p> = 옵션 : 가격 = </p>
           </button>
+
           {showMenu && (
             <div>
               <button className="optionDetailTop" onClick={optionChangeS}>
                 <p> {product.options && product.options[0].size}g </p>
               </button>
+
               <button className="optionDetailBtm" onClick={optionChangeL}>
                 <p>
                   {' '}
