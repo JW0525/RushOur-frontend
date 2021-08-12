@@ -90,18 +90,13 @@ export class GoodsInfo extends React.Component {
         quantity: countL,
       });
 
-    console.log(this.props.product.name);
-    console.log(this.props.product.product_id);
-    console.log(this.props.product.options[0].size);
-    console.log(this.props.product.options[1].option_id);
-    console.log(productList);
+    console.log(localStorage.getItem('TOKEN'));
 
-    fetch(`http://10.58.2.67:8000/carts`, {
+    fetch(`http://3.144.112.76:8000/carts`, {
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
-        Accept: 'application/json',
       },
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify({
         request_list: productList,
       }),
