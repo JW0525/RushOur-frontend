@@ -35,7 +35,13 @@ export class Nav extends Component {
     console.log(this.props);
     return (
       <div className="nav">
-        <h1 onClick={logoBtn}>LUSH</h1>
+        <img
+          className="logoImg"
+          src="/images/rushour_logo.png"
+          alt="logo_img"
+          onClick={logoBtn}
+        />
+
         <ul>
           <li className="productBtn">
             제품
