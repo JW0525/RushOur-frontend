@@ -10,7 +10,7 @@ class MainAside extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://10.58.3.65:8000/banners')
+    fetch('http://3.144.112.76:8000/banners')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {

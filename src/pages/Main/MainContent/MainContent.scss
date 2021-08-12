@@ -10,6 +10,7 @@
     width: 45%;
     height: 100%;
     background-image: url('/asset/image/con3_1.png');
+    cursor: pointer;
     vertical-align: top;
 
     .textBox {
@@ -38,6 +39,8 @@
     .mainLeftTop {
       background-image: url('/asset/image/con3_2.png');
       height: 50%;
+      cursor: pointer;
+
       .textBox {
         padding: 50px;
 
@@ -59,9 +62,12 @@
       height: 50%;
       display: table;
       width: 100%;
+
       .bottomLeft {
         display: table-cell;
         background-image: url('/asset/image/con3_4.png');
+        cursor: pointer;
+
         .textBox {
           padding: 30px;
 
@@ -82,6 +88,8 @@
       .bottomRight {
         display: table-cell;
         background-image: url('/asset/image/con3_3.png');
+        cursor: pointer;
+
         .textBox {
           padding: 30px;
 
