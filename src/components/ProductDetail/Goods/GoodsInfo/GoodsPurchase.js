@@ -10,8 +10,9 @@ export class GoodsPurchase extends React.Component {
       option: 0,
     };
   }
+
   render() {
-    let { minusClick, plusClick, count, option, deleteBtn } = this.props;
+    const { minusClick, plusClick, count, option, deleteBtn } = this.props;
     return (
       <>
         <div className="goodsPurchase">
@@ -37,6 +38,7 @@ export class GoodsPurchase extends React.Component {
             <button onClick={deleteBtn}>
               <p>x</p>
             </button>
+            {/* 용량이 하나인 물품에 대해서 삭제 버튼이 구현되지 않도록 로직 수정해야 함. 조건문을 jsx 밖에 만들면 괜찮을 듯함.*/}
           </div>
         </div>
       </>

@@ -19,8 +19,8 @@ export class GoodsChoice extends React.Component {
   };
 
   render() {
-    let { showMenu } = this.state;
-    let { optionChangeS, optionChangeL, product } = this.props;
+    const { showMenu } = this.state;
+    const { optionChangeS, optionChangeL, product } = this.props;
     return (
       <div className="goodsChoice">
         <h6>용량</h6>

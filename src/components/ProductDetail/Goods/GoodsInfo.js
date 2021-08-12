@@ -7,12 +7,13 @@ import { GoodsItem } from './GoodsInfo/GoodsItem.js';
 import { GoodsChoice } from './GoodsInfo/GoodsChoice.js';
 import { GoodsPurchase } from './GoodsInfo/GoodsPurchase.js';
 import { GoodsAmount } from './GoodsInfo/GoodsAmount.js';
-import { GoodsBtn } from './GoodsInfo/GoodsBtn.js';
+import GoodsBtn from './GoodsInfo/GoodsBtn.js';
 
 export class GoodsInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // product: {},
       countS: 0,
       countL: 0,
       optionValueOne: false,
@@ -21,21 +22,21 @@ export class GoodsInfo extends React.Component {
   }
 
   plusClickS = () => {
-    let { countS } = this.state;
+    const { countS } = this.state;
     if (countS < 20) {
       this.setState({ countS: countS + 1 });
     }
   };
 
   plusClickL = () => {
-    let { countL } = this.state;
+    const { countL } = this.state;
     if (countL < 20) {
       this.setState({ countL: countL + 1 });
     }
   };
 
   minusClickS = () => {
-    let { countS } = this.state;
+    const { countS } = this.state;
     if (countS > 0) {
       this.setState({ countS: countS - 1 });
     }
@@ -43,7 +44,7 @@ export class GoodsInfo extends React.Component {
   };
 
   minusClickL = () => {
-    let { countL } = this.state;
+    const { countL } = this.state;
     if (countL > 0) {
       this.setState({ countL: countL - 1 });
     }
@@ -78,9 +79,43 @@ export class GoodsInfo extends React.Component {
     });
   };
 
+  submitCart = () => {
+    let 따라란 = [];
+    const { countL, countS } = this.state;
+    const { product } = this.props;
+    if (countS !== 0)
+      따라란.push({
+        product_id: product.product_id,
+        option_id: product.options[0].option_id,
+        quantity: countS,
+      });
+    if (countL !== 0)
+      따라란.push({
+        product_id: product.product_id,
+        option_id: product.options[1].option_id,
+        quantity: countL,
+      });
+
+    console.log(따라란);
+
+    fetch(`http://10.58.2.67:8000/carts}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      method: 'post',
+      body: JSON.stringify({
+        request_list: 따라란,
+      }),
+    }).then(res => res.text());
+    // .then(text => console.log(text));
+  };
+
   render() {
     const { countS, countL, optionValueOne, optionValueTwo } = this.state;
     const { product } = this.props;
+    console.log(this.props.product);
+
     return (
       <div className="goodsInfo">
         <GoodsHeader product={product} />
@@ -127,7 +162,7 @@ export class GoodsInfo extends React.Component {
           <GoodsAmount product={product} countS={countS} countL={countL} />
         ) : null}
 
-        <GoodsBtn />
+        <GoodsBtn submitCart={this.submitCart} />
       </div>
     );
   }

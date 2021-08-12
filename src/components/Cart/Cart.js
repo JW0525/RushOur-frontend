@@ -9,7 +9,7 @@ class Cart extends Component {
     super(props);
     this.state = {
       cartData: {},
-      quantity: 0,
+      quantity: 1,
     };
   }
   componentDidMount() {
@@ -17,20 +17,38 @@ class Cart extends Component {
       .then(res => res.json())
       .then(cartData => {
         this.setState({
-          cartData: cartData[0],
-          quantity: cartData[0],
+          cartData: cartData.CART_LIST[0],
+          quantity: cartData.CART_LIST[0].quantity,
         });
       });
   }
+
+  plusClick = () => {
+    if (this.state.quantity < 20) {
+      this.setState({ quantity: this.state.quantity + 1 });
+    }
+  };
+
+  minusClick = () => {
+    if (this.state.quantity > 1) {
+      this.setState({ quantity: this.state.quantity - 1 });
+    }
+  };
+
   render() {
-    const { cartData } = this.state;
+    const { cartData, quantity } = this.state;
     return (
       <main>
         <div className="cart">
           <section className="cartTitleSection">
             <div className="cartTitle">SHOPPING CART</div>
           </section>
-          <CartListSection cartData={cartData} />
+          <CartListSection
+            cartData={cartData}
+            quantity={quantity}
+            plusClick={this.plusClick}
+            minusClick={this.minusClick}
+          />
           <CartTotalSection cartData={cartData} />
           <CartButton cartData={cartData} />
         </div>

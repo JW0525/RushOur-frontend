@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 export class GoodsItem extends React.Component {
   render() {
-    let { product } = this.props;
+    const { product } = this.props;
     return (
       <div className="goodsItem">
         <div className="goodToKnow">Good to know</div>

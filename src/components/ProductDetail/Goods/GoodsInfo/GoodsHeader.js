@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 export class GoodsHeader extends React.Component {
   render() {
-    let { product } = this.props;
+    const { product } = this.props;
     return (
       <div className="goodsHeader">
         <h5>{product.name}</h5>

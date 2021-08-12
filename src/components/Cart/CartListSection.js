@@ -1,13 +1,29 @@
 import React from 'react';
+import CartList from './CartListSection/CartList';
+
 class CartListSection extends React.Component {
   constructor() {
     super();
     this.state = {
-      quantity: 1,
+      productList: '',
     };
   }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ productList: this.state.productList });
+    }, 1000);
+  }
+
+  createProduct(product) {
+    this.setState({
+      products: this.state.productList.push(product),
+    });
+  }
+
   render() {
-    const { name, price, image } = this.props.cartData;
+    const { id, product_name, quantity, size, price, image_url } =
+      this.props.cartData;
     return (
       <section className="cartListSetion">
         <div className="cartList">
@@ -27,40 +43,25 @@ class CartListSection extends React.Component {
                 <th> 배송비 </th>
               </tr>
             </thead>
-            <tbody className="cartListTableBody">
-              <tr>
-                <td>
-                  <input type="checkbox" className="checkBoxBody"></input>
-                </td>
-                <td>
-                  <div className="productThumb">
-                    <img className="cartImage" alt={name} src={image} />
-                    <p className="productInfo">{name}</p>
-                  </div>
-                </td>
+            {/* {this.props.cartData.map(obj => {
+              return <Component name={obj.name} age={obj.age} />;
 
-                <td>
-                  <div className="buttonAmount">
-                    <button>
-                      <p>-</p>
-                    </button>
-                    <button>
-                      <p>1</p>
-                    </button>
-                    <button>
-                      <p>+</p>
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <p> ₩{price}원 </p>
-                </td>
-                <td> ₩16,200원</td>
-                <td className="selecteMenu">
-                  <p> ₩2500원 (택배)</p>
-                </td>
-              </tr>
-            </tbody>
+              //obj에 있는 필요한 정보들을 프로퍼티? 로 넘겨줌(props할 때 잘 써야해)
+              // map과 컴포넌트를 함께 사용할 때 대충 이런식으로 생겼다는거임.
+            })} */}
+            {this.state.productList &&
+              this.state.productList.map(e => (
+                <CartList
+                  id={e.id}
+                  product_name={e.product_name}
+                  quantity={e.quantity}
+                  size={e.size}
+                  price={e.price}
+                  image_url={e.image_url}
+                  plusClick={this.props.plusClick}
+                  minusClick={this.props.minusClick}
+                />
+              ))}
           </table>
         </div>
       </section>
