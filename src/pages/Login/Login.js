@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { API } from '../../config';
 import './Login.scss';
+import { API } from '../../config.js';
 
 class Login extends Component {
   constructor() {

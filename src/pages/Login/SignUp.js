@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
+import { API } from '../../config.js';
+import DaumPostcode from 'react-daum-postcode';
 
 class SignUp extends Component {
   constructor() {
@@ -15,7 +17,7 @@ class SignUp extends Component {
   };
 
   handleSignUp = () => {
-    fetch('http://10.58.2.67:8000/users/signup', {
+    fetch(`${API}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
         username: this.state.username,
@@ -30,8 +32,8 @@ class SignUp extends Component {
       .then(response => response.json())
       .then(response => {
         if (response.MESSAGE === 'SUCCESS') {
+          alert('회원가입이 되신 것을 축하합니다.');
           localStorage.setItem('token', response.token);
-          alert('회원가입을 축하합니다.');
           this.props.history.push('/');
         } else {
           alert('잘못 기입하셨습니다. 입력 정보를 다시 확인해주세요.');
@@ -177,7 +179,7 @@ class SignUp extends Component {
                     name="address"
                     onChange={this.handleInput}
                   />
-                  <button className="postnumSearchBtn" onClick={this.YourView}>
+                  <button type="button" className="postnumSearchBtn">
                     우편번호검색
                   </button>
                 </td>
