@@ -16,7 +16,8 @@ class SignUp extends Component {
   };
 
   handleSignUp = () => {
-    fetch(`${API}/user/signup`, {
+    console.log('fetch');
+    fetch(`${API}/user/sign`, {
       method: 'POST',
       body: JSON.stringify({
         username: this.state.username,
@@ -30,6 +31,7 @@ class SignUp extends Component {
     })
       .then(response => response.json())
       .then(response => {
+        console.log('response:', response);
         if (response.MESSAGE === 'SUCCESS') {
           alert('회원가입이 되신 것을 축하합니다.');
           localStorage.setItem('token', response.token);

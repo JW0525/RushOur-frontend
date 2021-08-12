@@ -28,7 +28,11 @@ export class Nav extends Component {
   }
 
   goToProfile = () => {
-    console.log('hi');
+    this.props.history.push('/login');
+  };
+
+  goToCart = () => {
+    this.props.history.push('/cart');
   };
 
   render() {
@@ -72,11 +76,8 @@ export class Nav extends Component {
         </ul>
         <div className="navIcon">
           <i className="fas fa-search"></i>
-          <i className="fas fa-shopping-bag"></i>
-          <i
-            className="fas fa-user-circle"
-            onClick={() => this.goToProfile}
-          ></i>
+          <i className="fas fa-shopping-bag" onClick={this.goToCart}></i>
+          <i className="fas fa-user-circle" onClick={this.goToProfile}></i>
         </div>
       </div>
     );

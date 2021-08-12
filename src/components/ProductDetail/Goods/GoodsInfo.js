@@ -7,9 +7,10 @@ import { GoodsItem } from './GoodsInfo/GoodsItem.js';
 import { GoodsChoice } from './GoodsInfo/GoodsChoice.js';
 import { GoodsPurchase } from './GoodsInfo/GoodsPurchase.js';
 import { GoodsAmount } from './GoodsInfo/GoodsAmount.js';
+import { API } from '../../../config.js';
 import GoodsBtn from './GoodsInfo/GoodsBtn.js';
 
-export class GoodsInfo extends React.Component {
+class GoodsInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -90,13 +91,7 @@ export class GoodsInfo extends React.Component {
         quantity: countL,
       });
 
-    console.log(this.props.product.name);
-    console.log(this.props.product.product_id);
-    console.log(this.props.product.options[0].size);
-    console.log(this.props.product.options[1].option_id);
-    console.log(productList);
-
-    fetch(`http://10.58.2.67:8000/carts`, {
+    fetch(`${API}/carts`, {
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
         Accept: 'application/json',
@@ -105,15 +100,14 @@ export class GoodsInfo extends React.Component {
       body: JSON.stringify({
         request_list: productList,
       }),
-    })
-      // .then(res => res.json())
-      .then(res => console.log(res));
+    });
+    this.props.history.push('/cart');
   };
 
   render() {
     const { countS, countL, optionValueOne, optionValueTwo } = this.state;
     const { product } = this.props;
-    console.log(this.props.product);
+    console.log('this.props:', this.props);
 
     return (
       <div className="goodsInfo">
@@ -166,3 +160,5 @@ export class GoodsInfo extends React.Component {
     );
   }
 }
+
+export default withRouter(GoodsInfo);
