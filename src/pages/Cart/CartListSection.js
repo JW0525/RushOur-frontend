@@ -22,7 +22,7 @@ class CartListSection extends React.Component {
             <button
               className="checkBoxBody"
               name={id}
-              onClick={() => deleteItems(id)}
+              onClick={this.props.deleteItems}
             >
               X
             </button>
@@ -49,7 +49,7 @@ class CartListSection extends React.Component {
           <td>
             <p> ₩ {Math.floor(price).toLocaleString('ko-KR')}원 </p>
           </td>
-          <td> ₩{total}원</td>
+          <td> ₩{itemNum * price}원</td>
           <td className="selecteMenu">
             <p> ₩2500원 (택배)</p>
           </td>

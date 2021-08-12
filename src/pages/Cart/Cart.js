@@ -39,15 +39,13 @@ class Cart extends Component {
         Authorization: localStorage.getItem('token'),
       },
     })
-      .then(res => res.json())
+      // .then(res => res.json())
       .then(cartData => {});
-
     const { cartData } = this.state;
     console.log(id);
     const filterList = cartData.filter(product => {
       return product.id !== id;
     });
-
     this.setState({
       cartData: filterList,
     });

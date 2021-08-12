@@ -1,14 +1,47 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
-import { API } from '../../config.js';
+import { API } from '../../config';
+import DaumPostCode from 'react-daum-postcode';
 
 class SignUp extends Component {
   constructor() {
     super();
     this.state = {
       ...this.state,
+      address: '',
+      zoneCode: '',
+      fullAddress: '',
+      isDaumPost: false,
+      isRegister: false,
     };
   }
+
+  handleOpenPost = () => {
+    this.setState({
+      isDaumPost: true,
+    });
+  };
+
+  handleAddress = data => {
+    let allAddress = data.address;
+    let extraAddress = '';
+    let zoneCodes = data.zonecode;
+
+    if (data.addressType === 'R') {
+      if (data.bname !== '') {
+        extraAddress += data.bname;
+      }
+      if (data.buildingName !== '') {
+        extraAddress +=
+          extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+      }
+      allAddress += extraAddress !== '' ? `(${extraAddress})` : '';
+    }
+    this.setState({
+      fullAddress: allAddress,
+      zoneCode: zoneCodes,
+    });
+  };
 
   handleInput = e => {
     const { name, value } = e.target;
@@ -16,7 +49,6 @@ class SignUp extends Component {
   };
 
   handleSignUp = () => {
-    console.log('fetch');
     fetch(API.SIGNUP, {
       method: 'POST',
       body: JSON.stringify({
@@ -33,8 +65,8 @@ class SignUp extends Component {
       .then(response => {
         console.log('response:', response);
         if (response.MESSAGE === 'SUCCESS') {
-          alert('회원가입이 되신 것을 축하합니다.');
-          localStorage.setItem('token', response.token);
+          alert('회원가입을 축하합니다.');
+          localStorage.setItem('token', response.TOKEN);
           this.props.history.push('/');
         } else {
           alert('잘못 기입하셨습니다. 입력 정보를 다시 확인해주세요.');
@@ -43,6 +75,17 @@ class SignUp extends Component {
   };
 
   render() {
+    const { isDaumPost, fullAddress, zoneCode } = this.state;
+    const width = 595;
+    const height = 450;
+    const modalStyle = {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: '100',
+      border: '1px solid #000000',
+      overflow: 'hidden',
+    };
     return (
       <div className="wrapper">
         <div className="signUpContainer">
@@ -178,18 +221,37 @@ class SignUp extends Component {
                     className="inputBoxSub"
                     id="address"
                     name="address"
+                    value={zoneCode}
                     onChange={this.handleInput}
                   />
-                  <button type="button" className="postnumSearchBtn">
+                  <button
+                    type="button"
+                    className="postnumSearchBtn"
+                    onClick={this.handleOpenPost}
+                  >
                     우편번호검색
                   </button>
                 </td>
               </tr>
+              {isDaumPost ? (
+                <DaumPostCode
+                  onComplete={this.handleAddress}
+                  autoClose
+                  width={width}
+                  height={height}
+                  style={modalStyle}
+                  isDaumPost={isDaumPost}
+                />
+              ) : null}
               <tr className="tableWrapper">
                 <td className="nonmark"></td>
                 <td className="infoContentsTitle"></td>
                 <td>
-                  <input className="inputBox" id="primaryAddress" />
+                  <input
+                    className="inputBox"
+                    id="primaryAddress"
+                    value={fullAddress}
+                  />
                 </td>
                 <td>
                   <input className="inputBoxSecond" id="detailAddress" />
