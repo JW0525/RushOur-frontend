@@ -38,7 +38,7 @@ class Routes extends Component {
           <Route exact path="/" component={Main} />
           <Route
             exact
-            path="/list/category=:categoryId/subcategory=:subcategoryId"
+            path="/list/:categoryId/:subcategoryId"
             render={() => (
               <ProductList
                 categoryHandler={categoryHandler}

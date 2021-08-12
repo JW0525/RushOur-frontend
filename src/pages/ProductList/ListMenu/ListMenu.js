@@ -69,17 +69,14 @@ export class ListMenu extends Component {
           </div>
           <div className="listMenuCategory">
             <ul>
-              <Link
-                to={`/list/category=${idInfo.categoryId}/subcategory=0`}
-                className="link"
-              >
+              <Link to={`/list/${idInfo.categoryId}/0`} className="link">
                 <li>전체({menuInfo && menuInfo.products_count})</li>
               </Link>
               {menuInfo.subcategories &&
                 menuInfo.subcategories.map((subCategory, i) => {
                   return (
                     <Link
-                      to={`/list/category=${idInfo.categoryId}/subcategory=${subCategory.subcategory_id}`}
+                      to={`/list/${idInfo.categoryId}/${subCategory.subcategory_id}`}
                       key={subCategory.subcategory_id}
                       className="link"
                     >

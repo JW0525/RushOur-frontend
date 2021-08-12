@@ -16,7 +16,6 @@ export class PageButton extends Component {
     fetch(API.NAVIGATOR)
       .then(res => res.json())
       .then(data => {
-        console.log('data:', data);
         this.setState({
           navInfo: data.navigators[idInfo.categoryId - 1],
           location: idInfo,
@@ -28,23 +27,21 @@ export class PageButton extends Component {
     const { pageHandler } = this.props;
     const { categoryId, subcategoryId } = this.props.idInfo;
     const { navInfo } = this.state;
-    let arrNum;
+    const amountOfPage = [];
     if (navInfo && !Number(subcategoryId)) {
-      (arrNum = []).length = Math.ceil(navInfo.products_count / 16);
-      arrNum.fill(0);
+      amountOfPage.length = Math.ceil(navInfo.products_count / 16);
+      amountOfPage.fill(0);
     } else if (navInfo) {
-      (arrNum = []).length = Math.ceil(
+      amountOfPage.length = Math.ceil(
         navInfo.subcategories[Number(subcategoryId) - 1].products_count / 16
       );
-      arrNum.fill(0);
+      amountOfPage.fill(0);
     }
-
-    console.log(arrNum);
 
     return (
       <div className="pageButton">
-        {arrNum &&
-          arrNum.map((arr, i) => {
+        {amountOfPage &&
+          amountOfPage.map((arr, i) => {
             return (
               <button key={i} onClick={() => pageHandler(i * 16)}>
                 {i + 1}

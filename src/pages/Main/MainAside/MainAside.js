@@ -41,7 +41,7 @@ class MainAside extends Component {
   };
 
   goToCategory = id => {
-    this.props.history.push(`/list/category=1/subcategory=${id}`);
+    this.props.history.push(`/list/1/${id}`);
   };
 
   render() {

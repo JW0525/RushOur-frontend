@@ -30,30 +30,14 @@ class ProductList extends Component {
       : `${API.PRODUCTLIST}?sort=${
           this.state.priceSort && this.state.priceSort
         }&limit=16&offset=${this.state.offset}`;
-    console.log('urlChecker:', urlChecker, this.props);
-    if (prevProps) {
-      if (
-        this.props !== prevProps ||
-        this.state.priceSort !== prevState.priceSort ||
-        this.state.offset !== prevState.offset
-      ) {
-        fetch(urlChecker)
-          .then(res => res.json())
-          .then(data => {
-            this.setState({
-              productInfo: data.products,
-            });
-          });
-      }
-    } else {
-      fetch(urlChecker)
-        .then(res => res.json())
-        .then(data => {
-          this.setState({
-            productInfo: data.products,
-          });
+
+    fetch(urlChecker)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productInfo: data.products,
         });
-    }
+      });
   };
 
   componentDidMount() {
@@ -61,8 +45,13 @@ class ProductList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps, prevState);
-    this.productListFetch(prevProps, prevState);
+    if (
+      this.props.match !== prevProps.match ||
+      this.state.priceSort !== prevState.priceSort ||
+      this.state.offset !== prevState.offset
+    ) {
+      this.productListFetch();
+    }
   }
 
   priceSorter = price => {
@@ -82,7 +71,7 @@ class ProductList extends Component {
     const { priceSorter, pageHandler } = this;
     const { productInfo } = this.state;
     const { params } = this.props.match;
-    console.log('this.state.offset:', this.state.offset);
+
     return (
       <div className="productList">
         <ListHeader idInfo={params} />

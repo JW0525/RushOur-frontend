@@ -14,7 +14,6 @@ export class Nav extends Component {
   }
 
   logoBtn = () => {
-    console.log('hi');
     this.props.history.push('/');
   };
 
@@ -32,7 +31,6 @@ export class Nav extends Component {
     const { listItem } = this.state;
     const { categoryHandler } = this.props;
     const { logoBtn } = this;
-    console.log('listItem:', listItem);
     return (
       <div className="nav">
         <img

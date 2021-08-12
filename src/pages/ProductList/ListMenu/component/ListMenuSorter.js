@@ -7,7 +7,7 @@ export class ListMenuSorter extends Component {
     return (
       <div className="listMenuBtn">
         <span onClick={buttonHandler} className={buttonOn && 'inactive'}>
-          가격순&nbsp;
+          가격순
           <i class="fas fa-caret-down"></i>
         </span>
 

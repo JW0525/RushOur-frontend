@@ -21,17 +21,18 @@
   .listMenuCategory {
     display: flex;
     width: 80%;
-    padding-top: 20px;
 
     ul {
+      padding-top: 15px;
       .link {
         text-decoration: none;
       }
       li {
         display: inline;
         padding-right: 15px;
-        color: rgb(130, 130, 130);
+        color: lightgray;
         cursor: pointer;
+        transition: 0.4s ease all;
 
         &:hover {
           color: black;
