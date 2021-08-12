@@ -48,9 +48,13 @@ class MainAside extends Component {
             style={{ transform: `translateX(${listSlider}%)` }}
           >
             {listArr &&
-              listArr.map((sliderEl, i) => {
+              listArr.map((sliderElement, i) => {
                 return (
-                  <img alt={sliderEl.alt} src={sliderEl.image_url} key={i} />
+                  <img
+                    alt={sliderElement.alt}
+                    src={sliderElement.image_url}
+                    key={i}
+                  />
                 );
               })}
           </ul>
