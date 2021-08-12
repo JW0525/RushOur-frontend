@@ -17,7 +17,7 @@ class SignUp extends Component {
 
   handleSignUp = () => {
     console.log('fetch');
-    fetch(`${API}/user/sign`, {
+    fetch(API.SIGNUP, {
       method: 'POST',
       body: JSON.stringify({
         username: this.state.username,

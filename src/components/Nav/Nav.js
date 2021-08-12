@@ -32,7 +32,12 @@ export class Nav extends Component {
   };
 
   goToCart = () => {
-    this.props.history.push('/cart');
+    if (!localStorage.getItem('token')) {
+      alert('로그인 후 이용해주세요');
+      this.props.history.push('/login');
+    } else {
+      this.props.history.push('/cart');
+    }
   };
 
   render() {
