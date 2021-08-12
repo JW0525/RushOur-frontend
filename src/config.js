@@ -4,4 +4,5 @@ export const API = {
   CATEGORY: `${BASE_URL}/category`,
   SUBCATEGORY: `${BASE_URL}/subcategory`,
   NAVIGATOR: `${BASE_URL}/navigator`,
+  SIGNIN: `${BASE_URL}/users/signin`,
 };

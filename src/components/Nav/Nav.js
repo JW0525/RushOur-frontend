@@ -27,6 +27,10 @@ export class Nav extends Component {
       });
   }
 
+  goToProfile = () => {
+    console.log('hi');
+  };
+
   render() {
     const { listItem } = this.state;
     const { categoryHandler } = this.props;
@@ -69,7 +73,10 @@ export class Nav extends Component {
         <div className="navIcon">
           <i className="fas fa-search"></i>
           <i className="fas fa-shopping-bag"></i>
-          <i className="fas fa-user-circle"></i>
+          <i
+            className="fas fa-user-circle"
+            onClick={() => this.goToProfile}
+          ></i>
         </div>
       </div>
     );

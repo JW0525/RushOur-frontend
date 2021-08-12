@@ -12,7 +12,7 @@ class MainCarousel extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/visualData.json')
+    fetch('http://3.144.112.76:8000/subcategory')
       .then(res => res.json())
       .then(data => {
         this.setState({

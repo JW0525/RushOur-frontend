@@ -54,13 +54,12 @@ class MainAside extends Component {
             style={{ transform: `translateX(${listSlider}%)` }}
           >
             {listArr &&
-              listArr.map((sliderEl, i) => {
+              listArr.map((sliderElement, i) => {
                 return (
                   <img
-                    alt={sliderEl.alt}
-                    src={sliderEl.src}
-                    key={sliderEl.id}
-                    onClick={() => this.goToCategory(sliderEl.id)}
+                    alt={sliderElement.alt}
+                    src={sliderElement.image_url}
+                    key={i}
                   />
                 );
               })}
