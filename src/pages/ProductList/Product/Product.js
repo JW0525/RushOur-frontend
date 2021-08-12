@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Label from './Label';
+import { withRouter } from 'react-router-dom';
 import './Product.scss';
 
 class Product extends Component {
   render() {
     const { img, name, price, tag } = this.props;
     return (
-      <div className="product">
+      <div
+        className="product"
+        onClick={() => {
+          console.log(this.props);
+        }}
+      >
         <img src={img} alt={name} />
         <div className="label">
           {tag &&
@@ -21,4 +27,4 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default withRouter(Product);

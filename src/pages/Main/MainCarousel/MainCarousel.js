@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './MainCarousel.scss';
 
 class MainCarousel extends Component {
@@ -11,13 +12,13 @@ class MainCarousel extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.1.98:8000/subcategory')
+    fetch('http://3.144.112.76:8000/subcategory')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          sliderArr: data.subcategories,
+          sliderArr: data,
         });
-        console.log(data);
+        console.log('data:', data);
       });
     setInterval(this.slideRight, 4000);
   }
@@ -40,8 +41,11 @@ class MainCarousel extends Component {
     });
   };
 
+  goToCategory = id => {
+    this.props.history.push(`/list/1/${id}`);
+  };
+
   render() {
-    console.log(this.state.sliderArr);
     const { sliderPosition, sliderArr } = this.state;
 
     return (
@@ -56,8 +60,9 @@ class MainCarousel extends Component {
                 return (
                   <img
                     alt={sliderElement.alt}
-                    src={sliderElement.image_url}
-                    key={i}
+                    src={sliderElement.src}
+                    key={sliderElement.id}
+                    onClick={() => this.goToCategory(sliderElement.id)}
                   />
                 );
               })}
@@ -75,4 +80,4 @@ class MainCarousel extends Component {
   }
 }
 
-export default MainCarousel;
+export default withRouter(MainCarousel);

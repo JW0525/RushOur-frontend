@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListContents from './component/ListContents';
 import { API } from '../../config';
+import { withRouter } from 'react-router-dom';
 import './Nav.scss';
 
 export class Nav extends Component {
@@ -12,6 +13,10 @@ export class Nav extends Component {
     };
   }
 
+  logoBtn = () => {
+    this.props.history.push('/main');
+  };
+
   componentDidMount() {
     fetch(API.NAVIGATOR)
       .then(res => res.json())
@@ -22,16 +27,23 @@ export class Nav extends Component {
       });
   }
 
+  goToProfile = () => {
+    console.log('hi');
+  };
+
   render() {
     const { listItem } = this.state;
     const { categoryHandler } = this.props;
+    const { logoBtn } = this;
     return (
       <div className="nav">
         <img
-          className="logo"
+          className="logoImg"
           src="/images/rushour_logo.png"
-          alt="RUSHOUR LOGO"
+          alt="logo_img"
+          onClick={logoBtn}
         />
+
         <ul>
           <li className="productBtn">
             제품
@@ -61,11 +73,14 @@ export class Nav extends Component {
         <div className="navIcon">
           <i className="fas fa-search"></i>
           <i className="fas fa-shopping-bag"></i>
-          <i className="fas fa-user-circle"></i>
+          <i
+            className="fas fa-user-circle"
+            onClick={() => this.goToProfile}
+          ></i>
         </div>
       </div>
     );
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
