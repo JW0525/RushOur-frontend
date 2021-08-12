@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 export class GoodsAmount extends React.Component {
   render() {
-    let { product, countS, countL } = this.props;
+    const { product, countS, countL } = this.props;
     return (
       <div class="goodsAmount">
         <div>

@@ -1,0 +1,31 @@
+{
+  "navigators": [
+    {
+      "category_id": "category.id",
+      "name": "category.name",
+      "products_count": "category_product.count",
+      "subcategories": [
+        {
+          "subcategory_id": "sub_category.id1",
+          "name": "sub_category.name1",
+          "products_count": "sub_category_product.count1"
+        },
+        {
+          "subcategory_id": "sub_category.id2",
+          "name": "sub_category.name2",
+          "products_count": "sub_category_product.count2"
+        },
+        {
+          "subcategory_id": "sub_category.id3",
+          "name": "sub_category.name3",
+          "products_count": "sub_category_product.count3"
+        },
+        {
+          "subcategory_id": "sub_category.id4",
+          "name": "sub_category.name4",
+          "products_count": "sub_category_product.count4"
+        }
+      ]
+    }
+  ]
+}
