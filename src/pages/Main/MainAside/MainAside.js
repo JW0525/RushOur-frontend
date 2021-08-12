@@ -10,7 +10,7 @@ class MainAside extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://10.58.3.65:8000/banners')
+    fetch('http://3.144.112.76:8000/banners')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
@@ -48,9 +48,13 @@ class MainAside extends Component {
             style={{ transform: `translateX(${listSlider}%)` }}
           >
             {listArr &&
-              listArr.map((sliderEl, i) => {
+              listArr.map((sliderElement, i) => {
                 return (
-                  <img alt={sliderEl.alt} src={sliderEl.image_url} key={i} />
+                  <img
+                    alt={sliderElement.alt}
+                    src={sliderElement.image_url}
+                    key={i}
+                  />
                 );
               })}
           </ul>

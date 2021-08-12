@@ -10,7 +10,7 @@ class MainContent extends Component {
             <h3>PRODUCT</h3>
             <p>
               RUSHOUR와 함께하는 <br />
-              친환경 SOAP 이야기
+              마사지 바 이야기
             </p>
           </div>
         </div>
@@ -18,13 +18,13 @@ class MainContent extends Component {
           <div className="mainLeftTop">
             <div className="textBox">
               <h3>EVENT</h3>
-              <p>SOAP 이야기</p>
+              <p>HAND and FOOT</p>
             </div>
           </div>
           <div className="mainLeftBottom">
             <div className="bottomLeft">
               <div className="textBox">
-                <h3>BATHBOMS</h3>
+                <h3>PRODUCT</h3>
                 <p>
                   친환경 <br />
                   SOAP 이야기

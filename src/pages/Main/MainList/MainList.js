@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Product from '../../ProductList/Product/Product';
-import MainListCom from './MainListCom';
 import { API } from '../../../config';
 import './MainList.scss';
 
