@@ -15,7 +15,7 @@ class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://3.144.112.76:8000/products/${this.props.match.params.id}`)
+    fetch(`http://10.58.2.67:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({

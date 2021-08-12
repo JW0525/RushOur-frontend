@@ -96,9 +96,9 @@ export class GoodsInfo extends React.Component {
     console.log(this.props.product.options[1].option_id);
     console.log(productList);
 
-    fetch(`http://3.144.112.76:8000/carts`, {
+    fetch(`http://10.58.2.67:8000/carts`, {
       headers: {
-        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('TOKEN'),
         Accept: 'application/json',
       },
       method: 'post',
