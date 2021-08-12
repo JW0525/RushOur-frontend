@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
 import { API } from '../../config.js';
-import DaumPostcode from 'react-daum-postcode';
 
 class SignUp extends Component {
   constructor() {
