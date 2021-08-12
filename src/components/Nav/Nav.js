@@ -27,7 +27,11 @@ export class Nav extends Component {
     const { categoryHandler } = this.props;
     return (
       <div className="nav">
-        <h1>LUSH</h1>
+        <img
+          className="logo"
+          src="/images/rushour_logo.png"
+          alt="RUSHOUR LOGO"
+        />
         <ul>
           <li className="productBtn">
             제품

@@ -4,6 +4,8 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import Main from './pages/Main/Main';
+import Login from './pages/Login/Login';
+import SignUp from './pages/Login/SignUp';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import ProductList from './pages/ProductList/ProductList';
 
@@ -50,6 +52,8 @@ class Routes extends Component {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/productDetail/:id" component={ProductDetail} />
           <Route exact path="/list" component={ProductList} />
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/SignUp" component={SignUp} />
         </Switch>
         <Footer />
       </Router>
