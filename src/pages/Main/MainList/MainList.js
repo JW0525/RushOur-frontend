@@ -11,7 +11,7 @@ class MainList extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://10.58.3.65:8000/products?tag=new&limit=8&offset=0')
+    fetch('http://3.144.112.76:8000/products?tag=new&limit=8&offset=0')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
