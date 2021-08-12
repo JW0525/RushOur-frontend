@@ -126,7 +126,8 @@ class Cart extends Component {
                   cartData.map(product => {
                     return (
                       <CartListSection
-                        key={product.className}
+                        key={product.id}
+                        id={product.id}
                         name={product.product_name}
                         size={product.size}
                         price={product.product_price}
