@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MainAside.scss';
+import { withRouter } from 'react-router-dom';
 
 class MainAside extends Component {
   constructor() {
@@ -10,12 +11,13 @@ class MainAside extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://10.58.3.65:8000/banners')
+    fetch('/data/MainAsideData.json')
+      //fetch('http://10.58.3.65:8000/banners')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          listArr: data.Banners,
+          listArr: data,
         });
         console.log('data', data);
         // setInterval(this.slideRight, 5000);
@@ -38,6 +40,10 @@ class MainAside extends Component {
     });
   };
 
+  goToCategory = id => {
+    this.props.history.push(`/list/category=1/subcategory=${id}`);
+  };
+
   render() {
     const { listArr, listSlider } = this.state;
     return (
@@ -50,7 +56,12 @@ class MainAside extends Component {
             {listArr &&
               listArr.map((sliderEl, i) => {
                 return (
-                  <img alt={sliderEl.alt} src={sliderEl.image_url} key={i} />
+                  <img
+                    alt={sliderEl.alt}
+                    src={sliderEl.src}
+                    key={sliderEl.id}
+                    onClick={() => this.goToCategory(sliderEl.id)}
+                  />
                 );
               })}
           </ul>
@@ -73,4 +84,4 @@ class MainAside extends Component {
   }
 }
 
-export default MainAside;
+export default withRouter(MainAside);

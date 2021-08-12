@@ -35,7 +35,7 @@ class Routes extends Component {
           subId={subCategoryId}
         />
         <Switch>
-          <Route exact path="/main" component={Main} />
+          <Route exact path="/" component={Main} />
           <Route
             exact
             path="/list/category=:categoryId/subcategory=:subcategoryId"

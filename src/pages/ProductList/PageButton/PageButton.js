@@ -46,7 +46,7 @@ export class PageButton extends Component {
         {arrNum &&
           arrNum.map((arr, i) => {
             return (
-              <button key={i} onClick={() => pageHandler(16, i * 16)}>
+              <button key={i} onClick={() => pageHandler(i * 16)}>
                 {i + 1}
               </button>
             );

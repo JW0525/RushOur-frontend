@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListContents from './component/ListContents';
 import { API } from '../../config';
+import { withRouter } from 'react-router-dom';
 import './Nav.scss';
 
 export class Nav extends Component {
@@ -11,6 +12,11 @@ export class Nav extends Component {
       listItem: [],
     };
   }
+
+  logoBtn = () => {
+    console.log('hi');
+    this.props.history.push('/');
+  };
 
   componentDidMount() {
     fetch(API.NAVIGATOR)
@@ -25,9 +31,11 @@ export class Nav extends Component {
   render() {
     const { listItem } = this.state;
     const { categoryHandler } = this.props;
+    const { logoBtn } = this;
+    console.log(this.props);
     return (
       <div className="nav">
-        <h1>LUSH</h1>
+        <h1 onClick={logoBtn}>LUSH</h1>
         <ul>
           <li className="productBtn">
             제품
@@ -64,4 +72,4 @@ export class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
