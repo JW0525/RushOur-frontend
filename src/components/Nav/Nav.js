@@ -32,7 +32,7 @@ export class Nav extends Component {
     const { listItem } = this.state;
     const { categoryHandler } = this.props;
     const { logoBtn } = this;
-    console.log(this.props);
+    console.log('listItem:', listItem);
     return (
       <div className="nav">
         <img

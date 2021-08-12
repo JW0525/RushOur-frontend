@@ -3,11 +3,12 @@
   font-size: 100% !important;
 
   .productContainer {
+    width: 100vh;
     display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(4, 1fr);
-    margin: 100px 250px 0 250px;
+    margin: 100px auto;
     min-width: 1000px;
   }
 }
