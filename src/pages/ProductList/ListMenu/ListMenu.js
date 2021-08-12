@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListMenuSorter from './component/ListMenuSorter';
+import { Link } from 'react-router-dom';
 import { API } from '../../../config';
 import './ListMenu.scss';
 
@@ -8,7 +9,6 @@ export class ListMenu extends Component {
     super();
     this.state = {
       islistButtonOn: false,
-
       menuInfo: [],
     };
   }
@@ -45,9 +45,9 @@ export class ListMenu extends Component {
 
   render() {
     const { islistButtonOn, menuInfo } = this.state;
-    const { categoryChanger, idInfo } = this.props;
+    const { priceSorter, idInfo } = this.props;
     const { buttonHandler } = this;
-    console.log('idInfo: ', idInfo, 'menuInfo: ', menuInfo);
+
     return (
       <>
         <div className="listMenu">
@@ -64,22 +64,26 @@ export class ListMenu extends Component {
             <ListMenuSorter
               buttonOn={islistButtonOn}
               buttonHandler={buttonHandler}
+              priceSorter={priceSorter}
             />
           </div>
           <div className="listMenuCategory">
             <ul>
-              <li onClick={categoryChanger(idInfo)}>
-                전체({menuInfo && menuInfo.products_count})
-              </li>
+              <Link to={`/list/${idInfo.categoryId}/0`} className="link">
+                <li>전체({menuInfo && menuInfo.products_count})</li>
+              </Link>
               {menuInfo.subcategories &&
                 menuInfo.subcategories.map((subCategory, i) => {
                   return (
-                    <li
+                    <Link
+                      to={`/list/${idInfo.categoryId}/${subCategory.subcategory_id}`}
                       key={subCategory.subcategory_id}
-                      onClick={categoryChanger}
+                      className="link"
                     >
-                      {subCategory.name}({subCategory.products_count})
-                    </li>
+                      <li key={subCategory.subcategory_id}>
+                        {subCategory.name}({subCategory.products_count})
+                      </li>
+                    </Link>
                   );
                 })}
             </ul>

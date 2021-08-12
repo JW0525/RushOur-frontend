@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MainAside.scss';
+import { withRouter } from 'react-router-dom';
 
 class MainAside extends Component {
   constructor() {
@@ -10,12 +11,13 @@ class MainAside extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://3.144.112.76:8000/banners')
+    fetch('/data/MainAsideData.json')
+      //fetch('http://10.58.3.65:8000/banners')
       // fetch(`${API.PRODUCTLIST}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          listArr: data.Banners,
+          listArr: data,
         });
         console.log('data', data);
         // setInterval(this.slideRight, 5000);
@@ -36,6 +38,10 @@ class MainAside extends Component {
       listSlider:
         listSlider === -100 * (listArr.length - 1) ? 0 : listSlider - 100,
     });
+  };
+
+  goToCategory = id => {
+    this.props.history.push(`/list/1/${id}`);
   };
 
   render() {
@@ -77,4 +83,4 @@ class MainAside extends Component {
   }
 }
 
-export default MainAside;
+export default withRouter(MainAside);

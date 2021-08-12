@@ -37,10 +37,10 @@ class Routes extends Component {
           subId={subCategoryId}
         />
         <Switch>
-          <Route exact path="/main" component={Main} />
+          <Route exact path="/" component={Main} />
           <Route
             exact
-            path="/list/category=:categoryId/subcateogry=:subcategoryId"
+            path="/list/:categoryId/:subcategoryId"
             render={() => (
               <ProductList
                 categoryHandler={categoryHandler}
