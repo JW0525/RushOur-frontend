@@ -77,23 +77,26 @@ export class GoodsInfo extends React.Component {
   submitCart = () => {
     let productList = [];
     const { countL, countS } = this.state;
-    const { product } = this.props;
     if (countS !== 0)
       productList.push({
-        product_id: product.product_id,
-        option_id: product.options[0].option_id,
+        product_id: this.props.product.product_id,
+        option_id: this.props.product.options[0].option_id,
         quantity: countS,
       });
     if (countL !== 0)
       productList.push({
-        product_id: product.product_id,
-        option_id: product.options[1].option_id,
+        product_id: this.props.product.product_id,
+        option_id: this.props.product.options[1].option_id,
         quantity: countL,
       });
 
+    console.log(this.props.product.name);
+    console.log(this.props.product.product_id);
+    console.log(this.props.product.options[0].size);
+    console.log(this.props.product.options[1].option_id);
     console.log(productList);
 
-    fetch(`http://10.58.2.67:8000/carts}`, {
+    fetch(`http://3.144.112.76:8000/carts`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -102,8 +105,9 @@ export class GoodsInfo extends React.Component {
       body: JSON.stringify({
         request_list: productList,
       }),
-    }).then(res => res.text());
-    // .then(text => console.log(text));
+    })
+      // .then(res => res.json())
+      .then(res => console.log(res));
   };
 
   render() {

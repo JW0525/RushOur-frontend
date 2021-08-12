@@ -16,8 +16,7 @@ class Location extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://10.58.2.67:8000/navigator`)
-      // fetch('http://localhost:3000/data/productDetail/navigator.json')
+    fetch(`http://3.144.112.76:8000/navigator`)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -61,15 +60,22 @@ class Location extends React.Component {
       <div className="location">
         <h6>홈</h6>
         <p>&gt;</p>
-        <li>
-          <ul className="dropDown">
-            <li>
-              <ul className="dropDownMenu">
-                {nav.navigators && nav.navigators[0].name}
-              </ul>
-            </li>
+        <ul>
+          <li className="dropDown">안녕</li>
+          <ul className="dropDownMenu">
+            <li>{nav.navigators && nav.navigators[0].name}</li>
           </ul>
-        </li>
+        </ul>
+        <p>&gt;</p>
+        <ul>
+          <li className="dropDown">안녕</li>
+          <ul className="dropDownMenu">
+            {nav.navigators &&
+              nav.navigators[0].subcategories.map((e, i) => {
+                return <li>{e.name}</li>;
+              })}
+          </ul>
+        </ul>
 
         {/* <div>
           <button>러쉬</button>
@@ -84,8 +90,6 @@ class Location extends React.Component {
             </div>
           )}
         </div> */}
-
-        <p>&gt;</p>
         {/* 
         {
           <div>
