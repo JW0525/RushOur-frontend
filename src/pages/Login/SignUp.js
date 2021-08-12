@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
+import Postcode from '@actbase/react-daum-postcode';
 
 class SignUp extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: '',
-      name: '',
-      nickname: '',
-      email: '',
-      phone_number: '',
-      address: '',
+      ...this.state,
     };
   }
+
+  YourView = () => (
+    <Postcode
+      style={{ width: 320, height: 320 }}
+      jsOptions={{ animated: true }}
+      onSelected={data => alert(JSON.stringify(data))}
+    />
+  );
 
   handleInput = e => {
     const { name, value } = e.target;
@@ -47,42 +50,41 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div class="wrapper">
-        <div class="signUpContainer">
-          <div class="titleContainer">
+      <div className="wrapper">
+        <div className="signUpContainer">
+          <div className="titleContainer">
             <h2>JOIN US</h2>
-            <div class="stepContainer">
-              <span class="currentStep">정보입력</span>
-              <span>
-                &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;가입완료
-              </span>
+            <div className="stepContainer">
+              <span className="currentStep">정보입력</span>
+              <span className="nextStepMark">&gt;</span>
+              <span>가입완료</span>
             </div>
           </div>
-          <div class="infoTitle">
+          <div className="infoTitle">
             <h3>기본정보</h3>
             <p> 표시는 반드시 입력하셔야 하는 항목입니다.</p>
           </div>
           <hr />
-          <div class="infoContainer">
-            <table class="infoTable">
-              <tr class="tableWrapper">
-                <td class="mark">&#9642;</td>
-                <td class="infoContentsTitle">아이디</td>
+          <div className="infoContainer">
+            <table className="infoTable">
+              <tr className="tableWrapper">
+                <td className="mark">&#9642;</td>
+                <td className="infoContentsTitle">아이디</td>
                 <td>
                   <input
-                    class="inputBox"
+                    className="inputBox"
                     id="username"
                     name="username"
                     onChange={this.handleInput}
                   />
                 </td>
               </tr>
-              <tr class="tableWrapper">
-                <td class="mark">&#9642;</td>
-                <td class="infoContentsTitle">비밀번호</td>
+              <tr className="tableWrapper">
+                <td className="mark">&#9642;</td>
+                <td className="infoContentsTitle">비밀번호</td>
                 <td>
                   <input
-                    class="inputBox"
+                    className="inputBox"
                     id="password"
                     type="password"
                     name="password"
@@ -90,48 +92,48 @@ class SignUp extends Component {
                   />
                 </td>
               </tr>
-              <tr class="tableWrapper">
-                <td class="mark">&#9642;</td>
-                <td class="infoContentsTitle">비밀번호확인</td>
+              <tr className="tableWrapper">
+                <td className="mark">&#9642;</td>
+                <td className="infoContentsTitle">비밀번호확인</td>
                 <td>
-                  <input class="inputBox" id="pwCheck" type="password" />
+                  <input className="inputBox" id="pwCheck" type="password" />
                 </td>
               </tr>
-              <tr class="tableWrapper">
-                <td class="mark">&#9642;</td>
-                <td class="infoContentsTitle">이름</td>
+              <tr className="tableWrapper">
+                <td className="mark">&#9642;</td>
+                <td className="infoContentsTitle">이름</td>
                 <td>
                   <input
-                    class="inputBox"
+                    className="inputBox"
                     id="name"
                     name="name"
                     onChange={this.handleInput}
                   />
                 </td>
               </tr>
-              <tr class="tableWrapper">
-                <td class="nonmark"></td>
-                <td class="infoContentsTitle">닉네임</td>
+              <tr className="tableWrapper">
+                <td className="nonmark"></td>
+                <td className="infoContentsTitle">닉네임</td>
                 <td>
                   <input
-                    class="inputBox"
+                    className="inputBox"
                     id="nickname"
                     name="nickname"
                     onChange={this.handleInput}
                   />
                 </td>
               </tr>
-              <tr class="tableWrapper">
-                <td class="mark">&#9642;</td>
-                <td class="infoContentsTitle">이메일</td>
+              <tr className="tableWrapper">
+                <td className="mark">&#9642;</td>
+                <td className="infoContentsTitle">이메일</td>
                 <td>
                   <input
-                    class="inputBoxSub"
+                    className="inputBoxSub"
                     id="email"
                     name="email"
                     onChange={this.handleInput}
                   />
-                  <select class="emailSelectBox">
+                  <select className="emailSelectBox">
                     <option>직접입력</option>
                     <option>naver.com</option>
                     <option>hanmail.net</option>
@@ -142,27 +144,31 @@ class SignUp extends Component {
                     <option>icloud.com</option>
                   </select>
                 </td>
-                <div class="agreementCheck">
-                  <input class="checkbox" type="checkbox" id="checkboxEmail" />
+                <div className="agreementCheck">
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    id="checkboxEmail"
+                  />
                   <label for="checkboxEmail">
                     <p>정보/이벤트 메일 수신에 동의합니다.</p>
                   </label>
                 </div>
               </tr>
 
-              <tr class="tableWrapper">
-                <td class="mark">&#9642;</td>
-                <td class="infoContentsTitle">휴대폰번호</td>
+              <tr className="tableWrapper">
+                <td className="mark">&#9642;</td>
+                <td className="infoContentsTitle">휴대폰번호</td>
                 <td>
                   <input
-                    class="inputBox"
+                    className="inputBox"
                     id="phoneNumber"
-                    name="phone_number" //백엔드와 맞추기 위한 스네이크 방식
+                    name="phone_number"
                     placeholder="- 없이 입력하세요."
                     onChange={this.handleInput}
                   />
                 </td>
-                <div class="agreementCheck">
+                <div className="agreementCheck">
                   <input type="checkbox" id="checkboxSns" name="checkbox" />
                   <label for="checkboxSns">
                     <p>정보/이벤트 SNS 수신에 동의합니다.</p>
@@ -170,32 +176,34 @@ class SignUp extends Component {
                 </div>
               </tr>
 
-              <tr class="tableWrapper">
-                <td class="nonmark"></td>
-                <td class="infoContentsTitle">주소</td>
+              <tr className="tableWrapper">
+                <td className="nonmark"></td>
+                <td className="infoContentsTitle">주소</td>
                 <td>
                   <input
-                    class="inputBoxSub"
+                    className="inputBoxSub"
                     id="address"
                     name="address"
                     onChange={this.handleInput}
                   />
-                  <button class="postnumSearchBtn">우편번호검색</button>
+                  <button className="postnumSearchBtn" onClick={this.YourView}>
+                    우편번호검색
+                  </button>
                 </td>
               </tr>
-              <tr class="tableWrapper">
-                <td class="nonmark"></td>
-                <td class="infoContentsTitle"></td>
+              <tr className="tableWrapper">
+                <td className="nonmark"></td>
+                <td className="infoContentsTitle"></td>
                 <td>
-                  <input class="inputBox" id="primaryAddress" />
+                  <input className="inputBox" id="primaryAddress" />
                 </td>
                 <td>
-                  <input class="inputBoxSecond" id="detailAddress" />
+                  <input className="inputBoxSecond" id="detailAddress" />
                 </td>
               </tr>
             </table>
             <hr />
-            <button class="signUpBtn" onClick={this.handleSignUp}>
+            <button className="signUpBtn" onClick={this.handleSignUp}>
               회원가입
             </button>
           </div>

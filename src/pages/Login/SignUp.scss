@@ -2,66 +2,91 @@
 
 .wrapper {
   display: flex;
-  justify-content: center;
+  width: 1080px;
+  margin: 0 auto;
+
   .signUpContainer {
-    width: 1080px;
+    width: 100%;
+    justify-content: center;
+
     .titleContainer {
       padding-top: 100px;
       padding-bottom: 90px;
+
       h2 {
         text-align: center;
         font-size: 42px;
         font-weight: 900;
       }
+
       .stepContainer {
         text-align: center;
         margin-top: 20px;
+
         .currentStep {
+          margin: 0 10px 0 10px;
           color: black;
           font-weight: bolder;
         }
+
+        .nextStepMark {
+          margin: 0 10px 0 10px;
+          color: silver;
+        }
+
         span {
+          margin: 0 10px 0 10px;
           color: silver;
         }
       }
     }
+
     .infoTitle {
       width: 1080px;
       height: 54px;
       margin: 0, 15px, 0, 0;
+      display: flex;
+      justify-content: space-between;
+
       h3 {
-        float: left;
         font-size: 28px;
         font-weight: 550;
       }
+
       p {
-        float: right;
         margin-top: 14px;
         font-size: 14px;
+
         &:before {
           content: '\25AA';
           color: #bf0000;
         }
       }
     }
+
     .infoContainer {
       .infoTable {
         margin-top: 20px;
+
         .tableWrapper {
           height: 60px;
           width: 1400px;
+
           .mark {
             text-align: center;
             width: 3px;
             color: #bf0000;
           }
+
           .nonmark {
             width: 3px;
           }
+
           .infoContentsTitle {
             padding: 10px 0 10px 10px;
             font-size: 14px;
           }
+
           .inputBox {
             margin-left: 40px;
             padding: 0 0 0 10px;
@@ -69,18 +94,21 @@
             height: 40px;
             border: 1px solid rgb(204, 204, 204);
           }
+
           .inputBoxSecond {
             margin-left: 10px;
             width: 402px;
             height: 40px;
             border: 1px solid rgb(204, 204, 204);
           }
+
           .inputBoxSub {
             margin-left: 40px;
             width: 272px;
             height: 40px;
             border: 1px solid rgb(204, 204, 204);
           }
+
           .emailSelectBox {
             margin-left: 10px;
             padding: 0 0 0 20px;
@@ -88,6 +116,7 @@
             height: 40px;
             border: 1px solid rgb(204, 204, 204);
           }
+
           .postnumSearchBtn {
             margin-left: 10px;
             width: 120px;
@@ -96,12 +125,15 @@
             background-color: white;
             border: 1px solid black;
           }
+
           .agreementCheck {
             padding-left: 20px;
           }
+
           input[type='checkbox'] {
             display: none;
           }
+
           label {
             display: flex;
             align-items: center;
@@ -109,15 +141,18 @@
             font-size: 14px;
             height: 20px;
             color: #8f8f8f;
+
             p {
               margin-left: 30px;
             }
           }
+
           input[type='checkbox'] + label {
             height: 20px;
             background: url(https://lush.co.kr/data/skin/front/howling/img/etc/check-off.png)
               0 0 no-repeat;
           }
+
           input[type='checkbox']:checked + label {
             background: url(https://lush.co.kr/data/skin/front/howling/img/etc/check-on.png)
               0 0 no-repeat;
@@ -134,11 +169,12 @@
         margin-top: 40px;
         color: white;
         text-align: center;
+        cursor: pointer;
+
         span {
           font-size: 16px;
           font-weight: bolder;
         }
-        cursor: pointer;
       }
     }
   }

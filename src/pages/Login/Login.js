@@ -40,36 +40,36 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="wrap">
-        <div class="loginContainer">
-          <h2 class="loginText">로그인</h2>
-          <div class="loginInputContainer">
-            <form id="formLogin">
+      <div className="wrap">
+        <div className="loginContainer">
+          <h2 className="loginText">로그인</h2>
+          <div className="loginInputContainer">
+            <form className="formLogin">
               <input
                 onChange={this.handleInput}
                 type="text"
                 placeholder="아이디"
-                class="username"
+                className="username"
                 name="username"
               />
               <input
                 onChange={this.handleInput}
                 type="password"
                 placeholder="비밀번호"
-                class="password"
+                className="password"
                 name="password"
               />
             </form>
-            <div class="loginSave">
+            <div className="loginSave">
               <input type="checkbox" id="checkbox" name="checkbox" />
               <label for="checkbox">
                 <p>아이디저장</p>
               </label>
             </div>
-            <button class="loginBtn" onClick={this.handleLogin}>
+            <button className="loginBtn" onClick={this.handleLogin}>
               <span>로그인</span>
             </button>
-            <button class="signUpBtn" onClick={this.goToSignUp}>
+            <button className="signUpBtn" onClick={this.goToSignUp}>
               회원가입
             </button>
           </div>
