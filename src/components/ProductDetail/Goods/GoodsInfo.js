@@ -94,9 +94,8 @@ class GoodsInfo extends React.Component {
     fetch(`${API}/carts`, {
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
-        Accept: 'application/json',
       },
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify({
         request_list: productList,
       }),
