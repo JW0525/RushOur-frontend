@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
-import Postcode from '@actbase/react-daum-postcode';
 
 class SignUp extends Component {
   constructor() {
@@ -9,14 +8,6 @@ class SignUp extends Component {
       ...this.state,
     };
   }
-
-  YourView = () => (
-    <Postcode
-      style={{ width: 320, height: 320 }}
-      jsOptions={{ animated: true }}
-      onSelected={data => alert(JSON.stringify(data))}
-    />
-  );
 
   handleInput = e => {
     const { name, value } = e.target;
@@ -38,10 +29,10 @@ class SignUp extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
+        if (response.TOKEN) {
+          localStorage.setItem('token', response.TOKEN);
           alert('회원가입을 축하합니다.');
-          this.props.history.push('/main');
+          this.props.history.push('/');
         } else {
           alert('잘못 기입하셨습니다. 입력 정보를 다시 확인해주세요.');
         }

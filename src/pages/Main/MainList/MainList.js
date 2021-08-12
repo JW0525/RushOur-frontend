@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Product from '../../ProductList/Product/Product';
 import MainListCom from './MainListCom';
+import { API } from '../../../config';
 import './MainList.scss';
 
 class MainList extends Component {
@@ -11,8 +13,7 @@ class MainList extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://10.58.3.65:8000/products?tag=new&limit=8&offset=0')
-      // fetch(`${API.PRODUCTLIST}`)
+    fetch(`${API.PRODUCTLIST}?tag=new&limit=8&offset=0`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -61,11 +62,10 @@ class MainList extends Component {
             {listArr &&
               listArr.map(product => {
                 return (
-                  <MainListCom
+                  <Product
                     key={product.id}
                     name={product.name}
                     price={product.price}
-                    tag={product.tags}
                     img={product.thumbnail}
                   />
                 );

@@ -51,6 +51,7 @@ class ProductList extends Component {
                   price={product.price}
                   tag={product.tags}
                   img={product.thumbnail}
+                  id={product.id}
                 />
               );
             })}
