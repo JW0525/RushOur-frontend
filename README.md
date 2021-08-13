@@ -18,7 +18,7 @@
 
 ## 적용 기술 및 구현 기능
 ### 적용 기술
-> - Front-End : JavaScript, React.JS, React-Router, React-Slick, Sass
+> - Front-End : JavaScript, React.JS, React-Router, Sass
 > - Back-End : Python, Django web framework, Bcrypt, My SQL
 > - Common : AWS(EC2,RDS), RESTful API
 ### 구현 기능
